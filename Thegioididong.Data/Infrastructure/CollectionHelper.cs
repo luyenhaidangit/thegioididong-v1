@@ -158,7 +158,7 @@ namespace Thegioididong.Data.Infrastructure
                         object value = row[column.ColumnName];
                         if (value != DBNull.Value)
                         {
-                            if (column.ColumnName.Contains("json"))
+                            if (column.ColumnName.Contains("Json") || (column.ColumnName.Contains("data")))
                             {
                                 prop.SetValue(obj, MessageConvert.DeserializeObject(("" + value).Replace("$", ""), type), null);
                             }

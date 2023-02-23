@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
+using Thegioididong.Model.ViewModels.Page.Public.Common;
 using Thegioididong.Service;
 
 namespace Thegioididong.API.Controllers
@@ -21,6 +22,13 @@ namespace Thegioididong.API.Controllers
         public IEnumerable<ProductCategory> GetAll()
         {
             return _productCategoryService.GetAll();
+        }
+
+        [Route("GetCategoryMainNavigation")]
+        [HttpGet]
+        public List<CategoryMainNavigation> GetCategoryMainNavigation()
+        {
+            return _productCategoryService.GetCategoryMainNavigation();
         }
 
         [Route("Search")]

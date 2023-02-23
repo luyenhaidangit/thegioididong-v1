@@ -5,11 +5,13 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.API", "Thegioididong.API\Thegioididong.API.csproj", "{48A76676-C5A5-447D-B786-F56CD054FEA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Model", "Thegioididong.Model\Thegioididong.Model.csproj", "{A44FCE6F-D69F-4763-A236-F10E61676A1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Model", "Thegioididong.Model\Thegioididong.Model.csproj", "{A44FCE6F-D69F-4763-A236-F10E61676A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Data", "Thegioididong.Data\Thegioididong.Data.csproj", "{E4E04CB2-2FDF-4FDC-AEC6-DCBA1B2B4767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Data", "Thegioididong.Data\Thegioididong.Data.csproj", "{E4E04CB2-2FDF-4FDC-AEC6-DCBA1B2B4767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Service", "Thegioididong.Service\Thegioididong.Service.csproj", "{D897F42F-4F59-42E9-A452-05C120063807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Service", "Thegioididong.Service\Thegioididong.Service.csproj", "{D897F42F-4F59-42E9-A452-05C120063807}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Common", "Thegioididong.Common\Thegioididong.Common.csproj", "{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D897F42F-4F59-42E9-A452-05C120063807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D897F42F-4F59-42E9-A452-05C120063807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D897F42F-4F59-42E9-A452-05C120063807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

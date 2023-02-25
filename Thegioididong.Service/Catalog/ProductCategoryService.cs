@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
-using Thegioididong.Model.ViewModels.Page.Public.Common;
+using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 
 namespace Thegioididong.Service
 {

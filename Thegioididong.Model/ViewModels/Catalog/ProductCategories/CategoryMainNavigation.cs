@@ -7,22 +7,22 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Thegioididong.Model.ViewModels.Page.Public.Common
+namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 {
-    public class ProductCategoryViewModel
+    public class ProductCategoryMainNavigation
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
     }
 
-    public class ProductCategoryGroupViewModel
+    public class ProductCategoryGroupMainNavigation
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public List<ProductCategoryViewModel> ProductCategories { get; set; }
+        public List<ProductCategoryMainNavigation> ProductCategories { get; set; }
 
     }
 
@@ -34,8 +34,8 @@ namespace Thegioididong.Model.ViewModels.Page.Public.Common
 
         public string BadgeIcon { get; set; }
 
-        public List<ProductCategoryGroupViewModel> ProductCategoryGroups { get; set; }
+        public List<ProductCategoryGroupMainNavigation> ProductCategoryGroups { get; set; }
 
-        public List<ProductCategoryViewModel> ProductCategories { get; set; }
+        public List<ProductCategoryMainNavigation> ProductCategories { get; set; }
     }
 }

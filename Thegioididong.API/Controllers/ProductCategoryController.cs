@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
-using Thegioididong.Model.ViewModels.Page.Public.Common;
+using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Service;
 
 namespace Thegioididong.API.Controllers

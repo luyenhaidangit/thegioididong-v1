@@ -17,8 +17,7 @@
 - Method: POST
 - Description: Creates a new slide
 - Request body: 
-```
-{
+```{
   "name": "HomeTop",
   "page": "home",
   "position": "top",
@@ -36,7 +35,7 @@
     }
   ]
 }
-``
+```
 - Reponse body:
 ```
 {

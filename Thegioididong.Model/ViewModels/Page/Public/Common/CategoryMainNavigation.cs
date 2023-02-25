@@ -22,7 +22,7 @@ namespace Thegioididong.Model.ViewModels.Page.Public.Common
 
         public string Name { get; set; }
 
-        public List<ProductCategoryViewModel> ProductCategoriesJson { get; set; }
+        public List<ProductCategoryViewModel> ProductCategories { get; set; }
 
     }
 
@@ -34,8 +34,8 @@ namespace Thegioididong.Model.ViewModels.Page.Public.Common
 
         public string BadgeIcon { get; set; }
 
-        public List<ProductCategoryGroupViewModel> ProductCategoryGroupsJson { get; set; }
+        public List<ProductCategoryGroupViewModel> ProductCategoryGroups { get; set; }
 
-        public List<ProductCategoryViewModel> ProductCategoriesJson { get; set; }
+        public List<ProductCategoryViewModel> ProductCategories { get; set; }
     }
 }

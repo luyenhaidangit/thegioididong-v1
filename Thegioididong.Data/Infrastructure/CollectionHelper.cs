@@ -205,5 +205,92 @@ namespace Thegioididong.Data.Infrastructure
 
             return table;
         }
+
+        // Custom
+        public static IList<T> ConvertTo<T>(this DataTable table, string[] valueJsonColumns)
+        {
+            if (table == null)
+            {
+                return null;
+            }
+
+            var rows = new List<DataRow>();
+
+            foreach (DataRow row in table.Rows)
+            {
+                rows.Add(row);
+            }
+
+            return ConvertTo<T>(valueJsonColumns,rows);
+        }
+
+        public static T CreateItem<T>(string[] valueJsonColumns,DataRow row)
+        {
+            T obj = default(T);
+            if (row != null)
+            {
+                obj = Activator.CreateInstance<T>();
+                foreach (DataColumn column in row.Table.Columns)
+                {
+                    PropertyInfo prop = obj.GetType().GetProperty(column.ColumnName);
+                    if (prop == null) continue;
+                    Type type = prop.PropertyType;
+                    try
+                    {
+                        object value = row[column.ColumnName];
+                        if (value != DBNull.Value)
+                        {
+                            if (valueJsonColumns.Contains(column.ColumnName))
+                            {
+                                prop.SetValue(obj, MessageConvert.DeserializeObject(("" + value).Replace("$", ""), type), null);
+                            }
+                            else if (type.Name == "String")
+                            {
+                                prop.SetValue(obj, Convert.ToString(value), null);
+                            }
+                            else if (type.Name == "Single")
+                            {
+                                prop.SetValue(obj, Convert.ToSingle(value), null);
+                            }
+                            else if (type.Name == "Nullable`1" || type.Name == "DateTime")
+                            {
+                                var t = Nullable.GetUnderlyingType(type) ?? type;
+                                var safeValue = (value == null) ? null : Convert.ChangeType(value, t);
+                                prop.SetValue(obj, safeValue, null);
+                            }
+                            else
+                            {
+                                prop.SetValue(obj, value, null);
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        // You can log something here
+                        throw;
+                    }
+                }
+            }
+
+            return obj;
+        }
+
+        public static IList<T> ConvertTo<T>(string[] valueJsonColumns, IList<DataRow> rows)
+        {
+            IList<T> list = null;
+
+            if (rows != null)
+            {
+                list = new List<T>();
+
+                foreach (DataRow row in rows)
+                {
+                    T item = CreateItem<T>(valueJsonColumns, row);
+                    list.Add(item);
+                }
+            }
+
+            return list;
+        }
     }
 }

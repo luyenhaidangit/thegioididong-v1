@@ -47,12 +47,13 @@ namespace Thegioididong.Data.Repositories
         public List<CategoryMainNavigation> GetCategoryMainNavigation()
         {
             string msgError = "";
+            string[] valueJsonColumns = { "ProductCategoryGroups", "ProductCategories" };
             try
             {
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_home_GetMainNavigationData");
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<CategoryMainNavigation>().ToList();
+                return dt.ConvertTo<CategoryMainNavigation>(valueJsonColumns).ToList();
             }
             catch (Exception ex)
             {

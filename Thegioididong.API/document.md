@@ -8,6 +8,44 @@
 
 ## APIs
 
+### Slide API
+
+#### Create Slide API
+
+- Create Slide
+- Endpoint: `/api/Slide/Create`
+- Method: POST
+- Description: Creates a new slide
+- Request body: 
+```
+{
+  "name": "HomeTop",
+  "page": "home",
+  "position": "top",
+  "published": true,
+  "slideItems": [
+    {
+      "title": "SlideHomeTop01",
+      "image": "slide_home_top_01.png",
+      "url": "/product/1"
+    },
+    {
+      "title": "SlideHomeTop02",
+      "image": "slide_home_top_02.png",
+      "url": "/product/2"
+    }
+  ]
+}
+``
+- Reponse body:
+```
+{
+  "isSuccessed": true,
+  "message": "Created successfully",
+  "resultObj": null
+}
+```
+
 ### ProductCategory API
 
 #### Get Category Main Navigation API
@@ -16,7 +54,7 @@
 - Method: GET
 - Description: retrieves a list of product categories to display in the main-navigation section of the user interface, along with any child product groups associated with each category.
 - Request body: The request body is empty.
-- Reponse boydy:
+- Reponse body:
 ```[
     {
         "id": 10,

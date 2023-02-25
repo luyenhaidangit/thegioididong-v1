@@ -15,6 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<IProductCategoryRepository, ProductCategorytRepository>();
 builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
+builder.Services.AddTransient<ISlideService, SlideService>();
+builder.Services.AddTransient<ISlideRepository, SlideRepository>();
 
 var app = builder.Build();
 

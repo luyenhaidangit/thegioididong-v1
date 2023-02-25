@@ -1,0 +1,49 @@
+# System API Description
+
+## Introduction
+
+- API (Application Programming Interface) is a set of interfaces and procedures that an application or system provides to allow other applications to interact with it.
+
+- In this article, we will describe the APIs of the system and define the endpoints as well as the methods supported by them.
+
+## APIs
+
+### ProductCategory API
+
+#### Get Category Main Navigation API
+- Get Category Main Navigation
+- Endpoint: `/api/ProductCategory/GetCategoryMainNavigation`
+- Method: GET
+- Description: retrieves a list of product categories to display in the main-navigation section of the user interface, along with any child product groups associated with each category.
+- Request body: The request body is empty.
+- Reponse boydy:
+```[
+    {
+        "id": 10,
+        "name": "Phụ kiện",
+        "badgeIcon": null,
+        "productCategoryGroups": [
+            {
+                "id": 1,
+                "name": "Phụ kiện di động",
+                "productCategories": [
+                    {
+                        "id": 20,
+                        "name": "Túi đựng AirPods"
+                    }
+                ]
+            }
+        ],
+        "productCategories": [
+            {
+                "id": 36,
+                "name": "Máy tính để bàn"
+            },
+            {
+                "id": 35,
+                "name": "Màn hình máy tính"
+            }
+        ]
+    }
+]
+```

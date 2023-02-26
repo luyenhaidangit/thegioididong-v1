@@ -17,7 +17,8 @@
 - Method: POST
 - Description: Creates a new slide
 - Request body: 
-```{
+```
+{
   "name": "HomeTop",
   "page": "home",
   "position": "top",
@@ -37,7 +38,8 @@
 }
 ```
 - Reponse body:
-```{
+```
+{
   "isSuccessed": true,
   "message": "Created successfully",
   "resultObj": null
@@ -51,7 +53,8 @@
 - Method: POST
 - Description: Get list slide paging
 - Request body: 
-```{
+```
+{
     PageIndex: 1,
     PageSize: 2,
 }
@@ -84,7 +87,8 @@
 - Description: retrieves a list of product categories to display in the main-navigation section of the user interface, along with any child product groups associated with each category.
 - Request body: The request body is empty.
 - Reponse body:
-```[
+```
+[
     {
         "id": 10,
         "name": "Phụ kiện",

@@ -37,11 +37,41 @@
 }
 ```
 - Reponse body:
-```
-{
+```{
   "isSuccessed": true,
   "message": "Created successfully",
   "resultObj": null
+}
+```
+
+#### Get Slide Manage API
+
+- Create Slide
+- Endpoint: `/api/Slide/GetSlides`
+- Method: POST
+- Description: Get list slide paging
+- Request body: 
+```{
+    PageIndex: 1,
+    PageSize: 2,
+}
+```
+- Reponse body:
+```
+{
+  "items": [
+    {
+      "id": 10,
+      "name": "string",
+      "page": "string",
+      "position": "string",
+      "published": false
+    }
+  ],
+  "pageIndex": 1,
+  "pageSize": 3,
+  "totalRecords": 10,
+  "totalPages": 4
 }
 ```
 

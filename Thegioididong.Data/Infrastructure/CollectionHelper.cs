@@ -292,5 +292,17 @@ namespace Thegioididong.Data.Infrastructure
 
             return list;
         }
+
+        public static string[] GetPropertyNames(object obj)
+        {
+            Type type = obj.GetType();
+            PropertyInfo[] properties = type.GetProperties();
+            string[] propertyNames = new string[properties.Length];
+            for (int i = 0; i < properties.Length; i++)
+            {
+                propertyNames[i] = properties[i].Name;
+            }
+            return propertyNames;
+        }
     }
 }

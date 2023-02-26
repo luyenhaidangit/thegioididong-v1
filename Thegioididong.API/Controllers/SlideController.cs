@@ -17,6 +17,13 @@ namespace Thegioididong.API.Controllers
             this._slideService = SlideService;
         }
 
+        [Route("GetSlide")]
+        [HttpPost]
+        public PagedResult<Slide> GetSlides([FromQuery] SlidePagingManageGetRequest request)
+        {
+            return _slideService.GetSlides(request);
+        }
+
         [Route("Create")]
         [HttpPost]
         public ApiResult<string> Create([FromBody] SlideCreateRequest request)

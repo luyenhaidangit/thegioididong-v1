@@ -8,6 +8,6 @@ namespace Thegioididong.Model.ViewModels.Common
 {
     public class PagedResult<T> : PagedResultBase
     {
-        public List<T> Items { set; get; }
+        public IEnumerable<T> Items { set; get; }
     }
 }

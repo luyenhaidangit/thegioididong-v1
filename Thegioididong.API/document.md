@@ -139,6 +139,34 @@
 
 ### ProductCategory API
 
+#### Create Product Category API
+
+- Create Product Category
+- Endpoint: `/api/ProductCategory/Create`
+- Method: POST
+- Description: Creates a new product category
+- Request body: 
+```
+{
+  "parentProductCategoryId": null,
+  "productCategoryGroupId": null,
+  "name": "demo",
+  "badgeIcon": "/content/image1.jpg",
+  "image": "/content/image1.jpg",
+  "displayOrder": 1,
+  "published": true
+}
+```
+- Reponse body:
+```
+{
+  "isSuccessed": true,
+  "message": "Created successfully",
+  "resultObj": null
+}
+```
+
+
 #### Get Category Main Navigation API
 - Get Category Main Navigation
 - Endpoint: `/api/ProductCategory/GetCategoryMainNavigation`

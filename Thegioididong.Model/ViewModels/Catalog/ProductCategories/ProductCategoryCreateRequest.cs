@@ -21,12 +21,12 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
         public string Name { get; set; }
 
         [SwaggerSchema(ReadOnly = true)]
-        public string BadgeIcon { get; set; }
+        public string? BadgeIcon { get; set; }
 
         public IFormFile BadgeIconFile { get; set; }
 
         [SwaggerSchema(ReadOnly = true)]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         public IFormFile ImageFile { get; set; }
 

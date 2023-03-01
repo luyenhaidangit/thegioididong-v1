@@ -28,7 +28,7 @@ namespace Thegioididong.Service
     {
         private IProductCategoryRepository _productCategoryRepository;
         private IStorageService _storageService;
-        private const string USER_CONTENT_FOLDER_NAME = "Upload";
+        private const string USER_CONTENT_FOLDER_NAME = "upload";
 
         public ProductCategoryService(IProductCategoryRepository productCategoryRepository, IStorageService storageService)
         {

@@ -16,6 +16,8 @@ namespace Thegioididong.Data.Repositories
         PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
 
         bool Create(SlideCreateRequest request);
+
+        bool Update(SlideUpdateRequest request);
     }
 
     public class SlideRepository : ISlideRepository
@@ -60,6 +62,27 @@ namespace Thegioididong.Data.Repositories
                 "@Position", request.Position,
                 "@Published", request.Published,
                 "@SlideItems", sliderItems
+                );
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Update(SlideUpdateRequest request)
+        {
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_slide_update",
+                "@request", requestJson
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

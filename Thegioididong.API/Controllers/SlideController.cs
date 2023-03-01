@@ -18,7 +18,7 @@ namespace Thegioididong.API.Controllers
         }
 
         [Route("GetSlide")]
-        [HttpPost]
+        [HttpGet]
         public PagedResult<Slide> GetSlides([FromQuery] SlidePagingManageGetRequest request)
         {
             return _slideService.GetSlides(request);
@@ -32,11 +32,28 @@ namespace Thegioididong.API.Controllers
             {
                 bool result = _slideService.Create(request);
                 return new ApiSuccessResult<string>("Created successfully");
-            }catch(Exception ex) 
+            }
+            catch(Exception ex) 
             {
                 return new ApiSuccessResult<string>("Failed to create");
             }
             
+        }
+
+        [Route("Update")]
+        [HttpPut]
+        public ApiResult<string> Update([FromBody] SlideUpdateRequest request)
+        {
+            try
+            {
+                bool result = _slideService.Update(request);
+                return new ApiSuccessResult<string>("Updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return new ApiErrorResult<string>("Failed to update");
+            }
+
         }
     }
 }

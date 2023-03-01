@@ -10,6 +10,38 @@
 
 ### Slide API
 
+#### Get Slide Manage API
+
+- Create Slide
+- Endpoint: `/api/Slide/GetSlides`
+- Method: POST
+- Description: Get list slide paging
+- Request body: 
+```
+{
+    PageIndex: 1,
+    PageSize: 2,
+}
+```
+- Reponse body:
+```
+{
+  "items": [
+    {
+      "id": 10,
+      "name": "string",
+      "page": "string",
+      "position": "string",
+      "published": false
+    }
+  ],
+  "pageIndex": 1,
+  "pageSize": 3,
+  "totalRecords": 10,
+  "totalPages": 4
+}
+```
+
 #### Create Slide API
 
 - Create Slide
@@ -46,35 +78,41 @@
 }
 ```
 
-#### Get Slide Manage API
+#### Update Slide API
 
-- Create Slide
-- Endpoint: `/api/Slide/GetSlides`
-- Method: POST
-- Description: Get list slide paging
+- Update Slide
+- Endpoint: `/api/Slide/Update`
+- Method: PUT
+- Description: Update slide
 - Request body: 
 ```
 {
-    PageIndex: 1,
-    PageSize: 2,
+  "id": 9,
+  "name": "slide 9",
+  "page": "home",
+  "position": "top",
+  "published": true,
+  "slideItems": [
+    {
+      "id": 29,
+      "title": "slide item update 9",
+      "image": "string",
+      "url": "string"
+    },
+    {
+      "title": "slide create 9",
+      "image": "string",
+      "url": "string"
+    }
+  ]
 }
 ```
 - Reponse body:
 ```
 {
-  "items": [
-    {
-      "id": 10,
-      "name": "string",
-      "page": "string",
-      "position": "string",
-      "published": false
-    }
-  ],
-  "pageIndex": 1,
-  "pageSize": 3,
-  "totalRecords": 10,
-  "totalPages": 4
+  "isSuccessed": true,
+  "message": "Updated successfully",
+  "resultObj": null
 }
 ```
 

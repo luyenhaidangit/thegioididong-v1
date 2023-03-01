@@ -14,6 +14,8 @@ namespace Thegioididong.Service
     {
         bool Create(SlideCreateRequest request);
 
+        bool Update(SlideUpdateRequest request);
+
         PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
     }
     public partial class SlideService : ISlideService
@@ -33,6 +35,11 @@ namespace Thegioididong.Service
         public PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request)
         {
             return _slideRepository.GetSlides(request);
+        }
+
+        public bool Update(SlideUpdateRequest request)
+        {
+            return _slideRepository.Update(request);
         }
     }
 }

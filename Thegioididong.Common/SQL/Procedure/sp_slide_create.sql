@@ -26,4 +26,4 @@ AS
 				JSON_VALUE(si.value, '$.url')
 				FROM OPENJSON(@SlideItems) AS si;
 	 END;
-    SELECT '';
+	 END

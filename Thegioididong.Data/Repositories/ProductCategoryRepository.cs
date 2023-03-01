@@ -15,7 +15,7 @@ namespace Thegioididong.Data.Repositories
 
         IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
 
-        bool Create(ProductCategory model);
+        bool Create(ProductCategoryCreateRequest request);
 
         bool Update(ProductCategory model);
 
@@ -84,16 +84,14 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public bool Create(ProductCategory model)
+        public bool Create(ProductCategoryCreateRequest request)
         {
-            string msgError = "";
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
+                string msgError = "";
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_create",
-                "@ParentCategoryId", model.ParentProductCategoryId,
-                "@Name", model.Name,
-                "@DisplayOrder", model.DisplayOrder,
-                "@Status", model.Published);
+                "@request", requestJson);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

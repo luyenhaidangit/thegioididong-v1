@@ -62,9 +62,9 @@ namespace Thegioididong.API.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public bool Create([FromBody] ProductCategory productCategory)
+        public bool Create([FromForm] ProductCategoryCreateRequest request)
         {
-            return _productCategoryService.Create(productCategory);
+            return _productCategoryService.Create(request);
         }
 
         [Route("Update")]
@@ -73,5 +73,7 @@ namespace Thegioididong.API.Controllers
         {
             return _productCategoryService.Update(productCategory);
         }
+
+
     }
 }

@@ -53,7 +53,21 @@ namespace Thegioididong.API.Controllers
             {
                 return new ApiErrorResult<string>("Failed to update");
             }
+        }
 
+        [Route("Delete")]
+        [HttpDelete]
+        public ApiResult<string> Update([FromQuery] int id)
+        {
+            try
+            {
+                bool result = _slideService.Delete(id);
+                return new ApiSuccessResult<string>("Deleed successfully");
+            }
+            catch (Exception ex)
+            {
+                return new ApiErrorResult<string>("Failed to delete");
+            }
         }
     }
 }

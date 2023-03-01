@@ -116,6 +116,27 @@
 }
 ```
 
+#### Delete Slide API
+
+- Delete Slide
+- Endpoint: `/api/Slide/Delete`
+- Method: PUT
+- Description: Delete slide
+- Request body: 
+```
+{
+  "id": 9,
+}
+```
+- Reponse body:
+```
+{
+  "isSuccessed": true,
+  "message": "Deleted successfully",
+  "resultObj": null
+}
+```
+
 ### ProductCategory API
 
 #### Get Category Main Navigation API

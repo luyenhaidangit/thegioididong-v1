@@ -16,6 +16,8 @@ namespace Thegioididong.Service
 
         bool Update(SlideUpdateRequest request);
 
+        bool Delete(int id);
+
         PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
     }
     public partial class SlideService : ISlideService
@@ -30,6 +32,11 @@ namespace Thegioididong.Service
         public bool Create(SlideCreateRequest request) 
         {
             return _slideRepository.Create(request);
+        }
+
+        public bool Delete(int id)
+        {
+            return _slideRepository.Delete(id);
         }
 
         public PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request)

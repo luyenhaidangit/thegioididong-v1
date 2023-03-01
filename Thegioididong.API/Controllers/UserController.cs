@@ -20,7 +20,7 @@ namespace Thegioididong.API.Controllers
 
         [Route("Login")]
         [HttpPost]
-        public ApiResult<UserClaim> Create([FromBody] LoginRequest request)
+        public ApiResult<UserClaim> Create([FromQuery] LoginRequest request)
         {
             try
             {

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.CMS.Slides;
@@ -9,6 +10,7 @@ namespace Thegioididong.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SlideController : ControllerBase
     {
         private ISlideService _slideService;

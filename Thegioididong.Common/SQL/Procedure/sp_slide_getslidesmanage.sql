@@ -1,3 +1,10 @@
+USE [Thegioididong]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_slide_getslidesmanage]    Script Date: 01/03/2023 2:33:45 CH ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 ALTER PROCEDURE [dbo].[sp_slide_getslidesmanage]
 (
 @request NVARCHAR(MAX)
@@ -9,8 +16,8 @@ AS
 	DECLARE @TotalRecords INT;
 	DECLARE @TotalPages FLOAT;
 
-	SELECT @PageIndex = 1;
-	SELECT @PageSize = 3;
+	SELECT @PageIndex = JSON_VALUE(@request, '$.pageIndex');
+	SELECT @PageSize = JSON_VALUE(@request, '$.pageSize');
 	
 	IF(@PageSize <> 0)
 		BEGIN

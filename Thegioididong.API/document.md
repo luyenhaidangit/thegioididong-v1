@@ -137,7 +137,7 @@
 }
 ```
 
-### ProductCategory API
+### Product Category API
 
 #### Create Product Category API
 
@@ -204,4 +204,35 @@
         ]
     }
 ]
+```
+
+### User API
+
+#### Login User API
+
+- User login
+- Endpoint: `/api/user/login`
+- Method: POST
+- Description: User login
+- Request body: 
+```
+{
+  "userName": "luyenhaidangit",
+  "password": "haidang106",
+  "rememberMe": true
+}
+```
+- Reponse body:
+```
+{
+  "isSuccessed": true,
+  "message": "Đăng nhập thành công",
+  "resultObj": {
+    "id": 2,
+    "username": "luyenhaidangit",
+    "password": "haidang106",
+    "role": "admin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imx1eWVuaGFpZGFuZ2l0Iiwicm9sZSI6ImFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9kZW55b25seXdpbmRvd3NkZXZpY2Vncm91cCI6ImhhaWRhbmcxMDYiLCJuYmYiOjE2Nzc3MDcwMTksImV4cCI6MTY3ODMxMTgxOSwiaWF0IjoxNjc3NzA3MDE5fQ.3t8BJG0SEEZMOHvuF5K12FB-lDY3U0UHFV-92xsRe7M"
+  }
+}
 ```

@@ -24,5 +24,12 @@ namespace Thegioididong.Model.ViewModels.Common
             IsSuccessed = true;
             Message = message;
         }
+
+        public ApiSuccessResult(T resultObj,string message)
+        {
+            IsSuccessed = true;
+            Message= message;
+            ResultObj = resultObj;
+        }
     }
 }

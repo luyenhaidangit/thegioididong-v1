@@ -25,5 +25,12 @@ namespace Thegioididong.Model.ViewModels.Common
             IsSuccessed = false;
             ValidationErrors = validationErrors;
         }
+
+        public ApiErrorResult(T resultObj, string message)
+        {
+            IsSuccessed = false;
+            Message = message;
+            ResultObj = resultObj;
+        }
     }
 }

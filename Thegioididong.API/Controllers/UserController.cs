@@ -36,5 +36,20 @@ namespace Thegioididong.API.Controllers
                 return new ApiErrorResult<UserClaim>(null,ex.Message.ToString());
             }
         }
+
+        [Route("Register")]
+        [HttpPost]
+        public ApiResult<bool> Register([FromForm] RegisterRequest request)
+        {
+            try
+            {
+                bool register = _userService.Register(request);
+                return new ApiSuccessResult<bool>(true,"Đăng ký thành công");
+            }
+            catch (Exception ex)
+            {
+                return new ApiErrorResult<bool>(ex.Message.ToString());
+            }
+        }
     }
 }

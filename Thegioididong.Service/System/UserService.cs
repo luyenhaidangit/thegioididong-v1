@@ -1,8 +1,10 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,7 @@ using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Model.ViewModels.System.Users;
+using Thegioididong.Service.Common;
 using static Thegioididong.Common.Constants.SystemConstant;
 
 namespace Thegioididong.Service
@@ -17,14 +20,19 @@ namespace Thegioididong.Service
     public partial interface IUserService
     {
         UserClaim Authencate(LoginRequest request);
+
+        bool Register(RegisterRequest request);
     }
     public partial class UserService : IUserService
     {
         private IUserRepository _userRepository;
+        private IStorageService _storageService;
+        private const string USER_CONTENT_FOLDER_NAME = "upload";
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IStorageService storageService)
         {
             this._userRepository = userRepository;
+            this._storageService= storageService;
         }
 
         public UserClaim Authencate(LoginRequest request)
@@ -56,6 +64,24 @@ namespace Thegioididong.Service
             user.Token = token;
 
             return user;
+        }
+
+        public bool Register(RegisterRequest request)
+        {
+            if(request.Account.ImageFile!= null)
+            {
+                request.Account.Image = this.SaveFile(request.Account.ImageFile);
+            }
+
+            return _userRepository.Register(request);
+        }
+
+        private string SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
     }
 }

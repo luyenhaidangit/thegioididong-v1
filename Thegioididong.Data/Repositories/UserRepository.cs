@@ -14,6 +14,8 @@ namespace Thegioididong.Data.Repositories
     public partial interface IUserRepository
     {
         UserClaim Login(LoginRequest request);
+
+        bool Register(RegisterRequest request);
     }
 
     public class UserRepository : IUserRepository
@@ -38,6 +40,27 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
                 return dt.ConvertTo<UserClaim>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Register(RegisterRequest request)
+        {
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_user_register",
+                "@request", requestJson
+                );
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
             }
             catch (Exception ex)
             {

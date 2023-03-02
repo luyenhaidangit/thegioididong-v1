@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
+using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 

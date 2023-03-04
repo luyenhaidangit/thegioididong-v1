@@ -9,9 +9,8 @@ using Thegioididong.Service;
 
 namespace Thegioididong.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
-    [Authorize]
     public class SlideController : ControllerBase
     {
         private ISlideService _slideService;
@@ -20,14 +19,17 @@ namespace Thegioididong.API.Controllers
             this._slideService = SlideService;
         }
 
-        [Route("GetSlide")]
+        #region Manage
+
+        [Route("admin/[controller]/GetSlides")]
+        [Authorize]
         [HttpGet]
         public PagedResult<Slide> GetSlides([FromQuery] SlidePagingManageGetRequest request)
         {
             return _slideService.GetSlides(request);
         }
 
-        [Route("Create")]
+        [Route("admin/[controller]/Create")]
         [HttpPost]
         public ApiResult<string> Create([FromBody] SlideCreateRequest request)
         {
@@ -43,7 +45,7 @@ namespace Thegioididong.API.Controllers
             
         }
 
-        [Route("Update")]
+        [Route("admin/[controller]/Update")]
         [HttpPut]
         public ApiResult<string> Update([FromBody] SlideUpdateRequest request)
         {
@@ -58,7 +60,7 @@ namespace Thegioididong.API.Controllers
             }
         }
 
-        [Route("Delete")]
+        [Route("admin/[controller]/Delete")]
         [HttpDelete]
         public ApiResult<string> Update([FromQuery] int id)
         {
@@ -72,5 +74,18 @@ namespace Thegioididong.API.Controllers
                 return new ApiErrorResult<string>("Failed to delete");
             }
         }
+
+        #endregion
+
+        #region Public
+
+        [Route("[controller]/GetSlides")]
+        [HttpGet]
+        public PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request)
+        {
+            return _slideService.GetSlides(request);
+        }
+
+        #endregion
     }
 }

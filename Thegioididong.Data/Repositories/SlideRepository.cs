@@ -14,6 +14,8 @@ namespace Thegioididong.Data.Repositories
 {
     public partial interface ISlideRepository
     {
+        // Manage
+
         PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
 
         bool Create(SlideCreateRequest request);
@@ -21,6 +23,10 @@ namespace Thegioididong.Data.Repositories
         bool Update(SlideUpdateRequest request);
 
         bool Delete(int id);
+
+        // Public
+
+        PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request);
     }
 
     public class SlideRepository : ISlideRepository
@@ -30,6 +36,8 @@ namespace Thegioididong.Data.Repositories
         {
             _dbHelper = dbHelper;
         }
+
+        #region Manage
 
         public PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request)
         {
@@ -118,5 +126,33 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region Public
+
+        public PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request)
+        {
+            string[] valueJsonColumns = { "Items" };
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_slide_getslidespublic", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var slides = dt.ConvertTo<PagedResult<Slide>>(valueJsonColumns).FirstOrDefault();
+                return slides;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
     }
 }

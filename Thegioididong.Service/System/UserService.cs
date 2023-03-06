@@ -22,6 +22,8 @@ namespace Thegioididong.Service
         UserClaim Authencate(LoginRequest request);
 
         bool Register(RegisterRequest request);
+
+        PagedResult<User> GetUsers(UserPagingManageGetRequest request);
     }
     public partial class UserService : IUserService
     {
@@ -82,6 +84,11 @@ namespace Thegioididong.Service
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
             _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
             return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
+        }
+
+        public PagedResult<User> GetUsers(UserPagingManageGetRequest request)
+        {
+            return _userRepository.GetUsers(request);
         }
     }
 }

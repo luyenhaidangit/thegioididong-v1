@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Data", "Thegi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Service", "Thegioididong.Service\Thegioididong.Service.csproj", "{D897F42F-4F59-42E9-A452-05C120063807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Common", "Thegioididong.Common\Thegioididong.Common.csproj", "{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.Common", "Thegioididong.Common\Thegioididong.Common.csproj", "{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.PublicApi", "Thegioididong.PublicApi\Thegioididong.PublicApi.csproj", "{5A862411-EED8-4CA1-A034-A39D62912214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03141EBC-EADB-4BEB-BE2A-A8FA75ED66C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A862411-EED8-4CA1-A034-A39D62912214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A862411-EED8-4CA1-A034-A39D62912214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A862411-EED8-4CA1-A034-A39D62912214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A862411-EED8-4CA1-A034-A39D62912214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

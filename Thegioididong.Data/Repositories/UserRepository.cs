@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Model.ViewModels.System.Users;
 
@@ -16,6 +17,8 @@ namespace Thegioididong.Data.Repositories
         UserClaim Login(LoginRequest request);
 
         bool Register(RegisterRequest request);
+
+        PagedResult<User> GetUsers(UserPagingManageGetRequest request);
     }
 
     public class UserRepository : IUserRepository
@@ -24,6 +27,28 @@ namespace Thegioididong.Data.Repositories
         public UserRepository(IDatabaseHelper dbHelper)
         {
             _dbHelper = dbHelper;
+        }
+
+        public PagedResult<User> GetUsers(UserPagingManageGetRequest request)
+        {
+            string[] valueJsonColumns = { "Items" };
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_user_getusersmanage", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var users = dt.ConvertTo<PagedResult<User>>(valueJsonColumns).FirstOrDefault();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public UserClaim Login(LoginRequest request)

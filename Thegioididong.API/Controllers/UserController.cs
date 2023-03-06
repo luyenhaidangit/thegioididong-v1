@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.CMS.Slides;
@@ -50,6 +51,13 @@ namespace Thegioididong.API.Controllers
             {
                 return new ApiErrorResult<bool>(ex.Message.ToString());
             }
+        }
+
+        [Route("GetUsers")]
+        [HttpGet]
+        public PagedResult<User> GetUsers([FromQuery] UserPagingManageGetRequest request)
+        {
+            return _userService.GetUsers(request);
         }
     }
 }

@@ -81,7 +81,7 @@ namespace Thegioididong.API.Controllers
 
         [Route("[controller]/GetSlides")]
         [HttpGet]
-        public PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request)
+        public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
         {
             return _slideService.GetSlides(request);
         }

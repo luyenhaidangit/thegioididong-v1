@@ -10,5 +10,7 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
     public class SlidePagingPublicGetRequest : PagingRequestBase
     {
         public string Page { get; set; }
+
+        public string Position { get; set; }
     }
 }

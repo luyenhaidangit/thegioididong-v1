@@ -27,32 +27,21 @@ namespace Thegioididong.Service
 
         // Public
 
-        PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request);
+        PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request);
     }
     public partial class SlideService : ISlideService
     {
         private ISlideRepository _slideRepository;
-        private IStorageService _storageService;
-        private const string USER_CONTENT_FOLDER_NAME = "upload";
 
-        public SlideService(ISlideRepository slideRepository, IStorageService storageService)
+        public SlideService(ISlideRepository slideRepository)
         {
             this._slideRepository = slideRepository;
-            this._storageService = storageService;
         }
 
         #region Manage
 
         public bool Create(SlideCreateRequest request) 
         {
-            //foreach(SlideItemCreateRequest item in request.SlideItems)
-            //{
-            //    if (item.ImageFile != null)
-            //    {
-            //        item.Image = this.SaveFile(item.ImageFile);
-            //    }
-            //}
-
             return _slideRepository.Create(request);
         }
 
@@ -70,20 +59,11 @@ namespace Thegioididong.Service
         {
             return _slideRepository.Update(request);
         }
-
-        private string SaveFile(IFormFile file)
-        {
-            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
-            _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
-            return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
-        }
-
         #endregion
 
         #region Public
 
-        public PagedResult<Slide> GetSlides(SlidePagingPublicGetRequest request)
+        public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
         {
             return _slideRepository.GetSlides(request);
         }

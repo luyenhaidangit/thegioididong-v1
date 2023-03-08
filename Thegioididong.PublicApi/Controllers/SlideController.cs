@@ -13,9 +13,9 @@ namespace Thegioididong.PublicApi.Controllers
     public class SlideController : ControllerBase
     {
         private ISlideService _slideService;
-        public SlideController(ISlideService SlideService)
+        public SlideController(ISlideService slideService)
         {
-            this._slideService = SlideService;
+            this._slideService = slideService;
         }
 
         [Route("GetSlides")]

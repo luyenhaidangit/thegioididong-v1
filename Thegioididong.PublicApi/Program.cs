@@ -3,6 +3,7 @@ using Thegioididong.Data.Infrastructure;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Service;
 using Thegioididong.Service.Common;
+using Thegioididong.Service.Plugins;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<ISlideService, SlideService>();
 builder.Services.AddTransient<ISlideRepository, SlideRepository>();
 builder.Services.AddTransient<IStorageService, FileStorageService>();
+builder.Services.AddTransient<ISearchRepository, SearchRepository>();
+builder.Services.AddTransient<ISearchService, SearchService>();
 
 var app = builder.Build();
 

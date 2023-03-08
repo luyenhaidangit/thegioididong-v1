@@ -1,0 +1,75 @@
+.newchain__title {
+    margin-top: 1.5rem;
+    /* background: #fff; */
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    overflow: hidden;
+}
+
+.newchain__title>h3 {
+    overflow: hidden;
+    padding: 0 0 15px 0px;
+    font-size: 22px;
+    line-height: 36px;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.newchain__content {
+    /* padding: 0 22px 32px 22px; */
+    overflow: hidden;
+    /* background: #fff; */
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.newchain__item-img {
+    width: 100%;
+    height: auto;
+    height: 200px;
+    border-radius: 12px;
+}
+
+@media only screen and (max-width: 992px) {
+    .dicount-pay-online__item-img {
+        min-width: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .newchain__title {
+        margin-top: 0;
+    }
+
+    .newchain__title>h3 {
+        padding-top: 0;
+    }
+
+    .newchain__title,
+    .newchain__content {
+        background-color: #fff;
+        border-radius: unset;
+    }
+
+    .newchain__title>h3 {
+        padding-top: 12px;
+        padding-bottom: 4px;
+        padding-left: 22px;
+    }
+
+    .newchain__content {
+        padding: 8px 22px 22px 28px;
+        margin-bottom: 1.5rem;
+    }
+
+    .newchain>.container {
+        max-width: unset;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .newchain__item-img {
+        height: 120px;
+    }
+}

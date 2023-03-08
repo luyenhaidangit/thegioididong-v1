@@ -1,0 +1,56 @@
+.option-promo__item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px 8px;
+    cursor: pointer;
+}
+
+.option-promo__item-img {
+    height: 72px;
+    width: 72px;
+}
+
+.option-promo__item-title {
+    overflow: hidden;
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 1200px) {
+    .option-promo__item {
+        flex-direction: column;
+        max-height: 124px;
+        overflow: hidden;
+    }
+
+    .option-promo__item-img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .option-promo__item-title {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .option-promo {
+        border-radius: 12px;
+    }
+
+    .option-promo__item {
+        padding: 8px;
+    }
+
+    .option-promo__item-img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .option-promo__item-title {
+        font-size: 13px;
+        text-align: center;
+        font-weight: 500;
+    }
+}

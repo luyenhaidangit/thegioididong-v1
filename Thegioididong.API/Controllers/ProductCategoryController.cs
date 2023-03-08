@@ -26,12 +26,12 @@ namespace Thegioididong.API.Controllers
             return _productCategoryService.GetAll();
         }
 
-        [Route("GetCategoryMainNavigation")]
-        [HttpGet]
-        public List<CategoryMainNavigation> GetCategoryMainNavigation()
-        {
-            return _productCategoryService.GetCategoryMainNavigation();
-        }
+        //[Route("GetCategoryMainNavigation")]
+        //[HttpGet]
+        //public List<CategoryNavigationGetResult> GetCategoryMainNavigation()
+        //{
+        //    return _productCategoryService.GetCategoryMainNavigation();
+        //}
 
         [Route("Search")]
         [HttpPost]

@@ -1,7 +1,12 @@
-CREATE PROCEDURE [dbo].[sp_home_GetMainNavigationData]
+ALTER PROCEDURE [dbo].[sp_productcategory_getproductcategorynavigation]
 AS
     BEGIN
-		SELECT TOP 10 PC.Id AS Id, PC.Name AS Name, PC.BadgeIcon As BadgeIcon,
+
+		
+		
+		SELECT 
+			(
+				SELECT TOP 10 PC.Id AS Id, PC.Name AS Name, PC.BadgeIcon As BadgeIcon,
 		(	SELECT TOP 3 PG1.Id AS Id, PG1.Name AS Name,
 			(	SELECT TOP 10 PC2.Id AS Id, PC2.Name AS Name FROM ProductCategories AS PC2
 				WHERE PC2.ProductCategoryGroupId = PG1.Id AND PC2.Published = 1
@@ -21,4 +26,10 @@ AS
 		FROM ProductCategories AS PC
 		WHERE PC.Published = 1 AND PC.ParentProductCategoryId IS NULL AND PC.ProductCategoryGroupId IS NULL
 		ORDER BY PC.DisplayOrder DESC
+		FOR JSON PATH
+			) AS Items ,
+		1 AS TotalPages,
+		0 AS PageIndex,0 AS PageSize, 
+		10 AS TotalRecords
+
 END;

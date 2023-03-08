@@ -20,6 +20,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
+builder.Services.AddTransient<IProductCategoryRepository, ProductCategorytRepository>();
+builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<ISlideService, SlideService>();
 builder.Services.AddTransient<ISlideRepository, SlideRepository>();

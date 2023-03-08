@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.Common;
 
 namespace Thegioididong.Data.Repositories
 {
     public partial interface IProductCategoryRepository
     {
+        // Manage
+
         IEnumerable<ProductCategory> GetAll();
 
         IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
@@ -19,7 +22,9 @@ namespace Thegioididong.Data.Repositories
 
         bool Update(ProductCategory model);
 
-        List<CategoryMainNavigation> GetCategoryMainNavigation();
+        // Public
+
+        PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
     }
     public partial class ProductCategorytRepository : IProductCategoryRepository
     {
@@ -28,6 +33,9 @@ namespace Thegioididong.Data.Repositories
         {
             _dbHelper = dbHelper;
         }
+
+        #region Manage
+
         public IEnumerable<ProductCategory> GetAll()
         {
             string msgError = "";
@@ -37,23 +45,6 @@ namespace Thegioididong.Data.Repositories
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<ProductCategory>();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public List<CategoryMainNavigation> GetCategoryMainNavigation()
-        {
-            string msgError = "";
-            string[] valueJsonColumns = { "ProductCategoryGroups", "ProductCategories" };
-            try
-            {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_home_GetMainNavigationData");
-                if (!string.IsNullOrEmpty(msgError))
-                    throw new Exception(msgError);
-                return dt.ConvertTo<CategoryMainNavigation>(valueJsonColumns).ToList();
             }
             catch (Exception ex)
             {
@@ -126,5 +117,28 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region Public
+
+        public PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation()
+        {
+            string msgError = "";
+            string[] valueJsonColumns = { "Items" };
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategorynavigation");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<PagedResult<CategoryNavigationGetResult>>(valueJsonColumns).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
     }
 }

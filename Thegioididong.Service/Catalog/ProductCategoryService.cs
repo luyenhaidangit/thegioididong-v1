@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service.Common;
 
 namespace Thegioididong.Service
 {
     public partial interface IProductCategoryService
     {
+        // Manage
+
         IEnumerable<ProductCategory> GetAll();
 
         IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
@@ -22,7 +25,9 @@ namespace Thegioididong.Service
 
         bool Update(ProductCategory model);
 
-        List<CategoryMainNavigation> GetCategoryMainNavigation();
+        // Public
+
+        PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
     }
     public partial class ProductCategoryService : IProductCategoryService
     {
@@ -35,6 +40,8 @@ namespace Thegioididong.Service
             this._productCategoryRepository = productCategoryRepository;
             this._storageService = storageService;
         }
+
+        #region Manage
         public IEnumerable<ProductCategory> GetAll()
         {
             return _productCategoryRepository.GetAll();
@@ -55,10 +62,7 @@ namespace Thegioididong.Service
             return _productCategoryRepository.Update(productCategory);
         }
 
-        public List<CategoryMainNavigation> GetCategoryMainNavigation()
-        {
-            return _productCategoryRepository.GetCategoryMainNavigation();
-        }
+
 
         public bool Create(ProductCategoryCreateRequest request)
         {
@@ -82,5 +86,16 @@ namespace Thegioididong.Service
             _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
             return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
+
+        #endregion
+
+        #region Public
+
+        public PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation()
+        {
+            return _productCategoryRepository.GetProductCategoryNavigation();
+        }
+
+        #endregion
     }
 }

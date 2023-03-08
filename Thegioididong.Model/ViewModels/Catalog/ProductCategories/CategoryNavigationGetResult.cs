@@ -9,24 +9,24 @@ using System.Xml.Linq;
 
 namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 {
-    public class ProductCategoryMainNavigation
+    public class ProductCategoryNavigation
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
     }
 
-    public class ProductCategoryGroupMainNavigation
+    public class ProductCategoryGroupNavigation
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public List<ProductCategoryMainNavigation> ProductCategories { get; set; }
+        public List<ProductCategoryNavigation> ProductCategories { get; set; }
 
     }
 
-    public class CategoryMainNavigation
+    public class CategoryNavigationGetResult
     {
         public int Id { get; set; }
 
@@ -34,8 +34,8 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 
         public string BadgeIcon { get; set; }
 
-        public List<ProductCategoryGroupMainNavigation> ProductCategoryGroups { get; set; }
+        public List<ProductCategoryGroupNavigation> ProductCategoryGroups { get; set; }
 
-        public List<ProductCategoryMainNavigation> ProductCategories { get; set; }
+        public List<ProductCategoryNavigation> ProductCategories { get; set; }
     }
 }

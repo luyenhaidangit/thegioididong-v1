@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.PublicApi", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.ManageApi", "Thegioididong.ManageApi\Thegioididong.ManageApi.csproj", "{9948CCE9-F5B0-45EA-B0EF-C410BBA14033}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.Web", "Thegioididong.Web\Thegioididong.Web.csproj", "{DB5C89A4-D50A-4C02-A4AC-D619A9376D30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{9948CCE9-F5B0-45EA-B0EF-C410BBA14033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9948CCE9-F5B0-45EA-B0EF-C410BBA14033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9948CCE9-F5B0-45EA-B0EF-C410BBA14033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5C89A4-D50A-4C02-A4AC-D619A9376D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5C89A4-D50A-4C02-A4AC-D619A9376D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5C89A4-D50A-4C02-A4AC-D619A9376D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5C89A4-D50A-4C02-A4AC-D619A9376D30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

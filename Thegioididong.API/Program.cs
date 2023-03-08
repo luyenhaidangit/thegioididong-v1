@@ -85,6 +85,8 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 
 var app = builder.Build();
+app.UseStaticFiles();
+app.UseDirectoryBrowser();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

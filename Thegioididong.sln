@@ -17,16 +17,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.PublicApi", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.ManageApi", "Thegioididong.ManageApi\Thegioididong.ManageApi.csproj", "{9948CCE9-F5B0-45EA-B0EF-C410BBA14033}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80A95CCB-A96F-454A-903D-7A6CF961CF8A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Solution Items", "1.Solution Items", "{80A95CCB-A96F-454A-903D-7A6CF961CF8A}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A5BE8E39-375A-45C9-9168-0F2B5562C010}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infrastructure", "2.Infrastructure", "{A5BE8E39-375A-45C9-9168-0F2B5562C010}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{74FD1A43-0326-4C63-8E9B-9D2D457D51A9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Domain", "3.Domain", "{74FD1A43-0326-4C63-8E9B-9D2D457D51A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{D0877999-22A6-4B4B-85D0-01CB05F3638C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Hosts", "4.Hosts", "{D0877999-22A6-4B4B-85D0-01CB05F3638C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

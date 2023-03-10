@@ -12,7 +12,13 @@ namespace Thegioididong.Service
 {
     public partial interface IProductService
     {
+        // Manage
+
         PagedResult<Product> GetProducts(ProductPagingManageGetRequest request);
+
+        // Public
+
+        ProductDailySuggestGetResult GetProductDailySuggest();
     }
     public partial class ProductService : IProductService
     {
@@ -23,9 +29,22 @@ namespace Thegioididong.Service
             this._productRepository = productRepository;
         }
 
+        #region Manage
+
         public PagedResult<Product> GetProducts(ProductPagingManageGetRequest request)
         {
             return _productRepository.GetProducts(request);
         }
+
+        #endregion
+
+        #region Public
+
+        public ProductDailySuggestGetResult GetProductDailySuggest()
+        {
+            return _productRepository.GetProductDailySuggest();
+        }
+
+        #endregion
     }
 }

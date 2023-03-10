@@ -12,7 +12,13 @@ namespace Thegioididong.Data.Repositories
 {
     public partial interface IProductRepository
     {
+        // Manage
+
         PagedResult<Product> GetProducts(ProductPagingManageGetRequest request);
+
+        // Public
+
+        ProductDailySuggestGetResult GetProductDailySuggest();
     }
 
     public class ProductRepository : IProductRepository
@@ -22,6 +28,8 @@ namespace Thegioididong.Data.Repositories
         {
             _dbHelper = dbHelper;
         }
+
+        #region Manage
 
         public PagedResult<Product> GetProducts(ProductPagingManageGetRequest request)
         {
@@ -44,5 +52,32 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region Public
+
+        public ProductDailySuggestGetResult GetProductDailySuggest()
+        {
+            string[] valueJsonColumns = { "LatestProducts", "PopularProducts", "BestSellingProducts", "TopRatedProducts" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductdailysuggest");
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<ProductDailySuggestGetResult>(valueJsonColumns).FirstOrDefault();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
     }
 }

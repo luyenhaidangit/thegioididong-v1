@@ -7,6 +7,7 @@ using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Common.Constants;
 
 namespace Thegioididong.Service
 {
@@ -42,7 +43,46 @@ namespace Thegioididong.Service
 
         public ProductDailySuggestGetResult GetProductDailySuggest()
         {
-            return _productRepository.GetProductDailySuggest();
+            ProductDailySuggestGetResult result = _productRepository.GetProductDailySuggest();
+
+            foreach (var product in result.LatestProducts)
+            {
+                product.Image = ManageApiHostContant.baseURL + product.Image;
+                if (product.BadgeProduct != null)
+                {
+                    product.BadgeProduct.Image = ManageApiHostContant.baseURL + product.BadgeProduct?.Image;
+                }
+            }
+
+            foreach (var product in result.PopularProducts)
+            {
+                product.Image = ManageApiHostContant.baseURL + product.Image;
+                if (product.BadgeProduct != null)
+                {
+                    product.BadgeProduct.Image = ManageApiHostContant.baseURL + product.BadgeProduct?.Image;
+                }
+            }
+
+            foreach (var product in result.BestSellingProducts)
+            {
+                product.Image = ManageApiHostContant.baseURL + product.Image;
+                if (product.BadgeProduct != null)
+                {
+                    product.BadgeProduct.Image = ManageApiHostContant.baseURL + product.BadgeProduct?.Image;
+                }
+            }
+
+            foreach (var product in result.TopRatedProducts)
+            {
+                product.Image = ManageApiHostContant.baseURL + product.Image;
+                if (product.BadgeProduct != null)
+                {
+                    product.BadgeProduct.Image = ManageApiHostContant.baseURL + product.BadgeProduct?.Image;
+                }
+            }
+
+
+            return result;
         }
 
         #endregion

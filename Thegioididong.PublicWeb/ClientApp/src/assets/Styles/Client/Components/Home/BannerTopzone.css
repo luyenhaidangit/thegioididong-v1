@@ -1,0 +1,19 @@
+.banner-topzone {
+    margin-top: 1.5rem;
+}
+
+.banner-topzone__img {
+    min-height: 80px;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner-topzone {
+        margin-top: 20px;
+    }
+
+    .banner-topzone>.container {
+        max-width: unset;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

@@ -22,7 +22,9 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public string Name { get; set; }
 
-        public BadgeProductDailySuggest BadgeProduct { get; set; }
+        public string Image { get; set; }
+
+        public BadgeProductDailySuggest? BadgeProduct { get; set; }
 
         public decimal OriginalPrice { get; set; }
 
@@ -37,12 +39,12 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
     public class ProductDailySuggestGetResult
     {
-        public IEnumerable<ProductDailySuggest> LatestProducts { get; set; }
+        public List<ProductDailySuggest> LatestProducts { get; set; }
 
-        public IEnumerable<ProductDailySuggest> PopularProducts { get; set; }
+        public List<ProductDailySuggest> PopularProducts { get; set; }
 
-        public IEnumerable<ProductDailySuggest> BestSellingProducts { get; set; }
+        public List<ProductDailySuggest> BestSellingProducts { get; set; }
 
-        public IEnumerable<ProductDailySuggest> TopRatedProducts { get; set; }
+        public List<ProductDailySuggest> TopRatedProducts { get; set; }
     }
 }

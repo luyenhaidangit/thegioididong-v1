@@ -1,22 +1,32 @@
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
+// Library
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-export default class App extends Component {
-  static displayName = App.name;
+// Client
+import Layout from './components/Layouts/Client/Layout';
+import Home from "./pages/Client/Home"
+import Product from './pages/Client/Product';
 
-  render() {
-    return (
-      <Layout>
+// Style
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/Styles/Client/Common/Common.css'
+import ProductCategory from './pages/Client/ProductCategory';
+
+function App() {
+  return (
+    <div>
+      <BrowserRouter>
         <Routes>
-          {AppRoutes.map((route, index) => {
-            const { element, ...rest } = route;
-            return <Route key={index} {...rest} element={element} />;
-          })}
+          <Route path='/' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='product' element={<Product />} />
+            <Route path='productcategory' element={<ProductCategory />} />
+          </Route>
         </Routes>
-      </Layout>
-    );
-  }
+      </BrowserRouter>
+    </div>
+  );
 }
+
+export default App;

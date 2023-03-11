@@ -1,0 +1,128 @@
+.tech-new {
+    margin-top: 1.5rem;
+}
+
+.tech-new>.container {
+    height: 360px;
+}
+
+.tech-new__new {
+    width: 80%;
+    height: 100%;
+}
+
+.tech-new__new-title {
+    background: #fff;
+    border-top-right-radius: 14px;
+    border-top-left-radius: 14px;
+    overflow: hidden;
+}
+
+.tech-new__new-title>h3 {
+    overflow: hidden;
+    padding: 15px 22px;
+    font-size: 22px;
+    line-height: 36px;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tech-new__new-title>span {
+    text-transform: none;
+    padding: 15px 22px;
+    font-weight: 400;
+    color: #555;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.tech-new__new-content {
+    padding: 0 22px 32px 22px;
+    overflow: hidden;
+    background: #fff;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    height: calc(100% - 66px);
+    display: flex;
+}
+
+.tech-new__new-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.new__item-img {
+    max-height: 140px;
+    border-radius: 12px;
+}
+
+.new__item-title {
+    max-height: 72px;
+    overflow: hidden;
+}
+
+.tech-new__banner-img {
+    height: 100%;
+    width: 100%;
+}
+
+.tech-new__new-content-list-new {
+    display: flex;
+}
+
+@media only screen and (max-width: 1200px) {
+    .tech-new__new {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .tech-new__new {
+        width: 100%;
+    }
+
+    .tech-new__banner {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .tech-new {
+        border-radius: unset;
+    }
+
+    .service-conversation__title {
+        margin-top: 0;
+    }
+
+    .tech-new>.container {
+        max-width: unset;
+        padding-left: 0;
+        padding-right: 0;
+        height: unset;
+    }
+
+    .tech-new__new-title {
+        border-top-left-radius: unset;
+        border-top-right-radius: unset;
+    }
+
+    .tech-new__new-content {
+        border-bottom-left-radius: unset;
+        border-bottom-right-radius: unset;
+        padding-bottom: 15px;
+    }
+
+    .tech-new__new-content-list-new {
+        flex-direction: column;
+    }
+
+    .tech-new__new-item {
+        flex-direction: row;
+    }
+
+    .new__item-img {
+        max-height: 80px;
+    }
+}

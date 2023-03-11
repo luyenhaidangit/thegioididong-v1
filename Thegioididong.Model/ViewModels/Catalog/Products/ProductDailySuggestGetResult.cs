@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
+    public class BadgeProductDailySuggest
+    {
+        public string Name { get; set; }
+
+        public string Image { get; set; }
+
+        public string BackgroundColor { get; set; }
+
+    }
+
     public class ProductDailySuggest
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public string NameBadgeProduct { get; set; }
-
-        public string ImageBadgeProduct { get; set; }
-
-        public string BackgroundColorBadgeProduct { get; set; }
+        public BadgeProductDailySuggest BadgeProduct { get; set; }
 
         public decimal OriginalPrice { get; set; }
 

@@ -27,7 +27,10 @@ builder.Services.AddTransient<ISlideService, SlideService>();
 builder.Services.AddTransient<ISlideRepository, SlideRepository>();
 builder.Services.AddTransient<IStorageService, FileStorageService>();
 builder.Services.AddTransient<ISearchRepository, SearchRepository>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<ISearchService, SearchService>();
+
 
 var app = builder.Build();
 

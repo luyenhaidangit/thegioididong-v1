@@ -22,6 +22,9 @@ import PopularIcon from "../../../../assets/Images/Icon/popular-icon.webp";
 // Helper
 import FormatCurrency from '../../../../helpers/Strings/FormatCurrency';
 
+// Api
+import { GetProductDailySuggest } from "../../../../apis/Client/productApiService"
+
 const DailySuggest = () => {
 
     // Hook
@@ -33,14 +36,17 @@ const DailySuggest = () => {
 
     // Function
     const fetchDataDailySuggest = async () => {
-        let res = await DailySuggestApi;
+        let res = await GetProductDailySuggest();
         setDataDailySuggest(res);
     }
+
+    
 
     const { latestProducts } = dataDailySuggest;
     const { popularProducts } = dataDailySuggest;
     const { bestSellingProducts } = dataDailySuggest;
     const { topRatedProducts } = dataDailySuggest;
+
 
     return (
         <>
@@ -82,7 +88,7 @@ const DailySuggest = () => {
                                                             <p className='product-card__item-availability mb-1'>
                                                                 Hàng sắp về
                                                             </p>
-                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discounted_price)} <small className='product-card__item-discount-percentage ms-2'>-{item.discount_percent}%</small></strong>
+                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discountedPrice)} <small className='product-card__item-discount-percentage ms-2'>-{item.discountPercent}%</small></strong>
                                                             <p className='product-card__item-rating d-flex align-items-center mb-1'>
                                                                 <b className='product-card__item-number-star d-flex align-items-center me-2'>4.8 <AiFillStar /></b>
                                                                 (158)
@@ -129,7 +135,7 @@ const DailySuggest = () => {
                                                             <p className='product-card__item-availability mb-1'>
                                                                 Hàng sắp về
                                                             </p>
-                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discounted_price)} <small className='product-card__item-discount-percentage ms-2'>-{item.discount_percent}%</small></strong>
+                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discountedPrice)} <small className='product-card__item-discount-percentage ms-2'>-{item.discountPercent}%</small></strong>
                                                             <p className='product-card__item-rating d-flex align-items-center mb-1'>
                                                                 <b className='product-card__item-number-star d-flex align-items-center me-2'>4.8 <AiFillStar /></b>
                                                                 (158)
@@ -176,7 +182,7 @@ const DailySuggest = () => {
                                                             <p className='product-card__item-availability mb-1'>
                                                                 Hàng sắp về
                                                             </p>
-                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discounted_price)} <small className='product-card__item-discount-percentage ms-2'>-{item.discount_percent}%</small></strong>
+                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discountedPrice)} <small className='product-card__item-discount-percentage ms-2'>-{item.discountPercent}%</small></strong>
                                                             <p className='product-card__item-rating d-flex align-items-center mb-1'>
                                                                 <b className='product-card__item-number-star d-flex align-items-center me-2'>4.8 <AiFillStar /></b>
                                                                 (158)
@@ -223,7 +229,7 @@ const DailySuggest = () => {
                                                             <p className='product-card__item-availability mb-1'>
                                                                 Hàng sắp về
                                                             </p>
-                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discounted_price)} <small className='product-card__item-discount-percentage ms-2'>-{item.discount_percent}%</small></strong>
+                                                            <strong className='product-card__item-price mb-1'>{FormatCurrency(item.discountedPrice)} <small className='product-card__item-discount-percentage ms-2'>-{item.discountPercent}%</small></strong>
                                                             <p className='product-card__item-rating d-flex align-items-center mb-1'>
                                                                 <b className='product-card__item-number-star d-flex align-items-center me-2'>4.8 <AiFillStar /></b>
                                                                 (158)

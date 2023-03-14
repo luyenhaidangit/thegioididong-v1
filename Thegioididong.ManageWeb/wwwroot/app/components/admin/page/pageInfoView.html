@@ -1,0 +1,71 @@
+﻿ <!--start page title-->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.nameManage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="page">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-page"></a>{{config.namePage}}</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--end page title-->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddPage" role="form" ng-submit="AddPage()">
+                    <!--Name-->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tiêu đề trang</label>
+                        <div class="col-md-10">
+                            <input ng-model="page.Title" readonly name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddPage.name.$error.required && formAddPage.name.$touched">Tên tiêu đề không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddPage.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!--ImagePath-->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện trang</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true,1)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false,1)" style="cursor:pointer" ng-show="statusChooseAvatar1" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" readonly name="picturepath" ng-model="Page.PictureAvatar">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar1" name="picturepath" src="{{Page.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!--Content-->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
+                        <div class="col-md-10">
+                            <textarea readonly ck-editor ng-model="page.Content" name="description" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="page" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end row-->
+<script>
+    $(".ui.dropdown").dropdown({
+
+    });
+</script>

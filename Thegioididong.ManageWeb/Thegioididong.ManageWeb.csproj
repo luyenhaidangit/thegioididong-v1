@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="assets\libs\slim-select\.vscode\settings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="assets\fonts\font-awesome-pro-5\.github\pull_request_template.md" />
+    <None Include="assets\libs\angular-loading-bar-master\.github\ISSUE_TEMPLATE.md" />
+    <None Include="assets\libs\angular-loading-bar-master\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="assets\libs\animate.css-main\.github\dependabot.yml" />
+    <None Include="assets\libs\animate.css-main\.github\ISSUE_TEMPLATE\bugs.yml" />
+    <None Include="assets\libs\animate.css-main\.github\ISSUE_TEMPLATE\features.yml" />
+    <None Include="assets\libs\animate.css-main\.github\workflows\codeql-analysis.yml" />
+    <None Include="assets\libs\animate.css-main\.husky\.gitignore" />
+    <None Include="assets\libs\animate.css-main\.husky\pre-commit" />
+    <None Include="assets\libs\bootstrap-select-1.13.14\.github\FUNDING.yml" />
+    <None Include="assets\libs\bootstrap-select-1.13.14\.github\ISSUE_TEMPLATE.md" />
+    <None Include="assets\libs\bootstrap-select-1.13.14\.github\move.yml" />
+    <None Include="assets\libs\slim-select\.github\FUNDING.yml" />
+    <None Include="assets\libs\slim-select\.github\ISSUE_TEMPLATE\issue-report.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
+</Project>

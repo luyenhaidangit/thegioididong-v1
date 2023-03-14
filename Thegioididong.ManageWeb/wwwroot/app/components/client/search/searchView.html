@@ -1,0 +1,839 @@
+﻿<link rel="stylesheet" href="/Content/client/css/product-categories.css">
+
+<!-- begin: content -->
+<div class="content">
+    <!--<div class="container">-->
+         <!--begin: box-filter--> 
+        <!--<div class="box-filter mt-3">
+            <div class="filter-main d-flex">
+                <div class="filter-total">
+                    <div class="filter-total__collapse rounded d-flex align-items-center gap-2"><i class="far fa-filter"></i> <span>Bộ lọc</span></div>
+                </div>
+
+                <div class="filter-group-item d-flex align-items-center gap-2">
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-brand" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>{{brand.Name}}</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-brand">
+                            <li ng-repeat="item in brands" ng-click="FilterProductByBrand(item)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><img class="" src="{{item.PicturePath}}" alt=""></a></li>
+                            <li ng-click="CloseFilterProductByBrand()"><a class="btn btn-outline-danger rounded d-flex justify-content-center align-items-center"><div>Bỏ chọn</div></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-price" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>{{price.Name}}</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-price">
+                            <li ng-click="FilterProductByPrice(0,2000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Dưới 2 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(2000000,4000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(4000000,7000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(7000000,13000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(13000000,20000000)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li ng-click="FilterProductByPrice(20000000,999999999)"><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-categories" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Loại điện thoại</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-categories">
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-ram" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>RAM</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-ram">
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-rom" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Bộ nhớ trong</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-rom">
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-battery" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Pin & Sạc</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-battery">
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center" href="#"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="filter-item rounded dropdown-toggle" type="button" id="filter-special" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Tính năng đặc biệt</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-core" aria-labelledby="filter-special">
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Dưới 2 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 2 đến 4 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 4 đến 7 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 7 đến 13 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Từ 13 đến 20 triệu</span></a></li>
+                            <li><a class="filter-item rounded d-flex justify-content-center align-items-center"><span>Trên 20 triệu</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-quick">
+                <div class="filter-quick-brand mt-2">
+                    <li ng-repeat="item in brands" ng-click="FilterProductByBrand(item)"><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2"><img class="" src="{{item.PicturePath}}" alt=""></a></li>
+                </div>
+
+                <div class="filter-quick-demand mt-2">
+                    <p class="mt-3">Chọn điện thoại theo nhu cầu</p>
+
+                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><span>Chơi game / Cấu hình cao</span></a></li>
+
+                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><span>Chụp ảnh quay phim</span></a></li>
+
+                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><span>Mỏng nhẹ</span></a></li>
+
+                    <li><a class="filter-item rounded-pill d-inline-flex align-items-center me-1 mb-2" href="#"><span>Nhỏ gọn dễ cầm</span></a></li>
+                </div>
+            </div>
+        </div>-->
+        <!-- end: box-filter -->
+    <!--</div>-->
+
+    <div class="container-sm">
+        <div class="category-page d-flex flex-column my-3">
+            <!--<div class="box-sort d-flex align-items-center flex-wrap mb-5">
+        <strong class="sort-total">106 điện thoại</strong>
+        <div class="sort-checked-box mx-3">
+            <a href="#" class="sort-fast rounded d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <img class="img-fluid ms-2 me-2" src="/Content/img/ico/icon-thunder.png" alt="">
+                <span>GIAO NHANH</span>
+            </a>
+        </div>
+
+        <div class="sort-checked-box mx-3">
+            <a href="#" class="rounded d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <span class="ms-2">Giảm giá</span>
+            </a>
+        </div>
+
+        <div class="sort-checked-box mx-3">
+            <a href="#" class="rounded d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <span class="ms-2">Góp 0%</span>
+            </a>
+        </div>
+
+        <div class="sort-checked-box mx-3">
+            <a href="#" class="rounded d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <span class="ms-2">Độc quyền</span>
+            </a>
+        </div>
+
+        <div class="sort-checked-box mx-3">
+            <a href="#" class="rounded d-flex align-items-center">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <span class="ms-2">Mới</span>
+            </a>
+        </div>
+
+        <div class="select-sort">
+            <div class="dropdown">
+                <button class="filter-item dropdown-toggle" href="#" role="button" id="selectSortCategory" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>Xếp theo: Nổi bật</span>
+                </button>
+
+                <ul class="dropdown-menu" aria-labelledby="selectSortCategory">
+                    <li><a class="dropdown-item" href="#">Nổi bật</a></li>
+                    <li><a class="dropdown-item" href="#">% giảm</a></li>
+                    <li><a class="dropdown-item" href="#">Thấp đến cao</a></li>
+                    <li><a class="dropdown-item" href="#">Cao đến thấp</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+            <h3 class="product-item-core__title my-4">
+               Tìm thấy {{productsShow.length}} kết quả tìm kiếm với từ khóa {{key}}
+            </h3>
+          
+            <div class="daily-sg__list-item" id="foryou" role="tabpanel" aria-labelledby="option-daily-sg__foryou-tab">
+                <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                    <div ng-repeat="item in productsShow" class="col">
+                        <div class="product-item-core border">
+                            <a ui-sref="product({id:item.ID})" href="">
+                                <!--<div class="product-item-core__label">
+                            <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                <img src="{{label.PicturePath}}" alt="">
+                                <span>{{label.Name}}</span>
+                            </span>
+                        </div>-->
+
+                                <div class="product-item-core__img">
+                                    <img src="{{item.PicturePath}}" alt="">
+                                </div>
+
+                                <h3 class="product-item-core__title">
+                                    {{item.Name}}
+                                </h3>
+
+                                <span class="product-item-core__order-online">
+                                    Online giá rẻ
+                                </span>
+
+                                <strong class="product-item-core__price">
+                                    <span>{{item.SellPriceActual | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
+                                </strong>
+
+                                <div class="product-item-core__gift">
+                                    {{item.ShortDescriptionEndow}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a ng-click="LoadMoreProduct()" class="read-more__btn-lg border btn btn-outline-primary my-4">
+                <span>Xem thêm</span>
+                <i class="fas fa-caret-right"></i>
+            </a>
+        </div>
+
+        <!-- begin: promo-bhx -->
+        <div class="promo-bhx">
+            <div class="promo-bhx__top">
+                <div class="promo-bhx__dot-ani">
+                    <div class="promo-bhx__dot-child">
+
+                    </div>
+                </div>
+
+                <div class="promo-bhx__banner">
+                    <a href="/page/client/sale-event/big-campaign.html">
+                        <img src="/Content/client/img/resource/logoBHX.png" alt="" class="promo-bhx__logo">
+                    </a>
+                    <span class="promo-bhx__text">FREESHIP cho đơn hàng từ 300.000đ</span>
+                    <span class="promo-bhx__note">(Đây là khuyến mãi của website cùng tập đoàn MWG)</span>
+                    <span class="promo-bhx__more">
+                        <a href="/page/client/sale-event/big-campaign.html">
+                            <span class="promo-bhx__more-text"> Xem thêm <b>10.000+</b><br> sản phẩm khuyến mãi</span>
+                            <img class="promo-bhx__more-img" src="/Content/img/ico/ArrowCircleRight.png" alt="">
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="promo-bhx__body">
+                <div class="promo-bhx__voucher">
+                    <div class="promo-bhx__voucher-title">
+                        Tặng thêm mã giảm 10%
+                    </div>
+
+                    <div class="promo-bhx__voucher-content">
+                        <div class="promo-bhx__voucher-content__input-email">
+                            <input name="email" placeholder="Nhập email*">
+                        </div>
+
+                        <div class="promo-bhx__voucher-content__input-phone">
+                            <input name="email" placeholder="Nhập SĐT*">
+                        </div>
+
+                        <div class="promo-bhx__voucher-content__button-submit">
+                            <button type="button" class="submit" disabled="">NHẬN MÃ</button>
+                        </div>
+                    </div>
+
+                    <div class="promo-bhx__voucher-note">
+                        *Áp dụng cho khách lần đầu mua hàng tại BachhoaXANH
+                    </div>
+                </div>
+
+                <div class="promo-bhx__product">
+                    <div class="promo-bhx__carousel">
+                        <div class="swiper promo-bhx__swiper">
+                            <div class="swiper-wrapper">
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Box-Truyen-Thong-280x440-TGDDxBHX--1--280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Box-Truyen-Thong-280x440-TGDDxBHX-280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/gao-280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Ta-280x440.png" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/CSCN-280x440.jpg" alt="">
+                                </a>
+                            </div>
+                            <!-- <div class="swiper-button-next slide-button-next-core trademark__button-next"><i class="far fa-angle-right"></i></div>
+                            <div class="swiper-button-prev slide-button-prev-core trademark__button-prev"><i class="far fa-angle-left"></i></div>
+                            <div class="swiper-pagination trademark__dot"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: promo-bhx -->
+    </div>
+</div>
+<!-- end: content -->
+<!-- swiper js -->
+
+<script>
+    $(document).ready(function () {
+        //Big Campaign Carousel
+        var swiperBigCampaign = new Swiper(".big-campaign__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".big-campaign__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".big-campaign__button-next",
+                prevEl: ".big-campaign__button-pre",
+            },
+
+            breakpoints: {
+                992: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+
+        //Hot Deal Carousel
+        var swiperHotDeal = new Swiper(".hot-deal__swiper", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".hot-deal__button-next",
+                prevEl: ".hot-deal__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+        // Promo Brand Carousel
+        var swiperOutstanding = new Swiper(".promo-brand__swiper-outstanding", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".promo-brand-outstanding__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".promo-brand-outstanding__button-next",
+                prevEl: ".promo-brand-outstanding__button-prev",
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        var swiperProduct = new Swiper(".promo-brand__swiper-product", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".promo-brand-product__button-next",
+                prevEl: ".promo-brand-product__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+        // Cate Feature Carousel
+        var swiperCateFeature = new Swiper(".cate-feature__body", {
+            grid: {
+                rows: 2,
+            },
+            freeMode: true,
+            spaceBetween: 8,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 10,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+
+                992: {
+                    slidesPerView: 8,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                768: {
+                    slidesPerView: 6,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                576: {
+                    slidesPerView: 4,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                0: {
+                    slidesPerView: 3,
+                    grid: {
+                        rows: 2,
+                    },
+                }
+            }
+        });
+
+        // Discount Payonl Carousel
+        var swiperDiscountPayonl = new Swiper(".discount-payonl__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".discount-payonl__button-next",
+                prevEl: ".discount-payonl__button-prev",
+            },
+
+            breakpoints: {
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // Service Conv Carousel
+        var swiperServiceConv = new Swiper(".service-conv__body", {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            freeMode: true,
+        });
+
+        // Trademark Carousel
+        var swiperTrademark = new Swiper(".trademark__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            freeMode: true,
+            // loop: true,
+            loopFillGroupWithBlank: true,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".trademark__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".trademark__button-next",
+                prevEl: ".trademark__button-prev",
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // NewChain Carousel
+        var swiperTrademark = new Swiper(".newchain__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            freeMode: true,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".newchain__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".newchain__button-next",
+                prevEl: ".newchain__button-prev",
+            },
+
+            breakpoints: {
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // Promo Bhx Carousel
+        var swiperPromoBhx = new Swiper(".promo-bhx__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 4,
+            slidesPerGroup: 1,
+            freeMode: true,
+            // loop: true,
+            loopFillGroupWithBlank: true,
+
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 12
+                },
+
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 12
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 12
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 12
+                },
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 12
+                }
+            }
+        });
+
+        // banner-top slider -- product categories
+        var swiperOutstanding = new Swiper(".product-categories__top-banner__carousel", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".promo-brand-outstanding__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-categories__top-banner__carousel__button-next",
+                prevEl: ".product-categories__top-banner__carousel__button-prev",
+            },
+
+            // breakpoints: {
+            //     // when window width is >= 320px
+            //     992: {
+            //         slidesPerView: 3,
+            //         spaceBetween: 16
+            //       },
+
+            //     768: {
+            //         slidesPerView: 2,
+            //         spaceBetween: 16
+            //       }
+            //   }
+        });
+
+        // fitler product
+        var boxFilterProductCategories = new Swiper(".box-filter__filter-group-item", {
+            // slidesPerView: 7,
+            // spaceBetween: 10,
+            freeMode: true,
+            // pagination: {
+            //   el: ".swiper-pagination",
+            //   clickable: true,
+            // },
+        });
+
+
+
+        // Preview product
+        var productPreviewListImgProduct = new Swiper(".product-preview__list-img-product", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-preview__list-img-product__button-next",
+                prevEl: ".product-preview__list-img-product__button-pre",
+            },
+        });
+
+        // Content Product
+        // Preview product
+        var productPreviewListImgProduct = new Swiper(".product-content__list-img-product", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-content__list-img-product__button-next",
+                prevEl: ".product-content__list-img-product__button-pre",
+            },
+        });
+
+        //Hot Deal Carousel
+        var swiperHotDeal = new Swiper(".suggestion-product__accessory__swiper", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".hot-deal__button-next",
+                prevEl: ".hot-deal__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+        //Hot Deal Carousel
+        var swiperHotDeal = new Swiper(".suggestion-product__more__swiper", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".suggestion-product__more__button-next",
+                prevEl: ".suggestion-product__more__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+
+
+
+
+
+    });
+</script>

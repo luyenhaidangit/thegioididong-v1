@@ -1,0 +1,818 @@
+﻿<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<div ng-controller="rootController">
+    <!--<div ng-hide="authentication.userName">
+        <div class="my-5 pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center my-5">
+                            <h1 class="font-weight-bold text-error">4 <span class="error-text">0<img src="assets/images/error-img.png" alt="" class="error-img"></span> 4</h1>
+                            <h3 class="text-uppercase">Truy cập không hợp lệ, vui lòng đăng nhập để tiếp tục</h3>
+                            <div class="mt-5 text-center">
+                                <a class="btn btn-primary waves-effect waves-light" ui-sref="login">Đăng nhập</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div ng-show="AuthenSuccess">
+        <div id="layout-wrapper">
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box" ui-sref="home" style="cursor: pointer">
+                            <a class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="/assets/images/trademark/logo-dagstore-light-small.png" alt="" class="img-fluid">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/assets/images/trademark/logo-dagstore-light.png" alt="" class="img-fluid">
+                                </span>
+                            </a>
+
+                            <a class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="/assets/images/trademark/logo-dagstore-light-small.png" alt="" class="img-fluid">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="/assets/images/trademark/logo-dagstore-light.png" alt="" class="img-fluid">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="ri-menu-2-line align-middle"></i>
+                        </button>
+
+                        <!-- App Search-->
+                        <form class="app-search d-none d-lg-block">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                                <span class="ri-search-line"></span>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ml-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-search-line"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                                 aria-labelledby="page-header-search-dropdown">
+
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-sm-inline-block">
+                            <button type="button" class="btn header-item waves-effect"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-fluid" src="/assets/images/flags/vn.png" alt="Header Language" height="16">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/assets/images/flags/us.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">USA</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <img src="/assets/images/flags/fr.jpg" alt="user-image" class="mr-1" height="12"> <span class="align-middle">France</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-lg-inline-block ml-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-apps-2-line"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                <div class="px-lg-2">
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/github.png" alt="Github">
+                                                <span>GitHub</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/bitbucket.png" alt="bitbucket">
+                                                <span>Bitbucket</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/dribbble.png" alt="dribbble">
+                                                <span>Dribbble</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row no-gutters">
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/dropbox.png" alt="dropbox">
+                                                <span>Dropbox</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                                <span>Mail Chimp</span>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <a class="dropdown-icon-item" href="#">
+                                                <img src="/assets/images/brands/slack.png" alt="slack">
+                                                <span>Slack</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-lg-inline-block ml-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                                <i class="ri-fullscreen-line"></i>
+                            </button>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-notification-3-line"></i>
+                                <span class="noti-dot"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                                 aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0"> Thông báo </h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#!" class="small"> Xem tất cả</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 230px;">
+                                    <a href="" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="ri-shopping-cart-line"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Đơn hàng thanh toán thành công</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">Người dùng #haidang106 đã thanh toán thành công đơn hàng #10062002</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 phút trước</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-reset notification-item">
+                                        <div class="media">
+                                            <img src="/assets/images/users/fitutehy.png"
+                                                 class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Người dùng mới đăng ký nhận bản tin</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">Người dùng #haidang106 đã đăng ký nhận bản tin chuyên mục Khuyến Mãi</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 giờ trước</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="ri-checkbox-circle-line"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Đơn hàng hoàn tất</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">Đơn hàng #10062002 đã hoàn tất giao hàng</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 giờ trước</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="text-reset notification-item">
+                                        <div class="media">
+                                            <img src="/assets/images/users/fitutehy.png"
+                                                 class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Bình luận mới</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">Người dùng #haidang106 đã thêm một bình luận mới tại mục Khuyến Mãi</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 2 giờ trước</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2 border-top">
+                                    <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
+                                        <i class="mdi mdi-arrow-right-circle mr-1"></i> Xem thêm...
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- begin: user -->
+                        <div class="dropdown d-inline-block user-dropdown">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user bg-none" src="/assets/images/users/fitutehy.png"
+                                     alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ml-1">{{authentication.userName}}</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="ri-user-line align-middle mr-1"></i>Thông tin tài khoản</a>
+                                <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right mt-1">11</span><i class="ri-settings-2-line align-middle mr-1"></i>Cài đặt</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" style="cursor:pointer" ng-click="LogOut()"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i>Đăng xuất</a>
+                            </div>
+                        </div>
+                        <!-- end: user -->
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                                <i class="ri-settings-2-line"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <!-- Begin: LeftSidebar -->
+            <div class="vertical-menu">
+                <div data-simplebar class="h-100">
+                    <div id="sidebar-menu">
+                        <!-- Begin: Content -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li ui-sref="dashboard">
+                                <a class="waves-effect">
+                                    <i class="ri-dashboard-line"></i>
+                                    <span>Trang điều khiển</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fad fa-boxes"></i>
+                                    <span>Danh mục</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a ui-sref="category"><i class="far fa-sitemap"></i>Loại sản phẩm</a></li>
+                                    <li><a ui-sref="brand"><i class="fas fa-copyright"></i>Hãng sản phẩm</a></li>
+                                    <li><a ui-sref="product"><i class="fas fa-cubes"></i>Sản phẩm</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="far fa-star-half"></i>Đánh giá sản phẩm</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="fas fa-tags"></i>Tag sản phẩm</a></li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow" aria-expanded="true"><i class="far fa-project-diagram"></i>Thuộc tính</a>
+                                        <ul class="sub-menu mm-collapse" aria-expanded="true" style="">
+                                            <li><a href="javascript: void(0);"><i class="far fa-list"></i>Thuộc tính SP</a></li>
+                                            <li><a href="javascript: void(0);"><i class="far fa-list-alt"></i>Đặc điểm kỹ thuật</a></li>
+                                            <li><a href="javascript: void(0);"><i class="fas fa-list-ol"></i>Thông tin thanh toán</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-user"></i>
+                                    <span>Đối tác</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a ui-sref="customer" class="waves-effect"><i class="fas fa-users"></i>Khách hàng</a></li>
+                                    <li><a ui-sref="supplier"><i class="far fa-building"></i>Nhà cung cấp</a></li>
+                                    <li><a class="waves-effect"><i class="fas fa-truck"></i>Đơn vị giao hàng</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Bán hàng</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a ui-sref="import-bill"><i class="fas fa-clipboard-check"></i>Đơn hàng nhập</a></li>
+                                    <li><a ui-sref="order"><i class="fas fa-file-invoice"></i>Đơn đặt hàng</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="fas fa-truck-moving"></i>Giao hàng</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="fas fa-redo"></i>Thanh toán định kỳ</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="fas fa-house-return"></i>Yêu cầu trả lại</a></li>
+                                    <li><a href="layouts-compact-sidebar.html"><i class="fas fa-gift"></i>Thẻ quà tặng</a></li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow" aria-expanded="true"><i class="fas fa-bags-shopping"></i>Giỏ hàng và yêu thích</a>
+                                        <ul class="sub-menu mm-collapse" aria-expanded="true" style="">
+                                            <li><a href="javascript: void(0);"><i class="fas fa-cart-arrow-down"></i>Giỏ hàng hiện tại</a></li>
+                                            <li><a href="javascript: void(0);"><i class="far fa-heart"></i>Yêu thích hiện tại</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow" aria-expanded="true"><i class="far fa-warehouse"></i>Tình trạng kho hàng</a>
+                                        <ul class="sub-menu mm-collapse" aria-expanded="true" style="">
+                                            <li><a href="javascript: void(0);"><i class="far fa-thumbs-up"></i>Bán chạy nhất</a></li>
+                                            <li><a href="javascript: void(0);"><i class="far fa-thumbs-down"></i>Bán chậm nhất</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Nhân viên</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a ui-sref="customer" class="waves-effect">
+                                            <i class="fas fa-user"></i>
+                                            <span>Khách hàng</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-users"></i>
+                                            <span>Vai trò của khách hàng</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-sign-in"></i>
+                                            <span>Khách hàng trực tuyến</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="far fa-chart-bar"></i>
+                                            <span>Báo cáo khách hàng</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fab fa-facebook"></i>
+                                            <span>Phương thức xác thực</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="far fa-eye"></i>
+                                            <span>Hoạt động đăng nhập</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-badge-percent"></i>
+                                    <span>Khuyến mãi</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a ui-sref="discount" class="waves-effect">
+                                            <i class="fas fa-signal"></i>
+                                            <span>Giảm giá</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fad fa-users"></i>
+                                            <span>Tiếp thị liên kết</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>Người đăng ký bảng tin</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a ui-sref="event" class="waves-effect">
+                                            <i class="fas fa-bullhorn"></i>
+                                            <span>Sự kiện</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a ui-sref="suggest" class="waves-effect">
+                                            <i class="fas fa-user-tag"></i>
+                                            <span>Đề xuất</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>CMS</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+
+                                    <li>
+                                        <a ui-sref="slider" class="waves-effect">
+                                            <i class="fas fa-images"></i>
+                                            <span>Slider</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-file-alt"></i>
+                                            <span>Chủ đề</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-photo-video"></i>
+                                            <span>Đa phương tiện</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a ui-sref="page" class="waves-effect">
+                                            <i class="fas fa-th-large"></i>
+                                            <span>Trình tạo trang</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a ui-sref="menurecord" class="waves-effect">
+                                            <i class="fas fa-stream"></i>
+                                            <span>Menus</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                            <i class="fas fa-newspaper"></i>
+                                            <span>Tin tức</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="layouts-light-sidebar.html"><i class="fas fa-rss"></i>Mục tin tức</a></li>
+                                            <li><a href="layouts-compact-sidebar.html"><i class="fas fa-comment-alt"></i>Bình luận tin tức</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                            <i class="fas fa-blog"></i>
+                                            <span>Blog</span>
+                                        </a>
+                                        <ul class="sub-menu" aria-expanded="false">
+                                            <li><a href="layouts-light-sidebar.html"><i class="fas fa-rss"></i>Bài đăng blog</a></li>
+                                            <li><a href="layouts-compact-sidebar.html"><i class="fas fa-comment-alt"></i>Bình luận blog</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-users"></i>
+                                            <span>Diễn đàn</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-envelope-open-text"></i>
+                                            <span>Mẫu tin nhắn</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-poll"></i>
+                                            <span>Khảo sát ý kiến</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-plus-square"></i>
+                                            <span>Widgets</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-sliders-v"></i>
+                                    <span>Cấu hình</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-cog"></i>
+                                            <span>Cài đặt</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-globe"></i>
+                                            <span>Ngôn ngữ</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-language"></i>
+                                            <span>Thiết lập khu vực</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="far fa-credit-card"></i>
+                                            <span>Thanh toán</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-bars"></i>
+                                            <span>Danh sách thuộc tính</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-envelope"></i>
+                                            <span>Tài khoản Email</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-eye"></i>
+                                            <span>Loại hoạt động</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow" aria-expanded="true"><i class="far fa-server"></i>Nhập liệu dữ liệu</a>
+                                        <ul class="sub-menu mm-collapse" aria-expanded="true" style="">
+                                            <li><a href="javascript: void(0);"><i class="fas fa-file-import"></i>Import</a></li>
+                                            <li><a href="javascript: void(0);"><i class="fas fa-download"></i>>Export</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-fill-drip"></i>
+                                            <span>Giao diện</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-database"></i>
+                                    <span>Hệ thống</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-filter"></i>
+                                            <span>Rules</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-fire"></i>
+                                            <span>Log</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-mail-bulk"></i>
+                                            <span>Hàng đợi tin nhắn</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-server"></i>
+                                            <span>Bảo trì hệ thống</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Nhiệm vụ lên lịch</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-search"></i>
+                                            <span>SEO</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>Cảnh báo</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>Thông tin hệ thống</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>Plugins</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-paper-plane"></i>
+                                            <span>Clickatell SMS Provider</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-map-marker"></i>
+                                            <span>GeoBlocker</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="javascript: void(0);" class="waves-effect">
+                                            <i class="fas fa-terminal"></i>
+                                            <span>Developer Tool</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/data/menurecord.data.json" class="waves-effect">
+                                            <i class="fab fa-windows"></i>
+                                            <span>Microsoft Azure Services</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                        <!-- End: Content -->
+                    </div>
+                </div>
+            </div>
+            <!-- End: LeftSidebar -->
+            <!-- Left Sidebar End -->
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid" ui-view>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Page-content -->
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            2022 © Luyện Hải Đăng - FIT.UTEHY
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-right d-none d-sm-block">
+                                Đồ án 3: Lập trình web mô hình MVC với ASP.NET <i class="mdi mdi-heart text-danger"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                <div class="rightbar-title px-3 py-4">
+                    <a href="javascript:void(0);" class="right-bar-toggle float-right">
+                        <i class="mdi mdi-close noti-icon"></i>
+                    </a>
+                    <h5 class="m-0">Cài đặt</h5>
+                </div>
+
+                <!-- Settings -->
+                <hr class="mt-0" />
+                <h6 class="text-center mb-0">Chọn giao diện</h6>
+
+                <div class="p-4">
+                    <div class="mb-2">
+                        <img src="/assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="">
+                    </div>
+                    <div class="custom-control custom-switch mb-3">
+                        <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
+                        <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
+                    </div>
+
+                    <div class="mb-2">
+                        <img src="/assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="">
+                    </div>
+                    <div class="custom-control custom-switch mb-3">
+                        <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
+                        <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
+                    </div>
+
+                    <div class="mb-2">
+                        <img src="/assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="">
+                    </div>
+                    <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input theme-choice" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
+                        <label class="custom-control-label" for="rtl-mode-switch">RTL Mode</label>
+                    </div>
+                </div>
+
+            </div> <!-- end slimscroll-menu-->
+        </div>
+        <!-- /Right-bar -->
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+    </div>
+
+</div>
+
+
+<!-- Begin page -->
+
+
+<!-- JAVASCRIPT -->
+
+<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/js/app.js"></script>

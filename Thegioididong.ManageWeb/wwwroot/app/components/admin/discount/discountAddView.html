@@ -1,0 +1,131 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">ưu đãi sản phẩm</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="discount">Quản lý ưu đãi sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="discount-add"></a>Thêm mới</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddDiscount" role="form" ng-submit="AddDiscount()">
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên ưu đãi sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.Name" name="Name" ng-maxlength="500" required class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddDiscount.Name.$error.required && formAddDiscount.name.$touched">Tên ưu đãi sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddDiscount.Name.$error.maxlength">Tên ưu đãi sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả ưu đãi sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.Description" name="Description" ng-maxlength="500" required class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddDiscount.Description.$error.required && formAddDiscount.Description.$touched">Tên ưu đãi sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddDiscount.Description.$error.maxlength">Tên ưu đãi sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- UsePercentage -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giảm theo phần trăm</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="UsePercentage" switch="none" checked="" ng-model="discount.UsePercentage" ng-checked="discount.UsePercentage">
+                            <label class="mr-0" for="UsePercentage" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- DiscountPercentage -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Phần trăm giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.DiscountPercentage" required name="DiscountPercentage" class="form-control" type="number" value="0" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddDiscount.DiscountPercentage.$error.required && formAdddiscount.DiscountPercentage.$touched">Giá gốc sản phẩm không được để trống, thử lại!</span>
+                        </div>
+                    </div>
+
+                    <!-- DiscountAmount -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Số tiền giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.DiscountAmount" required name="DiscountPercentage" class="form-control" type="number" value="0" id="example-number-input">
+                            <span class="text-valid" ng-show="formAddDiscount.DiscountPercentage.$error.required && formAdddiscount.DiscountPercentage.$touched">Giá gốc sản phẩm không được để trống, thử lại!</span>
+                        </div>
+                    </div>
+
+                    <!-- RequiresCouponCode -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Yêu cầu mã giảm giá</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="RequiresCouponCode" switch="none" checked="" ng-model="discount.RequiresCouponCode" ng-checked="discount.RequiresCouponCode">
+                            <label class="mr-0" for="RequiresCouponCode" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- CouponCode -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mã giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.CouponCode" name="Name" ng-maxlength="500" required class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddDiscount.CouponCode.$error.required && formAddDiscount.CouponCode.$touched">Tên ưu đãi sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddDiscount.CouponCode.$error.maxlength">Tên ưu đãi sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="PicturePath" ng-model="discount.PicturePath">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="PicturePath" src="{{discount.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- ColorBackGround -->
+                    <div class="form-group row mt-4">
+                        <label for="example-text-input" class="col-md-2 col-form-label">ColorBackGround</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.ColorBackGround" name="ColorBackGround" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ColorText -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">ColorText</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.ColorText" name="ColorText" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="discount" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddDiscount.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->

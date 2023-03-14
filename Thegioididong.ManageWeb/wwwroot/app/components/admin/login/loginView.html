@@ -1,0 +1,71 @@
+﻿<div class="home-btn d-none d-sm-block">
+    <a href="index.html"><i class="mdi mdi-home-variant h2 text-white"></i></a>
+</div>
+<div>
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-lg-4">
+                <div class="authentication-page-content p-4 d-flex align-items-center min-vh-100">
+                    <div class="w-100">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div>
+                                    <div class="text-center">
+                                        <div>
+                                            <a ui-sref="login" class="logo"><img src="/Content/client/img/resource/logo-dagstore.png" height="40" alt="logo"></a>
+                                        </div>
+
+                                        <h4 class="font-size-18 mt-2">Chào mừng quay trở lại !</h4>
+                                        <p class="text-muted">Đăng nhập hệ thống DAGStore</p>
+                                    </div>
+
+                                    <div class="p-2 mt-2">
+                                        <form class="form-horizontal">
+
+                                            <div class="form-group auth-form-group-custom mb-4">
+                                                <i class="ri-user-2-line auti-custom-input-icon"></i>
+                                                <label for="username">Tên đăng nhập</label>
+                                                <input type="text" class="form-control" id="username" placeholder="Nhập tên đăng nhập" ng-model="loginData.userName">
+                                            </div>
+
+                                            <div class="form-group auth-form-group-custom mb-4">
+                                                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                                                <label for="userpassword">Mật khẩu</label>
+                                                <input type="password" class="form-control" id="userpassword" placeholder="Nhập mật khẩu" ng-model="loginData.password">
+                                            </div>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                                <label class="custom-control-label" for="customControlInline">Duy trì đăng nhập</label>
+                                            </div>
+
+                                            <div class="mt-4 text-center">
+                                                <button class="btn btn-primary w-md waves-effect waves-light" ng-click="loginSubmit()">Đăng nhập</button>
+                                            </div>
+
+                                            <div class="mt-4 text-center">
+                                                <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Quên mật khẩu?</a>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="mt-5 text-center">
+                                        <p>Chưa có tài khoản ? <a href="auth-register.html" class="font-weight-medium text-primary"> Đăng ký </a> </p>
+                                        <p>© 2022 - FIT.UTEHY - Đồ án 3</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="authentication-bg">
+                    <div class="bg-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

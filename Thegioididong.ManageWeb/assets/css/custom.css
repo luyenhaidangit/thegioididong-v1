@@ -1,0 +1,126 @@
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 4px;
+    border: 2px solid #555555;
+}
+
+.dt-button-collection > .dropdown-menu::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.dt-button-collection > .dropdown-menu::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+}
+
+.dt-button-collection > .dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #1cbb8c;
+    border-radius: 4px;
+    border: 2px solid #1cbb8c;
+}
+
+.header-profile-user {
+    background-color: unset;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+ }
+
+button[disabled]{
+    cursor: no-drop;
+}
+
+.text-valid {
+    color: red;
+    margin-top: 6px;
+    display: block;
+}
+
+/*body {
+    font-family: Arial, Helvetica, sans-serif!important;
+}*/
+
+form[role="form"] span {
+    /*color: red;
+    margin-top: 6px;
+    display: block;*/
+}
+
+.dt-buttons span {
+    display: flex;
+    align-items: center;
+}
+
+div.dt-button-collection.fixed {
+    top: 150% !important;
+    left: 45% !important;
+}
+
+.swal2-title{
+    font-size: 22px !important;
+}
+
+.swal2-styled {
+    padding: 8px 16px !important;
+    font-size: 15px !important;
+}
+
+.extension-button i{
+    line-height:22px;
+}
+
+.dt-button-collection{
+    position: absolute;
+    left: 0 !important;
+}
+
+.dt-button-collection > .dropdown-menu {
+    max-height: 400px;
+    overflow-y:auto;
+}
+
+.buttons-columnVisibility.active {
+    background-color: #1cbb8c;
+    color: #fff;
+}
+
+.dt-buttons.btn-group{
+    display: flex !important;
+    flex-wrap:unset !important;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.breadcrumb-item > a {
+    text-transform: capitalize;
+}
+
+.text-placeholder {
+    color: rgba(191, 191, 191, 0.87);
+    cursor: text;
+    position: relative;
+    left: 1px;
+    z-index: 3;
+    display: inline-block;
+    -webkit-transition: none;
+    transition: none;
+}
+
+#loading-bar .bar {
+    background: rgb(116, 155, 216);
+    height: 6px;
+    border-radius: 8px;
+}
+
+
+
+

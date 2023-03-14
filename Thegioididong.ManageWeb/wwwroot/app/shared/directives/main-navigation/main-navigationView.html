@@ -1,0 +1,17 @@
+﻿
+<div class="container">
+
+    <ul class="nav main-nav">
+        <li ng-repeat="category in categorys | filter:{ParentCategoryID : 0} | limitTo:10:0" ng-class="(category.CategoryChild).length > 0?'nav-item main-nav__item dropdown-toggle single-column':'nav-item main-nav__item'">
+            <a ui-sref="category({id:category.ID})" class="main-nav__item-link">
+                <i><img src="{{category.PicturePath}}" alt=""></i>
+                <span class="">{{category.Name}}</span>
+            </a>
+            <div ng-if="(category.CategoryChild).length > 0" class="main-sub-nav">
+                <div class="main-sub-nav__item">
+                    <a ng-repeat="category1 in category.CategoryChild" ui-sref="category({id:category1.ID})"><h3>{{category1.Name}}</h3></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

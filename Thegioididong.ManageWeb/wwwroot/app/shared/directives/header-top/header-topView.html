@@ -1,0 +1,238 @@
+﻿<div class="header__top">
+
+</div>
+    
+<div class="container">
+    <!-- begin: logo -->
+    <a ui-sref="index" class="header__logo">
+        <img src="/Content/client/img/resource/logo-dagstore.png" alt="Logo Dagstore">
+        <img src="/Content/client/img/resource/logo-dagstore-small.png" alt="Logo Dagstore Small">
+    </a>
+    <!-- end: logo -->
+    <!-- begin: header andress -->
+    <button type="button" class="header__address btn" data-bs-toggle="modal" data-bs-target="#headerAndress">
+        <i class="far fa-map-marker"></i>
+        <span>Xem giá, tồn kho tại:</span>
+        <span data-province="3" data-district="0" data-ward="0">Hồ Chí Minh</span>
+    </button>
+    <!-- end: header andress -->
+    <!-- begin: modal andress-->
+    <div class="modal fade" id="headerAndress" tabindex="-1" aria-labelledby="headerAndressLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content modal__andress">
+                <div class="modal-header modal__andress-header">
+                    <div class="modal__andress-header__top">
+                        <p class="modal__andress-header__top-title">
+                            Quý khách vui lòng cho biết <b>Địa Chỉ Nhận Hàng</b> để biết chính xác thời gian giao hàng
+                        </p>
+                        <i class="far fa-times modal__andress-header__top-closed" data-bs-dismiss="modal" aria-label="Close"><p>Đóng</p></i>
+                    </div>
+
+                    <div class="modal__andress-header__search">
+                        <input class="modal__andress-header__search-input" name="locationSearch" placeholder="Tìm nhanh tỉnh thành, quận huyện, phường xã">
+                        <i class="far fa-search modal__andress-header__search-icon"></i>
+                    </div>
+                </div>
+                <div class="modal-body modal__andress-body">
+                    <strong>Hoặc chọn tỉnh, thành phố</strong>
+
+                    <div class="modal-location">
+                        <ul class="modal-location__list-item">
+                            <li><a class="modal-location__item">Hồ Chí Minh</a></li>
+                            <li><a class="modal-location__item active">Hà Nội</a></li>
+                            <li><a class="modal-location__item">Đà Nẵng</a></li>
+                            <li><a class="modal-location__item">An Giang</a></li>
+                            <li><a class="modal-location__item">Bà Rịa - Vũng Tàu</a></li>
+                            <li><a class="modal-location__item">Bắc Giang</a></li>
+                            <li><a class="modal-location__item">Bắc Kạn</a></li>
+                            <li><a class="modal-location__item">Bạc Liêu</a></li>
+                            <li><a class="modal-location__item">Bắc Ninh</a></li>
+                            <li><a class="modal-location__item">Bến Tre</a></li>
+                            <li><a class="modal-location__item">Bình Định</a></li>
+                            <li><a class="modal-location__item">Bình Dương</a></li>
+                            <li><a class="modal-location__item">Bình Phước</a></li>
+                            <li><a class="modal-location__item">Bình Thuận</a></li>
+                            <li><a class="modal-location__item">Cà Mau</a></li>
+                            <li><a class="modal-location__item">Cần Thơ</a></li>
+                            <li><a class="modal-location__item">Cao Bằng</a></li>
+                            <li><a class="modal-location__item">Đắk Lắk</a></li>
+                            <li><a class="modal-location__item">Đắk Nông</a></li>
+                            <li><a class="modal-location__item">Điện Biên</a></li>
+                            <li><a class="modal-location__item">Đồng Nai</a></li>
+                            <li><a class="modal-location__item">Đồng Tháp</a></li>
+                            <li><a class="modal-location__item">Gia Lai</a></li>
+                            <li><a class="modal-location__item">Hà Giang</a></li>
+                            <li><a class="modal-location__item">Hà Nam</a></li>
+                            <li><a class="modal-location__item">Hà Tĩnh</a></li>
+                            <li><a class="modal-location__item">Hải Dương</a></li>
+                            <li><a class="modal-location__item">Hải Phòng</a></li>
+                            <li><a class="modal-location__item">Hậu Giang</a></li>
+                            <li><a class="modal-location__item">Hòa Bình</a></li>
+                            <li><a class="modal-location__item">Hưng Yên</a></li>
+                            <li><a class="modal-location__item">Khánh Hòa</a></li>
+                            <li><a class="modal-location__item">Kiên Giang</a></li>
+                            <li><a class="modal-location__item">Kon Tum</a></li>
+                            <li><a class="modal-location__item">Lai Châu</a></li>
+                            <li><a class="modal-location__item">Lâm Đồng</a></li>
+                            <li><a class="modal-location__item">Lạng Sơn</a></li>
+                            <li><a class="modal-location__item">Lào Cai</a></li>
+                            <li><a class="modal-location__item">Long An</a></li>
+                            <li><a class="modal-location__item">Nam Định</a></li>
+                            <li><a class="modal-location__item">Nghệ An</a></li>
+                            <li><a class="modal-location__item">Ninh Bình</a></li>
+                            <li><a class="modal-location__item">Ninh Thuận</a></li>
+                            <li><a class="modal-location__item">Phú Thọ</a></li>
+                            <li><a class="modal-location__item">Phú Yên</a></li>
+                            <li><a class="modal-location__item">Quảng Bình</a></li>
+                            <li><a class="modal-location__item">Quảng Nam</a></li>
+                            <li><a class="modal-location__item">Quảng Ngãi</a></li>
+                            <li><a class="modal-location__item">Quảng Ninh</a></li>
+                            <li><a class="modal-location__item">Quảng Trị</a></li>
+                            <li><a class="modal-location__item">Sóc Trăng</a></li>
+                            <li><a class="modal-location__item">Sơn La</a></li>
+                            <li><a class="modal-location__item">Tây Ninh</a></li>
+                            <li><a class="modal-location__item">Thái Bình</a></li>
+                            <li><a class="modal-location__item">Thái Nguyên</a></li>
+                            <li><a class="modal-location__item">Thanh Hóa</a></li>
+                            <li><a class="modal-location__item">Thừa Thiên Huế</a></li>
+                            <li><a class="modal-location__item">Tiền Giang</a></li>
+                            <li><a class="modal-location__item">Trà Vinh</a></li>
+                            <li><a class="modal-location__item">Tuyên Quang</a></li>
+                            <li><a class="modal-location__item">Vĩnh Long</a></li>
+                            <li><a class="modal-location__item">Vĩnh Phúc</a></li>
+                            <li><a class="modal-location__item">Yên Bái</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end: modal andress -->
+    <!-- begin: header search -->
+    <form class="header__search">
+        <input type="text" ng-model="keySearch" ng-change="GetSearchProduct()" class="header__input-search" placeholder="Bạn tìm gì..." name="key" autocomplete="off" maxlength="100">
+
+        <button type="header__button-submit" style="cursor:pointer;" ui-sref="search({key:keySearch})" ng-click="ChooseProduc()">
+            <i class="far fa-search"></i>
+        </button>
+
+        <div ng-show="searchItem.length == 0 ? false: true" class="main-sub-nav seacrh-input d-block" style="width:120%;top:60px;max-height: 240px;overflow-y:scroll;">
+            <div ng-repeat="item in searchItem" class="main-sub-nav__item">
+                <a ui-sref="product({id:item.ID})" ng-click="ChooseProduc()" style="cursor:pointer;" class="d-flex">
+
+                    <img src="{{item.PicturePath}}" style="max-width: 40px;" class="img-fluid">
+                    <div class="search-navigation__info-product">
+                        <h6 class="ms-3 mb-0">{{item.Name}}</h6>
+                        <div class="search-navigation__info-product-price d-flex ms-3 mt-1">
+                            <span style="font-size:12px;"><b class="me-1 text-danger">{{item.SellPriceActual | formatCurrencyVND}}</b> <s>{{item.SellPrice | formatCurrencyVND}}</s> <small class="product-item-core__price-percent-discount p-0 ms-2">-{{item.DiscountRate}}%</small></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </form>
+    <style>
+        .search-navigation__info-product > h6 {
+            color: #333;
+            outline: none;
+            font-size: 13px;
+        }
+    </style>
+    <!-- end: header search -->
+    <!-- begin: history order -->
+    <a ui-sref="historyorder" style="cursor:pointer;" class="history-order btn">
+        Lịch sử đơn hàng
+    </a>
+    <!-- end: history order -->
+    <!-- begin: header cart -->
+    <a ui-sref="cart" href="/page/client/customer/cart.html" class="header__cart btn">
+        <div class="header__cart-icon">
+            <i class="far fa-shopping-cart"></i>
+            <span class="cart-number has-cart">2</span>
+        </div>
+        <span>Giỏ hàng</span>
+    </a>
+    <!-- end: header cart -->
+    <!-- begin: header blog -->
+    <div class="header__blog">
+        <div class="header__blog-item">
+            <a href="#">
+                24h<br>Công
+                nghệ
+            </a>
+        </div>
+        <div class="header__blog-item">
+            <a href="#">Hỏi Đáp</a>
+        </div>
+        <div class="header__blog-item">
+            <a href="#">Game App</a>
+        </div>
+    </div>
+    <!-- end: header blog -->
+    <!-- begin: header collapse -->
+    <div class="header__collapse">
+        <button class="header__menu btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offmenucanvasRight" aria-controls="offmenucanvasRight">
+            <div class="header__cart-icon">
+                <i class="far fa-bars"></i>
+            </div>
+            <span>Menu</span>
+        </button>
+
+        <div class="offcanvas offcanvas-end offcanvas-header__collapse" tabindex="-1" id="offmenucanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header offcanvas__menu-header">
+                <i class="far fa-times offcanvas__menu-header__top-closed" data-bs-dismiss="offcanvas" aria-label="Close"><span>Đóng</span></i>
+            </div>
+            <div class="offcanvas-body offcanvas__menu-body">
+                <div class="header__collapse-list-categories">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <a href="#" class="col header__collapse-categories"><span class="">Điện thoại</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Lap top</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Tablet</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Phụ kiện</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Đồng hồ thông minh</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Máy tính bộ</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Màn hình máy tính</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Máy in</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Mực in</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Đồng hồ thời trang</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Sạc dự phòng</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Tai nghe</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Máy cũ giá rẻ</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Sim, thẻ cào</span></a>
+                            <a href="#" class="col header__collapse-categories"><span class="">Dịch vụ, tiện ích</span></a>
+                        </div>
+                        <div class="row justify-content-md-center mt-4">
+                            <div class="col header__collapse-blog">
+                                <strong>Nhóm hàng mới</strong>
+                                <div class="header__collapse-blog__list-item">
+                                    <a class="header__collapse-blog__item" href="#"><span>Phụ kiện ô tô</span></a>
+                                    <a class="header__collapse-blog__item" href="#"><span>Thiết bị nhà thông minh</span></a>
+                                    <a class="header__collapse-blog__item" href="#"><span>Màn hình máy tính</span></a>
+                                    <a class="header__collapse-blog__item" href="#"><span>Thẻ cào giảm đến 3%</span></a>
+                                </div>
+                            </div>
+                            <div class="col header__collapse-blog">
+                                <strong>Thế giới công nghệ</strong>
+                                <div class="header__collapse-blog__list-item">
+                                    <a class="header__collapse-blog__item" href="#"><span>24h công nghệ</span></a>
+                                    <a class="header__collapse-blog__item" href="#"><span>Game App</span></a>
+                                    <a class="header__collapse-blog__item" href="#"><span>Hỏi đáp</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col header__collapse-other-link">
+                                <a class="text-primary" href="/page/client/customer/cart.html">Lịch sử mua hàng</a>
+                                <span>Tổng đài <a class="text-primary" href="tel:1800.1060">1800.1060</a> (7:30 - 22:00)</span>
+                                <span>Xem <a class="text-primary" href="#">3256</a> siêu thị (8:00 - 22:00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: header collapse -->
+</div>

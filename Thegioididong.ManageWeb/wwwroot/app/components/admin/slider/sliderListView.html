@@ -1,0 +1,92 @@
+﻿<!-- Begin: Page Title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.namePage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="{{config.urlPage}}">{{config.namePage}}</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Begin: Page Title -->
+<!-- Begin: Table -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-md-2 col-form-label">Slider Đầu Trang</label>
+                </div>
+                <div class="form-group row" ng-repeat="item in sliders | filter:{Position:'index_top'}">
+                    <div class="mb-3 w-100" ng-repeat="image in item.SliderItems">
+                        <div class="img-slider-top rounded d-flex align-items-center row">
+                            <div class="col-8" style="cursor:pointer;max-height:30px;" ng-click="ChangeImage(image)">
+                                <img src="{{image.ImagePath | nullImage}}" style="height:30px;" class="img-fluid rounded" alt="Responsive image">
+                            </div>
+                            <div class="col-2">
+                                <input ng-model="image.URL" style="min-width:40px;" ng-maxlength="500" class="form-control form-control-sm" type="text" />
+                            </div>
+                            <div class="col-1" ng-click="DeleteImage(image)" style="cursor:pointer;">
+                                <i class="far fa-times-circle text-danger ml-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary waves-effect waves-light" ng-click="AddSliderItemTop()">
+                    Thêm <i class="ri-arrow-right-line align-middle ml-2"></i>
+                </button>
+
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-md-2 col-form-label">Ảnh background chính</label>
+                </div>
+                <div class="form-group row" ng-repeat="item in sliders | filter:{Position:'index_main'}">
+                    <div class="mb-3" ng-repeat="image in item.SliderItems">
+                        <div class="img-slider-top rounded d-flex align-items-center row">
+                            <div class="col-8" style="cursor:pointer;" ng-click="ChangeImage(image)">
+                                <img src="{{image.ImagePath | nullImage}}" class="img-fluid rounded" alt="Responsive image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                    <button ng-click="UpdateSlider()" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End: Table -->
+<!-- CSS -->
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+<!-- JS -->
+
+<script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/assets/libs/datatables.net/html5/buttons.html5.min.js"></script>
+
+<script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/libs/jszip/jszip.min.js"></script>
+<script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
+<script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+<script src="/assets/libs/datatables.net/searchpanes/dataTables.searchPanes.min.js"></script>
+<script src="/assets/libs/datatables.net/select/dataTables.select.min.js"></script>

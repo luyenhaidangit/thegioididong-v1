@@ -1,0 +1,156 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <title>Trang quản trị | DAGStore.online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesdesign" name="author" />
+
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/trademark/favicon-dagstore.ico">
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    @*UI dropdown*@
+    <link href="~/assets/libs/UI-Transition/transition.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/UI-Dropdown-master/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/sematic/ui-icon/icon.min.css" rel="stylesheet" />
+
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/assets/fonts/font-awesome-pro-5/css/all.min.css">
+    <link href="/assets/libs/angular-loading-bar/loading-bar.css" rel="stylesheet" />
+    <!-- Toastr -->
+    <link rel="stylesheet" type="text/css" href="/assets/libs/toastr/build/toastr.min.css">
+    <!-- Sweet Alert-->
+    <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <!-- dashboard -->
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <link href="/assets/libs/select-ui-angularjs/common.css" rel="stylesheet" />
+</head>
+
+<body data-sidebar="dark" ng-app="DAGStore">
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <i class="ri-loader-line spin-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-bar-container"></div>
+
+    <div ui-view></div>
+
+
+    <!-- end main content-->
+    <!-- END layout-wrapper -->
+    <!-- Right Sidebar -->
+    <!-- JAVASCRIPT -->
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="~/assets/libs/UI-Transition/transition.js"></script>
+    <script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>
+    <!-- toastr plugin -->
+    <script src="/assets/libs/toastr/build/toastr.min.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Ckeditor -->
+    <script src="~/assets/libs/ckeditor/ckeditor.js"></script>
+    <script src="~/assets/libs/ckfinder/ckfinder.js"></script>
+
+    <!-- App Angular -->
+    <script src="/assets/libs/angular.js/angular.js"></script>
+    <script src="/assets/libs/oclazyload/ocLazyLoad.js"></script>
+    <script src="/assets/libs/angular-ui-router/angular-ui-router.js"></script>
+    <script src="/assets/libs/angular-local-storage/angular-local-storage.js"></script>
+    <script src="/assets/libs/angular-loading-bar/loading-bar.js"></script>
+    <script src="/app/shared/modules/DAGStore.common.js"></script>
+    <script src="~/app/shared/services/notificationService.js"></script>
+    <script src="~/app/shared/services/alertService.js"></script>
+    <script src="/app/shared/filters/statusFilter.js"></script>
+    <script src="/app/shared/services/apiService.js"></script>
+    <script src="/app/shared/services/dataTableService.js"></script>
+    <script src="~/app/shared/services/ckeditorService.js"></script>
+    <script src="/app/shared/services/authData.js"></script>
+    <script src="/app/shared/services/authenticationService.js"></script>
+    <script src="/app/shared/services/dropdownService.js"></script>
+    <script src="/app/shared/services/loginService.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/components/admin/home/homeController.js"></script>
+    <script src="/app/components/admin/home/rootController.js"></script>
+    <!-- Supplier -->
+    <script src="/app/components/admin/login/loginController.js"></script>
+    <script src="/app/components/admin/supplier/supplier.module.js"></script>
+    <script src="/app/components/admin/supplier/supplierListController.js"></script>
+    <!-- Brand -->
+    <script src="/app/components/admin/brand/brand.module.js"></script>
+    <script src="/app/components/admin/brand/brandListController.js"></script>
+    <script src="/app/components/admin/brand/brandAddController.js"></script>
+    <script src="/app/components/admin/brand/brandInfoController.js"></script>
+    <script src="/app/components/admin/brand/brandEditController.js"></script>
+    <!-- Category -->
+    <script src="/app/components/admin/category/category.module.js"></script>
+    <script src="/app/components/admin/category/categoryListController.js"></script>
+    <script src="/app/components/admin/category/categoryAddController.js"></script>
+    <script src="/app/components/admin/category/categoryInfoController.js"></script>
+    <script src="/app/components/admin/category/categoryEditController.js"></script>
+    <!-- Product -->
+    <script src="/app/components/admin/product/product.module.js"></script>
+    <script src="/app/components/admin/product/productInfoController.js"></script>
+    <script src="/app/components/admin/product/productListController.js"></script>
+    <script src="/app/components/admin/product/productAddController.js"></script>
+    <script src="/app/components/admin/product/productEditController.js"></script>
+    <!-- Discount -->
+    <script src="/app/components/admin/discount/discount.module.js"></script>
+    <script src="/app/components/admin/discount/discountListController.js"></script>
+    <script src="/app/components/admin/discount/discountAddController.js"></script>
+    <script src="/app/components/admin/discount/discountInfoController.js"></script>
+    <script src="/app/components/admin/discount/discountEditController.js"></script>
+    <!-- ImportBill -->
+    <script src="/app/components/admin/importbill/importBill.module.js"></script>
+    <script src="/app/components/admin/importbill/importBillListController.js"></script>
+    <script src="/app/components/admin/importbill/importBillAddController.js"></script>
+    <script src="/app/components/admin/importbill/importBillInfoController.js"></script>
+    <script src="/app/components/admin/importbill/importBillEditController.js"></script>
+    <!-- Slider -->
+    <script src="/app/components/admin/slider/slider.module.js"></script>
+    <script src="/app/components/admin/slider/sliderListController.js"></script>
+    <script src="/app/components/admin/slider/sliderAddController.js"></script>
+    <!-- Event -->
+    <script src="/app/components/admin/event/event.module.js"></script>
+    <script src="/app/components/admin/event/eventListController.js"></script>
+    <script src="/app/components/admin/event/eventAddController.js"></script>
+    <!-- Event -->
+    <script src="/app/components/admin/page/page.module.js"></script>
+    <script src="/app/components/admin/page/pageListController.js"></script>
+    <script src="/app/components/admin/page/pageAddController.js"></script>
+    <script src="/app/components/admin/page/pageInfoController.js"></script>
+    <script src="/app/components/admin/page/pageEditController.js"></script>
+    <!-- Customer -->
+    <script src="/app/components/admin/customer/customer.module.js"></script>
+    <script src="/app/components/admin/customer/customerListController.js"></script>
+    <!-- Order -->
+    <script src="/app/components/admin/order/order.module.js"></script>
+    <script src="/app/components/admin/order/orderListController.js"></script>
+    <script src="/app/components/admin/order/orderInfoController.js"></script>
+    <!-- Suggest -->
+    <script src="/app/components/admin/suggest/suggest.module.js"></script>
+    <script src="/app/components/admin/suggest/suggestListController.js"></script>
+</body>
+</html>
+

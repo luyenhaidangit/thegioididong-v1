@@ -1,0 +1,156 @@
+﻿<!-- css -->
+<link rel="stylesheet" href="/Content/client/css/cart.css">
+
+
+<!-- begin: content -->
+<div class="content">
+    <div ng-if="cart.length != 0" class="container-sm d-flex justify-content-center">
+        <div class="loading-cart d-flex flex-column py-2">
+            <div class="loading-cart__top w-100">
+                <div class="loading-cart__top-buy-more d-flex justify-content-between">
+                    <a ui-sref="index" class="buymore">Mua thêm sản phẩm khác</a>
+                    <span>Giỏ hàng của bạn</span>
+                </div>
+            </div>
+            <div name="form" class="loading-cart__body w-100 py-2">
+                <div class="loading-cart__list-product border-bottom" ng-repeat="item in cart">
+                    <div class="loading-cart__product-item d-flex">
+                        <div class="loading-cart__product-item__img">
+                            <a ui-sref="product({id:item.Product.ID})">
+                                <img class="img-fluid" src="{{item.Product.PicturePath}}" alt="">
+                            </a>
+                            <div ng-click="DeteteCartItem(item.Product.ID)" class="delete-product d-flex justify-content-center align-items-center py-2 gap-1">
+                                <i class="fal fa-times-circle"></i>
+                                Xóa
+                            </div>
+                        </div>
+                        <div class="loading-cart__product-item__info">
+                            <div class="loading-cart__product-item__info-name">
+                                <h6 href="/dtdd/xiaomi-redmi-note-11s-5g"> {{item.Product.Name}} </h6>
+                            </div>
+                            <div class="loading-cart__product-item__info-promo py-1">
+                                <span class="text-primary" href="/dtdd/xiaomi-redmi-note-11s-5g">3 khuyến mãi <i class="fas fa-caret-down"></i></span>
+                            </div>
+
+                            <div class="loading-cart__product-item__info-color py-1">
+                                <span class="text-primary" href="/dtdd/xiaomi-redmi-note-11s-5g">Màu: Xanh dương nhạt <i class="fas fa-caret-down"></i></span>
+                            </div>
+
+                        </div>
+                        <div class="loading-cart__product-item__price d-flex flex-column ms-auto text-end">
+                            <span class="modal__add-cart__header-text"> {{item.Product.SellPriceActual | formatCurrencyVND}} </span>
+                            <strike class="modal__add-cart__header-text">{{item.Product.SellPrice | formatCurrencyVND}}</strike>
+                            <div class="input-group input-group-sm mb-3">
+                                <span ng-click="ChangeQuantity(item,'-')" class="input-group-text" id="inputGroup-sizing-sm" style="cursor:pointer;">-</span>
+                                <input ng-change="ChangeQuantity(item,'change')" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="max-width:40px;" ng-model="item.Quantity" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                                <span ng-click="ChangeQuantity(item,'+')" class="input-group-text" id="inputGroup-sizing-sm" style="cursor:pointer;">+</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="loading-cart__info-customer border-bottom py-4">
+                    <span class="modal__add-cart__header-text">Thông tin khách hàng</span>
+                    <div class="form-check-sex">
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Customer.Sex" ng-value="'Nam'" class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="option1" ng-checked="true">
+                            <label class="form-check-label" for="exampleRadios1">
+                                Anh
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Customer.Sex" ng-value="'Nữ'" class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Chị
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Customer.Name" name="name" required type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Họ và tên">
+
+                        </div>
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Customer.NumberPhone" required name="phone" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Customer.Email" required name="email" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <span class="text-danger" ng-show="form.name.$error.required && form.name.$touched">Tên khách hàng không được để trống!</span>
+                    <span class="text-danger" ng-show="form.phone.$error.required && form.phone.$touched">Số điện thoại không được để trống!</span>
+                    <span class="text-danger" ng-show="form.email.$error.required && form.email.$touched">Email không được để trống!</span>
+
+                    <span class="modal__add-cart__header-text mt-2">Cách thức nhận hàng</span>
+                    <div class="form-check-format">
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Order.ShippingFormat" ng-value="'0'" class="form-check-input" type="radio" name="format" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Giao hàng tận nơi
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Order.ShippingFormat" ng-value="'1'" class="form-check-input" type="radio" name="format" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Nhận hàng tại siêu thị
+                            </label>
+                        </div>
+                    </div>
+
+                    <div ng-show="form.Order.ShippingFormat=='0'? true : false " class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Order.ShippingAddress" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Địa chỉ nhận hàng">
+                        </div>
+                    </div>
+                    <div class="form-check-info d-flex gap-3 mt-2">
+                        <div class="form-check col p-0">
+                            <input ng-model="form.Order.CustomerOrderComment" type="text" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ghi chú">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="loading-cart__info-customer border-bottom py-4">
+                    <span class="modal__add-cart__header-text">Hình thức thanh toán</span>
+                    <div class="form-check-payments">
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Order.PaymentFormat" ng-value="'0'" class="form-check-input" type="radio" name="format1" id="exampleRadios3" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Trả tiền khi nhân hàng
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ng-model="form.Order.PaymentFormat" ng-value="'1'" class="form-check-input" type="radio" name="format1" id="exampleRadios3" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Thanh toán Momo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading-cart__summary py-4">
+                    <div class="loading-cart__summary-value d-flex justify-content-between">
+                        <b class="modal__add-cart__header-text">Tổng tiền</b>
+                        <b class="modal__add-cart__header-text text-end text-danger">{{order.OrderTotal | formatCurrencyVND}}</b>
+                    </div>
+                    <button ng-click="SubmitForm()" type="button" class="btn btn-primary w-100 my-2">Xác nhận</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div ng-if="cart.length == 0" class="container-sm d-flex justify-content-center" style="min-height:540px;padding:0px 0">
+        <div class="cartempty d-flex flex-column align-items-center justify-content-center">
+            <i class="fal fa-cart-plus text-danger" style="font-size:60px;"></i>
+            <span class="my-1">Không có sản phẩm nào trong giỏ hàng</span>
+            <a class="my-1" ui-sref="index">Về trang chủ</a>
+            <p class="my-1">Khi cần trợ giúp vui lòng gọi <a style="color: #288ad6" href="tel:0922002360">092.2002.360</a> hoặc <a style="color: #288ad6" href="tel:0395502917">0395.502.917</a> (7h30 - 22h)</p>
+        </div>
+    </div>
+
+</div>
+<!-- end: content -->

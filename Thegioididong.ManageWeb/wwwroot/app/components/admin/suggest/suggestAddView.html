@@ -1,0 +1,136 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.nameManage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="brand">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-brand"></a>{{config.namePage}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="button" class="btn btn-primary waves-effect waves-light mb-3" ng-click="AddSliderItem()"><i class="far fa-plus"></i></button>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+
+
+    <div class="col-8">
+
+        
+
+        <div class="card" style="min-height:500px;">
+            <div class="card-body p-0">
+                <form class="form-horizontal" novalidate name="formAddBrand" role="form" ng-submit="AddBrand()">
+                    <div class="table-responsive">
+                        <table class="table table-borderless mb-0">
+
+                            <thead>
+                                <tr class="table-info">
+                                    <th width="5%">#</th>
+                                    <th width="25%">Nội dung</th>
+                                    <th width="25%">Ảnh</th>
+                                    <th>URL</th>
+                                    <th width="15%">Độ ưu tiên</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-form="form">
+                                <tr class="border-bottom" ng-repeat="item in slider.SliderItems">
+                                    <td><i class="fas fa-trash-alt text-danger" style="cursor:pointer" ng-click="RemoveDetailBill(item)"></i></td>
+                                    <td>
+                                        <input ng-model="item.Content" class="form-control form-control-sm">
+                                    </td>
+                                    <td>
+                                        <div class="input-control d-flex align-items-center">
+                                            <button ng-click="ChooseImage(true,item)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                            <i ng-click="ChooseImage(false,item)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger mt-2 ml-2 mb-2"></i>
+                                            <input type="hidden" name="picturepath" ng-model="image.ImagePath">
+                                        </div>
+                                        <img src="{{item.ImagePath}}" style="height:40px;" class="img-fluid">
+                                    </td>
+                                    <td>
+                                        <input ng-model="item.URL" class="form-control form-control-sm">
+                                    </td>
+                                    <td>
+                                        <input ng-model="item.DisplayOrder" class="form-control form-control-sm" type="number">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card" style="min-height:450px;">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="form" role="form" ng-submit="AddBrand()">
+                    <div class="page-title-box d-flex align-items-center justify-content-between pb-4">
+                        <h4 class="mb-0">Cấu hình Slider</h4>
+                    </div>
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input ng-model="slider.Title" name="name" required ng-maxlength="500" class="form-control" type="text" value="" placeholder="Tiêu đề">
+                            <span class="text-valid" ng-show="form.name.$error.required && form.name.$touched">Tiêu đề không được để trống!</span>
+                            <span class="text-valid" ng-show="form.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="ui dropdown fluid search selection">
+                                <i class="dropdown icon"></i>
+                                <input ng-model="slider.SupplierID" name="supplier" type="hidden" required>
+                                <div class="default text">Vị trí</div>
+                                <div class="menu">
+                                    <div ng-click="ChoosePositionSlider(item,'Trang chủ - Đầu Trang')" class="item" data-value="{{item.ID}}">Trang chủ - Đầu Trang</div>
+                                    <div ng-click="ChoosePositionSlider(item,'Trang chủ - Banner Chính')" class="item" data-value="{{item.ID}}">Trang chủ - Banner Chính</div>
+                                </div>
+                            </div>
+                            <span class="text-valid ml-2" ng-show="errorSupplier">Vui lòng chọn nhà cung cấp!</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input ng-model="slider.DisplayOrder" class="form-control" type="number" placeholder="Độ ưu tiên">
+                        </div>
+                    </div>
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="Status" switch="none" checked="" ng-model="slider.Status" ng-checked="slider.Status">
+                            <label class="mr-0" for="Status" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="import-bill" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-click="Addslider()" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+<script>
+    $(".ui.dropdown.select-product").dropdown({
+        action: 'select',
+    });
+
+    $(".ui.dropdown").dropdown({
+
+    });
+</script>
+<script src="/assets/libs/bootstrap-editable/js/index.js"></script>
+
+

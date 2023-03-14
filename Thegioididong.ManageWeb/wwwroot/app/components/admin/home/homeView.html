@@ -1,0 +1,274 @@
+<!-- jquery.vectormap css -->
+<link href="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+<!-- DataTables -->
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Responsive datatable examples -->
+<link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Trang điều khiển</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">DAGStore</a></li>
+                    <li class="breadcrumb-item active">Trang điều khiển</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-xl-8">
+        <div class="row">
+            <!-- Begin: Card-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="media-body overflow-hidden">
+                                <p class="text-truncate font-size-14 mb-2">Sản phẩm bán ra</p>
+                                <h4 class="mb-0">1452</h4>
+                            </div>
+                            <div class="text-primary">
+                                <i class="ri-stack-line font-size-24"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-body border-top py-3">
+                        <div class="text-truncate">
+                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> 2.4% </span>
+                            <span class="text-muted ml-2">So với cùng kỳ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Card-->
+            <!-- Begin: Card-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="media-body overflow-hidden">
+                                <p class="text-truncate font-size-14 mb-2">Doanh thu</p>
+                                <h4 class="mb-0">106.245.987đ</h4>
+                            </div>
+                            <div class="text-primary">
+                                <i class="ri-store-2-line font-size-24"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body border-top py-3">
+                        <div class="text-truncate">
+                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> 2.4% </span>
+                            <span class="text-muted ml-2">So với cùng kỳ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Card-->
+            <!-- Begin: Card-->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="media-body overflow-hidden">
+                                <p class="text-truncate font-size-14 mb-2">Khách hàng mua hàng</p>
+                                <h4 class="mb-0">302</h4>
+                            </div>
+                            <div class="text-primary">
+                                <i class="ri-briefcase-4-line font-size-24"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body border-top py-3">
+                        <div class="text-truncate">
+                            <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> 2.4% </span>
+                            <span class="text-muted ml-2">So với cùng kỳ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Card-->
+        </div>
+
+        <!-- Begin: Chart -->
+        <div class="card">
+            <div class="card-body">
+                <div class="float-right d-none d-md-inline-block">
+                    <div class="btn-group mb-2">
+                        <button type="button" class="btn btn-sm btn-light">Ngày</button>
+                        <button type="button" class="btn btn-sm btn-light active">Tuần</button>
+                        <button type="button" class="btn btn-sm btn-light">Tháng</button>
+                    </div>
+                </div>
+                <h4 class="card-title mb-4">Phân tích doanh thu</h4>
+                <div>
+                    <div id="line-column-chart" class="apex-charts" dir="ltr"></div>
+                </div>
+            </div>
+
+            <div class="card-body border-top text-center">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="d-inline-flex">
+                            <h5 class="mr-2">607.478.322đ</h5>
+                            <div class="text-success">
+                                <i class="mdi mdi-menu-up font-size-14"> </i>2.2 %
+                            </div>
+                        </div>
+                        <p class="text-muted text-truncate mb-0">Tháng này</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="mt-4 mt-sm-0">
+                            <p class="mb-2 text-muted text-truncate"><i class="mdi mdi-circle text-primary font-size-10 mr-1"></i> Năm nay :</p>
+                            <div class="d-inline-flex">
+                                <h5 class="mb-0 mr-2">1.776.245.753đ</h5>
+                                <div class="text-success">
+                                    <i class="mdi mdi-menu-up font-size-14"> </i>2.1 %
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mt-4 mt-sm-0">
+                            <p class="mb-2 text-muted text-truncate"><i class="mdi mdi-circle text-success font-size-10 mr-1"></i> Năm trước :</p>
+                            <div class="d-inline-flex">
+                                <h5 class="mb-0">955.879.412đ</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End: Chart -->
+    </div>
+
+    <!-- Begin: Chart -->
+    <div class="col-xl-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="float-right">
+                    <select class="custom-select custom-select-sm">
+                        <option selected>Tháng 12</option>
+                        <option value="1">Tháng11</option>
+                        <option value="2">Tháng 10</option>
+                        <option value="3">Tháng 9</option>
+                    </select>
+                </div>
+                <h4 class="card-title mb-4">Sản phẩm bán chạy</h4>
+
+                <div id="donut-chart" class="apex-charts"></div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <div class="text-center mt-4">
+                            <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-primary font-size-10 mr-1"></i> Điện thoại</p>
+                            <h5>42 %</h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="text-center mt-4">
+                            <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-success font-size-10 mr-1"></i> Khác</p>
+                            <h5>42 %</h5>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="text-center mt-4">
+                            <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-warning font-size-10 mr-1"></i> Laptop</p>
+                            <h5>26 %</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="dropdown float-right">
+                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-dots-vertical"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Profit</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                    </div>
+                </div>
+
+                <h4 class="card-title mb-4">Tình trạng kinh doanh</h4>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <div class="mb-3">
+                                    <div id="radialchart-1" class="apex-charts"></div>
+                                </div>
+
+                                <p class="text-muted text-truncate mb-2">Nhập hàng</p>
+                                <h5 class="mb-0">42.554.985đ</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mt-5 mt-sm-0">
+                                <div class="mb-3">
+                                    <div id="radialchart-2" class="apex-charts"></div>
+                                </div>
+
+                                <p class="text-muted text-truncate mb-2">Bán hàng</p>
+                                <h5 class="mb-0">́92.873.547</h5>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: Chart -->
+</div>
+<!-- end row -->
+<!-- end row -->
+<!-- apexcharts -->
+<!-- <script src="assets/libs/apexcharts/apexcharts.min.js"></script> -->
+<script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- jquery.vectormap map -->
+<script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
+<!-- Required datatable js -->
+<script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<script src="assets/js/pages/dashboard.init.js"></script>
+
+
+
+
+
+

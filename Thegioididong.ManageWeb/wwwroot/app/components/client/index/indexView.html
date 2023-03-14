@@ -1,0 +1,1071 @@
+<div class="big-banner" ng-repeat="item in sliders | filter:{Position:'index_main'} | limitTo: 1">
+    <a ng-repeat="slider in item.SliderItems | limitTo: 1" href="{{slider.URL}}" aria-label="slide" data-cate="0" data-place="1998">
+        <img class="" src="{{slider.ImagePath}}" alt="Banner Big Campaign">
+        <img class="" src="/Content/client/img/big-banner/5e687f55f7f335ad6ce2.jpg" alt="Banner Big Campaign">
+    </a>
+</div>
+<!-- end: main-banner -->
+<!-- begin: main-container -->
+<div class="main-container home-content">
+    <!-- begin: main-slider -->
+    <div class="container">
+        <!-- begin: big-campain -->
+        <div class="big-campaign">
+            <div class="swiper event__swiper">
+                <div class="swiper-wrapper">
+                    <a ng-repeat="event in events" href="#" class="swiper-slide">
+                        <img class="slide-img-core" src="{{event.ImagePath}}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-button-next slide-button-next-core event__button-next"><i class="far fa-angle-right"></i></div>
+            <div class="swiper-button-prev slide-button-prev-core event__button-prev"><i class="far fa-angle-left"></i></div>
+            <div class="swiper-pagination big-campaign__dot"></div>
+        </div>
+       
+        <!-- end: big-campain -->
+        <!-- begin: option promo -->
+        <div class="option-promo">
+            <div ng-repeat="item in suggests | filter: { Type: 1 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" class="option-promo__item" style="cursor:pointer;">
+                <a class="option-promo__item-link">
+                    <img src="{{item.ImagePath}}" alt="" class="option-promo__item-icon">
+                    <span>{{item.Title}}</span>
+                </a>
+            </div>
+        </div>
+        <!-- end: option promo -->
+    </div>
+    <!-- end: main-slider -->
+    <!-- begin: content -->
+    <div class="container-sm">
+        <!-- begin: banner-topzone -->
+        <div ng-repeat="suggest in suggests | filter: { Type: 2 }| limitTo:1:0" ui-sref="suggest({id:suggest.ID})" class="banner-ads banner-topzone" style="cursor:pointer;">
+            <a class="banner-ads__link">
+                <img src="{{suggest.ImagePath}}" alt="">
+            </a>
+        </div>
+        <!-- end: banner-topzone -->
+        <!-- begin: hot-deal -->
+        <div ng-repeat="suggest in suggests | filter: { Type: 0 }| limitTo:4:0" class="suggest suggest__{{suggest.ID}} hot-deal" style="background-color:{{suggest.BackgroundColor}};">
+            <div class="suggest__title">
+                <img class="{{suggest.Title == null ? 'd-none' : '' }}" src="{{suggest.ImagePath}}" alt="">
+                <p class="{{suggest.Title == '' ? 'd-none' : '' }} mb-1">{{suggest.Title}}</p>
+            </div>
+
+            <div class="suggest__carousel">
+                <div class="swiper suggest__swiper suggest__swiper__{{suggest.ID}}">
+                    <div class="swiper-wrapper">
+                        <div ng-repeat="product in suggest.SuggestProducts" class="swiper-slide product-item-core">
+                            <a ui-sref="product({id:product.ID})">
+                                <div class="product-item-core__label">
+                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
+                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                </div>
+
+                                <div class="product-item-core__img">
+                                    <img src="{{product.PicturePath}}" alt="">
+                                </div>
+
+                                <h3 class="product-item-core__title">
+                                    {{product.Name}}
+                                </h3>
+
+                                <span class="product-item-core__order-online">
+                                    Online giá rẻ
+                                </span>
+
+                                <strong class="product-item-core__price">
+                                    <span>{{product.SellPriceActual | formatCurrencyVND}}<small class="product-item-core__price-percent-discount">-{{product.DiscountRate}}%</small></span>
+                                </strong>
+
+                                <div class="product-item-core__gift">
+                                    {{product.ShortDescriptionEndow}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="swiper-button-next carousel-button-next-core suggest__button-next suggest__button-next__{{suggest.ID}}"><i class="far fa-angle-right"></i></a>
+                    <a class="swiper-button-prev carousel-button-prev-core suggest__button-prev suggest__button-prev__{{suggest.ID}}"><i class="far fa-angle-left"></i></a>
+                </div>
+            </div>
+
+            <a ui-sref="suggest({id:suggest.ID})" class="read-more__btn-lg" style="cursor:pointer;">
+                <span>Xem tất cả</span>
+                <i class="fas fa-caret-right"></i>
+            </a>
+        </div>
+        <!-- end: option-promo-brand -->
+        <!-- begin: shopping-trends -->
+        <div class="shopping-trends">
+            <div class="home-categories__title">
+                <strong>Xu hướng mua sắm</strong>
+            </div>
+
+            <div class="shopping-trends__body">
+                <div ng-repeat="item in suggests | filter: { Type: 3 } | limitTo:4:0" ui-sref="suggest({id:item.ID})" style="cursor:pointer;" class="shopping-trends__item">
+                    <a>
+                        <img class="shopping-trends__item-img" src="{{item.ImagePath}}" alt="">
+                        <span class="shopping-trends__item-name">{{item.Title}}</span>
+                        <strong class="shopping-trends__item-sub">{{item.Description}}</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end: shopping-trending -->
+        <!-- begin: cate-feature -->
+        <div class="cate-feature">
+            <div class="home-categories__title">
+                <strong>Danh mục nổi bật</strong>
+            </div>
+
+            <div class="swiper cate-feature__body">
+                <div class="swiper-wrapper">
+                    <div ng-repeat="category in categories | limitTo:20:0" ui-sref="category({id:category.ID})" class="swiper-slide cate-feature__item">
+                        <a style="cursor:pointer">
+                            <div class="cate-feature__item-img">
+                                <img src="{{category.PictureAvatar}}" alt="">
+                            </div>
+
+                            <span class="cate-feature__item-name">
+                                {{category.Name}}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <!-- end: cate-feature -->
+        <!-- begin: discount-payonl -->
+        <div class="discount-payonl">
+            <div class="home-categories__title">
+                <strong>Giảm thêm khi thanh toán online</strong>
+            </div>
+            <div class="swiper discount-payonl__swiper">
+                <div class="swiper-wrapper">
+                    <a ng-repeat="item in discounts" ui-sref="discount({id:item.ID})" style="cursor:pointer;" class="swiper-slide discount-payonl__slider">
+                        <img class="slide-img-core" src="{{item.PictureAvatar}}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-button-next slide-button-next-core discount-payonl__button-next"><i class="far fa-angle-right"></i></div>
+                <div class="swiper-button-prev slide-button-prev-core discount-payonl__button-prev"><i class="far fa-angle-left"></i></div>
+                <div class="swiper-pagination discount-payonl__dot"></div>
+            </div>
+        </div>
+        <!-- end: discount-payonl -->
+        <!-- begin: service-conv -->
+        <div class="service-conv">
+            <div class="home-categories__title">
+                <strong>Dịch vụ tiện ích</strong>
+                <a href="https://www.thegioididong.com/utilities/thanh-toan-tra-gop">Xem thêm dịch vụ <i class="far fa-angle-right"></i></a>
+            </div>
+
+            <div class="swiper service-conv__body">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide service-conv__item">
+                        <a href="https://www.thegioididong.com/sim-so-dep">
+                            <div class="service-conv__item-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+
+                            <div class="service-conv__item-text">
+                                <small class="service-conv__item-name">
+                                    Mua Mã thẻ cào
+                                </small>
+
+                                <small class="service-conv__item-sub">
+                                    <strong>Giảm 3%</strong> cho mệnh giá từ 100.000 trở lên
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide service-conv__item">
+                        <a href="https://www.thegioididong.com/utilities/thanh-toan-tien-dien">
+                            <div class="service-conv__item-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+
+                            <div class="service-conv__item-text">
+                                <small class="service-conv__item-name">
+                                    Dịch Vụ Đóng Tiền
+                                </small>
+
+                                <small class="service-conv__item-sub">
+                                    Điện, Nước, Internet, Cước điện thoại trả sau
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide service-conv__item">
+                        <a href="https://www.thegioididong.com/sim-so-dep">
+                            <div class="service-conv__item-icon">
+                                <i class="fas fa-gamepad-alt"></i>
+                            </div>
+
+                            <div class="service-conv__item-text">
+                                <small class="service-conv__item-name">
+                                    Mua thẻ game
+                                </small>
+
+                                <small class="service-conv__item-sub">
+                                    <strong>Giảm 3%</strong>  cho tất cả nhà mạng, áp dụng cho mệnh giá từ 100.000 trở lên
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide service-conv__item">
+                        <a href="https://www.thegioididong.com/utilities/thanh-toan-ve-tau-xe">
+                            <div class="service-conv__item-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+
+                            <div class="service-conv__item-text">
+                                <small class="service-conv__item-name">
+                                    Vé máy bay, tàu
+                                </small>
+
+                                <small class="service-conv__item-sub">
+                                    Thu hộ tiền vé xe, vé tàu, vé máy bay
+                                </small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: service-conv -->
+        <!-- begin: suggestions -->
+        <div class="daily-sg">
+            <div class="home-categories__title">
+                <strong>Gợi ý hôm nay</strong>
+            </div>
+
+            <ul class="nav nav-pills mb-3 option-daily-sg" id="pills-tab-option-daily-sg" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="btn-light option-daily-sg__btn active " id="option-daily-sg__foryou-tab" data-bs-toggle="pill" data-bs-target="#foryou" type="button" role="tab" aria-controls="foryou" aria-selected="true">
+                        <img src="/Content/client/img/ico/goiy-1.png" alt="">
+                        <span>Hàng mới</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="btn-light option-daily-sg__btn" id="option-daily-sg__salesock-tab" data-bs-toggle="pill" data-bs-target="#salesock" type="button" role="tab" aria-controls="salesock" aria-selected="false">
+                        <img src="/Content/client/img/ico/icon-xa-hang-50-50x50-2.png" alt="">
+                        <span>Xả hàng giảm sốc</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="btn-light option-daily-sg__btn" id="option-daily-sg__saleonline-tab" data-bs-toggle="pill" data-bs-target="#saleonline" type="button" role="tab" aria-controls="saleonline" aria-selected="false">
+                        <img src="/Content/client/img/ico/ChigiamOnlineDesk-50x54.png" alt="">
+                        <span>Được quan tâm</span>
+                    </button>
+                </li>
+
+                <li class="nav-item" role="presentation">
+                    <button class="btn-light option-daily-sg__btn" id="option-daily-sg__sale99-tab" data-bs-toggle="pill" data-bs-target="#sale99" type="button" role="tab" aria-controls="sale99" aria-selected="false">
+                        <img src="/Content/client/img/ico/Icon-Desk-51x50-2.png" alt="">
+                        <span>Deal từ 99k</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane daily-sg__list-item fade show active" id="foryou" role="tabpanel" aria-labelledby="option-daily-sg__foryou-tab">
+                    <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                        <div ng-repeat="item in productsNew" class="col">
+                            <div class="product-item-core">
+                                <a ui-sref="product({id:item.IDProduct})" href="">
+                                    <div class="product-item-core__label">
+                                        <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                            <img src="{{label.PicturePath}}" alt="">
+                                            <span>{{label.Name}}</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="product-item-core__img">
+                                        <img src="{{item.ImageProduct}}" alt="">
+                                    </div>
+
+                                    <h3 class="product-item-core__title">
+                                        {{item.NameProduct}}
+                                    </h3>
+
+                                    <span class="product-item-core__order-online">
+                                        Online giá rẻ
+                                    </span>
+
+                                    <strong class="product-item-core__price">
+                                        <span>{{item.PriceProduct | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
+                                    </strong>
+
+                                    <div class="product-item-core__gift">
+                                        {{item.DescriptionProduct}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="salesock" role="tabpanel" aria-labelledby="option-daily-sg__salesock-tab">
+                    <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                        <div ng-repeat="item in productsDiscount" class="col">
+                            <div class="product-item-core">
+                                <a ui-sref="product({id:item.IDProduct})" href="">
+                                    <div class="product-item-core__label">
+                                        <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                            <img src="{{label.PicturePath}}" alt="">
+                                            <span>{{label.Name}}</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="product-item-core__img">
+                                        <img src="{{item.ImageProduct}}" alt="">
+                                    </div>
+
+                                    <h3 class="product-item-core__title">
+                                        {{item.NameProduct}}
+                                    </h3>
+
+                                    <span class="product-item-core__order-online">
+                                        Online giá rẻ
+                                    </span>
+
+                                    <strong class="product-item-core__price">
+                                        <span>{{item.PriceProduct | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
+                                    </strong>
+
+                                    <div class="product-item-core__gift">
+                                        {{item.DescriptionProduct}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="saleonline" role="tabpanel" aria-labelledby="option-daily-sg__saleonline-tab">
+                    <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                        <div ng-repeat="item in productsView" class="col">
+                            <div class="product-item-core">
+                                <a ui-sref="product({id:item.IDProduct})" href="">
+                                    <div class="product-item-core__label">
+                                        <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                            <img src="{{label.PicturePath}}" alt="">
+                                            <span>{{label.Name}}</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="product-item-core__img">
+                                        <img src="{{item.ImageProduct}}" alt="">
+                                    </div>
+
+                                    <h3 class="product-item-core__title">
+                                        {{item.NameProduct}}
+                                    </h3>
+
+                                    <span class="product-item-core__order-online">
+                                        Online giá rẻ
+                                    </span>
+
+                                    <strong class="product-item-core__price">
+                                        <span>{{item.PriceProduct | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
+                                    </strong>
+
+                                    <div class="product-item-core__gift">
+                                        {{item.DescriptionProduct}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="sale99" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-2 g-3">
+                        <div ng-repeat="item in productsView" class="col">
+                            <div class="product-item-core">
+                                <a ui-sref="product({id:item.IDProduct})" href="">
+                                    <div class="product-item-core__label">
+                                        <span ng-repeat="label in item.Discount" ng-class="{'label-product-round-core':label.PicturePath!==null,'lalel-product-core':label.PicturePath===null}" style="background: {{label.ColorBackGround}}; color: {{label.ColorText}}">
+                                            <img src="{{label.PicturePath}}" alt="">
+                                            <span>{{label.Name}}</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="product-item-core__img">
+                                        <img src="{{item.ImageProduct}}" alt="">
+                                    </div>
+
+                                    <h3 class="product-item-core__title">
+                                        {{item.NameProduct}}
+                                    </h3>
+
+                                    <span class="product-item-core__order-online">
+                                        Online giá rẻ
+                                    </span>
+
+                                    <strong class="product-item-core__price">
+                                        <span>{{item.PriceProduct | formatCurrencyVND }}<small class="product-item-core__price-percent-discount">-{{item.DiscountRate}}%</small></span>
+                                    </strong>
+
+                                    <div class="product-item-core__gift">
+                                        {{item.DescriptionProduct}}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/page/client/sale-event/sale-event.html" class="read-more__btn-lg">
+                <span>Xem tất cả</span>
+                <i class="fas fa-caret-right"></i>
+            </a>
+        </div>
+        <!-- end: suggestions -->
+        <!-- begin: home-post -->
+        <div class="home-post">
+            <div class="row row-cols-2 gy-3 gx-0 gx-xl-3">
+                <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="news-tech">
+                        <div class="home-categories__title">
+                            <strong>24h giờ công nghệ</strong>
+                            <a href="/page/client/categories/categories.html">Xem thêm dịch vụ <i class="far fa-angle-right"></i></a>
+                        </div>
+                        <div class="news-tech__body">
+                            <div class="row row-cols-1 row-cols-sm-3">
+                                <div ng-repeat="item in news" class="col">
+                                    <div class="news-tech__item">
+                                        <a ui-sref="news({id:item.ID})" href="">
+                                            <div class="row row-cols-2 row-cols-sm-1 gy-2">
+                                                <div class="col col-5 col-md-12">
+                                                    <img class="news-tech__img" src="{{item.PictureAvatar}}" alt="">
+                                                </div>
+                                                <div class="col col-7 col-md-12">
+                                                    <span class="news-tech__name">{{item.Title}}</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="banner-collaborators">
+                        <a href="/page/client/ads/ads.html">
+                            <img class="banner-collaborators__img img-lg" src="/Content/client/img/banner-ads/DesktopTGDD-285x350.png" alt="">
+                            <img class="banner-collaborators__img img-sm" src="/Content/client/img/banner-ads/298037396_1220975075347771_6853821871104334377_n.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: home-post -->
+        <!-- begin: trademark -->
+        <div class="trademark">
+            <div class="home-categories__title">
+                <strong>Chuyên trang thương hiệu</strong>
+            </div>
+            <div class="trademark__carousel">
+                <div class="swiper trademark__swiper">
+                    <div class="swiper-wrapper">
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/samsung-390-210-390x210.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/6BD1D926-AFFA-45E4-A5C6-DE9386EED1CB-390x210.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/lenovoLaptop-390x210.png" alt="">
+                        </a>
+                        <!-- <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/380-200-380x199.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/Desktop-380x200-380x200-4.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/Desktop-380x200-2-380x200-1.png" alt="">
+                        </a> -->
+                    </div>
+                    <!-- <div class="swiper-button-next slide-button-next-core trademark__button-next"><i class="far fa-angle-right"></i></div>
+                    <div class="swiper-button-prev slide-button-prev-core trademark__button-prev"><i class="far fa-angle-left"></i></div>
+                    <div class="swiper-pagination trademark__dot"></div> -->
+                </div>
+            </div>
+        </div>
+        <!-- end: trademark -->
+        <!-- begin: newchain -->
+        <div class="newchain">
+            <div class="home-categories__title">
+                <strong>Chuỗi mới sale khủng</strong>
+            </div>
+            <div class="newchain__carousel">
+                <div class="swiper newchain__swiper">
+                    <div class="swiper-wrapper">
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/khaitruong-new-760-400-760x400-2.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/Kids-380x200-380x200-1-380x200-1.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/760-400-760x400-1.png" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/Dessk-380x200-2.jpg" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/z3637469612345bf9ce2f20971d75d22f42a2bfeadb18a-380x200-1.jpg" alt="">
+                        </a>
+                        <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                            <img class="slide-img-core" src="/Content/client/img/banner-sale/Desktop-380x200-2-380x200-1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-button-next slide-button-next-core newchain__button-next"><i class="far fa-angle-right"></i></div>
+                    <div class="swiper-button-prev slide-button-prev-core newchain__button-prev"><i class="far fa-angle-left"></i></div>
+                    <div class="swiper-pagination newchain__dot"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end: newchain -->
+        <!-- begin: promo-bhx -->
+        <div class="promo-bhx">
+            <div class="promo-bhx__top">
+                <div class="promo-bhx__dot-ani">
+                    <div class="promo-bhx__dot-child">
+
+                    </div>
+                </div>
+
+                <div class="promo-bhx__banner">
+                    <a href="/page/client/sale-event/big-campaign.html">
+                        <img src="/Content/client/img/resource/logoBHX.png" alt="" class="promo-bhx__logo">
+                    </a>
+                    <span class="promo-bhx__text">FREESHIP cho đơn hàng từ 300.000đ</span>
+                    <span class="promo-bhx__note">(Đây là khuyến mãi của website cùng tập đoàn MWG)</span>
+                    <span class="promo-bhx__more">
+                        <a href="/page/client/sale-event/big-campaign.html">
+                            <span class="promo-bhx__more-text"> Xem thêm <b>10.000+</b><br> sản phẩm khuyến mãi</span>
+                            <img class="promo-bhx__more-img" src="/Content/client/img/ico/ArrowCircleRight.png" alt="">
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="promo-bhx__body">
+                <div class="promo-bhx__voucher">
+                    <div class="promo-bhx__voucher-title">
+                        Tặng thêm mã giảm 10%
+                    </div>
+
+                    <div class="promo-bhx__voucher-content">
+                        <div class="promo-bhx__voucher-content__input-email">
+                            <input name="email" placeholder="Nhập email*">
+                        </div>
+
+                        <div class="promo-bhx__voucher-content__input-phone">
+                            <input name="email" placeholder="Nhập SĐT*">
+                        </div>
+
+                        <div class="promo-bhx__voucher-content__button-submit">
+                            <button type="button" class="submit" disabled="">NHẬN MÃ</button>
+                        </div>
+                    </div>
+
+                    <div class="promo-bhx__voucher-note">
+                        *Áp dụng cho khách lần đầu mua hàng tại BachhoaXANH
+                    </div>
+                </div>
+
+                <div class="promo-bhx__product">
+                    <div class="promo-bhx__carousel">
+                        <div class="swiper promo-bhx__swiper">
+                            <div class="swiper-wrapper">
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Box-Truyen-Thong-280x440-TGDDxBHX--1--280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Box-Truyen-Thong-280x440-TGDDxBHX-280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/gao-280x440.jpg" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/Ta-280x440.png" alt="">
+                                </a>
+                                <a href="/page/client/sale-event/big-campaign.html" class="swiper-slide">
+                                    <img class="slide-img-core" src="/Content/client/img/banner-sale/CSCN-280x440.jpg" alt="">
+                                </a>
+                            </div>
+                            <!-- <div class="swiper-button-next slide-button-next-core trademark__button-next"><i class="far fa-angle-right"></i></div>
+                            <div class="swiper-button-prev slide-button-prev-core trademark__button-prev"><i class="far fa-angle-left"></i></div>
+                            <div class="swiper-pagination trademark__dot"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end: promo-bhx -->
+    </div>
+    <!-- end: content -->
+
+</div>
+<!-- end: main-container -->
+<script>
+    $(document).ready(function () {
+        //Big Campaign Carousel
+        
+
+
+        
+
+        // Promo Brand Carousel
+        var swiperOutstanding = new Swiper(".promo-brand__swiper-outstanding", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".promo-brand-outstanding__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".promo-brand-outstanding__button-next",
+                prevEl: ".promo-brand-outstanding__button-prev",
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        var swiperProduct = new Swiper(".promo-brand__swiper-product", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".promo-brand-product__button-next",
+                prevEl: ".promo-brand-product__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+        // Cate Feature Carousel
+        var swiperCateFeature = new Swiper(".cate-feature__body", {
+            grid: {
+                rows: 2,
+            },
+            freeMode: true,
+            spaceBetween: 8,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                1200: {
+                    slidesPerView: 10,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+
+                992: {
+                    slidesPerView: 8,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                768: {
+                    slidesPerView: 6,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                576: {
+                    slidesPerView: 4,
+                    grid: {
+                        rows: 2,
+                    },
+                },
+                0: {
+                    slidesPerView: 3,
+                    grid: {
+                        rows: 2,
+                    },
+                }
+            }
+        });
+
+        // Discount Payonl Carousel
+        var swiperDiscountPayonl = new Swiper(".discount-payonl__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".discount-payonl__button-next",
+                prevEl: ".discount-payonl__button-prev",
+            },
+
+            breakpoints: {
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // Service Conv Carousel
+        var swiperServiceConv = new Swiper(".service-conv__body", {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            freeMode: true,
+        });
+
+        // Trademark Carousel
+        var swiperTrademark = new Swiper(".trademark__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            freeMode: true,
+            // loop: true,
+            loopFillGroupWithBlank: true,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".trademark__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".trademark__button-next",
+                prevEl: ".trademark__button-prev",
+            },
+
+            breakpoints: {
+                // when window width is >= 320px
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // NewChain Carousel
+        var swiperTrademark = new Swiper(".newchain__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            freeMode: true,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".newchain__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".newchain__button-next",
+                prevEl: ".newchain__button-prev",
+            },
+
+            breakpoints: {
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 16
+                },
+
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+        });
+
+        // Promo Bhx Carousel
+        var swiperPromoBhx = new Swiper(".promo-bhx__swiper", {
+            slidesPerView: 1,
+            spaceBetween: 4,
+            slidesPerGroup: 1,
+            freeMode: true,
+            // loop: true,
+            loopFillGroupWithBlank: true,
+
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 12
+                },
+
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 12
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 12
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 12
+                },
+                576: {
+                    slidesPerView: 1,
+                    spaceBetween: 12
+                }
+            }
+        });
+
+        // banner-top slider -- product categories
+        var swiperOutstanding = new Swiper(".product-categories__top-banner__carousel", {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            // autoplay: {
+            //     delay: 3000,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".promo-brand-outstanding__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-categories__top-banner__carousel__button-next",
+                prevEl: ".product-categories__top-banner__carousel__button-prev",
+            },
+
+            // breakpoints: {
+            //     // when window width is >= 320px
+            //     992: {
+            //         slidesPerView: 3,
+            //         spaceBetween: 16
+            //       },
+
+            //     768: {
+            //         slidesPerView: 2,
+            //         spaceBetween: 16
+            //       }
+            //   }
+        });
+
+        // fitler product
+        var boxFilterProductCategories = new Swiper(".box-filter__filter-group-item", {
+            // slidesPerView: 7,
+            // spaceBetween: 10,
+            freeMode: true,
+            // pagination: {
+            //   el: ".swiper-pagination",
+            //   clickable: true,
+            // },
+        });
+
+
+
+        // Preview product
+        var productPreviewListImgProduct = new Swiper(".product-preview__list-img-product", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-preview__list-img-product__button-next",
+                prevEl: ".product-preview__list-img-product__button-pre",
+            },
+        });
+
+        // Content Product
+        // Preview product
+        var productPreviewListImgProduct = new Swiper(".product-content__list-img-product", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".discount-payonl__dot",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".product-content__list-img-product__button-next",
+                prevEl: ".product-content__list-img-product__button-pre",
+            },
+        });
+
+        //Hot Deal Carousel
+        var swiperHotDeal = new Swiper(".suggestion-product__accessory__swiper", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".hot-deal__button-next",
+                prevEl: ".hot-deal__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+        //Hot Deal Carousel
+        var swiperHotDeal = new Swiper(".suggestion-product__more__swiper", {
+            spaceBetween: 16,
+            slidesPerGroup: 2,
+            freeMode: true,
+            navigation: {
+                nextEl: ".suggestion-product__more__button-next",
+                prevEl: ".suggestion-product__more__button-prev",
+            },
+            breakpoints: {
+                1400: {
+                    slidesPerView: 5,
+                    spaceBetween: 16,
+                    slidesPerGroup: 5,
+                    loop: true,
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    slidesPerGroup: 4,
+                    loop: true,
+                },
+
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                    slidesPerGroup: 3,
+                    loop: true,
+                },
+                768: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                },
+                567: {
+                    watchSlidesProgress: true,
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    slidesPerGroup: 2,
+                    loop: true,
+                    freeMode: false,
+                },
+            }
+        });
+
+
+
+
+
+
+    });
+</script>

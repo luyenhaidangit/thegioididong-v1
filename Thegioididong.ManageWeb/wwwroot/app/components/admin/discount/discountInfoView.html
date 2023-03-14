@@ -1,0 +1,116 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">ưu đãi sản phẩm</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="discount">Quản lý ưu đãi sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="info-discount"></a>Thông tin chi tiết</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddDiscount" role="form" ng-submit="AddDiscount()">
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên ưu đãi sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.Name" readonly class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả ưu đãi sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.Description" readonly class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- UsePercentage -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giảm theo phần trăm</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="UsePercentage" switch="none" checked="" ng-model="discount.UsePercentage" ng-checked="discount.UsePercentage">
+                            <label class="mr-0" for="UsePercentage" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- DiscountPercentage -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Phần trăm giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.DiscountPercentage" readonly class="form-control" type="number" value="0" id="example-number-input">
+                        </div>
+                    </div>
+
+                    <!-- DiscountAmount -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Số tiền giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.DiscountAmount" readonly name="DiscountPercentage" class="form-control" type="number" value="0" id="example-number-input">
+                        </div>
+                    </div>
+
+                    <!-- RequiresCouponCode -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Yêu cầu mã giảm giá</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="RequiresCouponCode" switch="none" checked="" ng-model="discount.RequiresCouponCode" ng-checked="discount.RequiresCouponCode">
+                            <label class="mr-0" for="RequiresCouponCode" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <!-- CouponCode -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mã giảm giá</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.CouponCode" readonly class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="true" name="PicturePath" src="{{discount.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- ColorBackGround -->
+                    <div class="form-group row mt-4">
+                        <label for="example-text-input" class="col-md-2 col-form-label">ColorBackGround</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.ColorBackGround" name="ColorBackGround" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ColorText -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">ColorText</label>
+                        <div class="col-md-10">
+                            <input ng-model="discount.ColorText" name="ColorText" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="discount" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div>
+<!-- end row -->

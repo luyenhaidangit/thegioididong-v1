@@ -1,0 +1,350 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.nameManage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="product">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-product"></a>{{config.namePage}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" novalidate name="formAddProduct" role="form" ng-submit="AddProduct()">
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên loại sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.Name" name="name" required ng-maxlength="500" class="form-control" type="text" value="">
+                            <span class="text-valid" ng-show="formAddProduct.name.$error.required && formAddProduct.name.$touched">Tên sản phẩm không được để trống!</span>
+                            <span class="text-valid" ng-show="formAddProduct.name.$error.maxlength">Tên sản phẩm không được quá 500 ký tự!</span>
+                        </div>
+                    </div>
+
+                    <!-- BrandID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Hãng sản phẩm</label>
+                        <div class="col-md-10">
+                            <div id="brand" class="ui dropdown fluid search selection">
+                                <input ng-model="product.BrandID" type="hidden" name="brandid" value="{{brands[0].ID}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{brands[0].Name}}</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in brands" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CategoryID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Loại sản phẩm</label>
+                        <div class="col-md-10">
+                            <div id="category" class="ui dropdown fluid search selection">
+                                <input ng-model="product.CategoryID" type="hidden" name="categoryid" value="{{categorys[0].ID}}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{categorys[0].Name}}</div>
+                                <div class="menu">
+                                    <div ng-repeat="item in categorys" class="item" data-value="{{item.ID}}">{{item.Name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImage(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImage(false)" style="cursor:pointer" ng-show="statusChooseAvatar" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="product.PicturePath">
+                            </div>
+
+                            <img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseAvatar" name="picturepath" src="{{product.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- Product Image -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Danh sách ảnh</label>
+                        <div class="col-md-10">
+                            <div class="input-control d-flex align-items-center">
+                                <button ng-click="ChooseImageProduct(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                                <i ng-click="ChooseImageProduct(false)" style="cursor:pointer" ng-show="statusChooseImageProduct" class="fal fa-times-circle text-danger ml-3"></i>
+                                <input type="hidden" name="picturepath" ng-model="product.ImageProduct">
+                            </div>
+                            <div class="p-2 border-1">
+                                <img ng-repeat="item in product.ImageProducts" style="width:60px;margin-right:8px;" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="statusChooseImageProduct" name="imageproduct-{{item.Index}}" src="{{product.ImageProducts[item.Index].ImagePath}}">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <!--<div class="form-group row">
+        <label for="example-text-input" class="col-md-2 col-form-label">Danh sách ảnh</label>
+        <div class="col-md-10">
+            <div class="input-control d-flex align-items-center">
+                <button ng-click="ChooseImages(true)" type="button" class="btn btn-primary btn-sm waves-effect waves-light">Chọn ảnh</button>
+                <i ng-click="ChooseImages(false)" style="cursor:pointer" ng-show="statusChooseAvatarMore" class="fal fa-times-circle text-danger ml-3"></i>-->
+                    <!--<input type="hidden" name="picturepath" ng-model="product.PicturePath">-->
+                    <!--</div>-->
+                    <!--<div>OK</div>-->
+                    <!--<img style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="true" name="picturepath" src="{{product.ImageProducts[$index].ImagePath}}">
+            <img ng-repeat="product.ImageProducts" style="width:160px" class="animate__fadeInDown img-fluid mt-3 rounded" ng-show="true" name="picturepath" src="{{product.ImageProducts[$index].ImagePath}}">
+        </div>
+    </div>-->
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
+                        <div class="col-md-10">
+                            <textarea ck-editor ng-model="product.FullDescription" name="fulldescription" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- ShortDescription -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả ngắn</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.ShortDescription" name="shortdescription" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ShortDescriptionEndow -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả khuyến mãi</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.ShortDescriptionEndow" name="shortdescriptionendow" class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- CostPrice -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá vốn</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.CostPrice" name="costprice" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                        </div>
+                    </div>
+
+                    <!-- SellPrice -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá bán</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.SellPrice" name="sellprice" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                        </div>
+                    </div>
+
+                    <!-- SellPriceActual -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Giá bán thực tế</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0">
+                        </div>
+                    </div>
+
+                    <!--<hr style="height:3px;" />
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+        <h4 class="mb-0 ng-binding">Thuộc tính</h4>
+    </div>
+    <button ng-click="AddVarialtionProduct()" type="button" class="btn btn-light waves-effect">Thêm thuộc tính<i class="fal fa-plus ml-2"></i></button>-->
+                    <!--<div ng-repeat="item in varialtionsAdd" class="d-flex">
+        <div class="col-md-10 mt-3 p-0 mr-4" style="max-width:240px;">
+            <div id="varialtion-{{$index}}" class="ui dropdown fluid selection">
+                <input ng-model="varialtionsAdd[$index].Variation.ID" type="hidden" name="varialtion-{{$index}}">
+                <i class="dropdown icon"></i>
+                <div class="default text">Chọn thuộc tính...</div>
+                <div class="menu">
+                    <div data-toggle="modal" data-target="#staticBackdrop" class="item-option d-flex justify-content-between btn-primary">Thêm thuộc tính <i class="fal fa-plus ml-2"></i></div>
+                    <div ng-repeat="var in varialtions" ng-click="GetVarialtionOption(var,item.index)" class="item" data-value="{{var.ID}}">{{var.Name}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 mt-3 p-0" style="max-width:360px;">
+
+            <div id="varialtionoption-{{$index}}" class="ui fluid multiple search selection dropdown">
+                <input ng-model="varialtionsAdd[index].ListOption" type="hidden" name="varialtionoption">
+                <i class="dropdown icon"></i>
+                <div class="default text">Chọn giá trị</div>
+                <div class="menu">
+                    <div data-toggle="modal" data-target="#staticBackdrop1" ng-click="AddVariationOption($index)" class="item-option d-flex justify-content-between btn-primary">Thêm giá trị <i class="fal fa-plus ml-2"></i></div>
+                    <div ng-repeat="option in varialtionsAdd[$index].Variation.Option" ng-click="AddProductItem(option,item.index)" class="item" data-value="{{option.ID}}">{{option.Value}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .item-option {
+            border-top: 1px solid #FAFAFA;
+            padding: 0.78571429rem 1.14285714rem !important;
+            white-space: normal;
+            word-wrap: normal;
+            position: relative;
+            cursor: pointer;
+            display: block;
+            border: none;
+            height: auto;
+            text-align: left;
+            border-top: none;
+            line-height: 1em;
+            padding: 0.78571429rem 1.14285714rem !important;
+            font-size: 1rem;
+            text-transform: none;
+            font-weight: normal;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            -webkit-touch-callout: none;
+        }
+    </style>-->
+                    <!--Modal-->
+                    <!--<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="staticBackdropLabel">Thêm thông tin thuộc tính</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">-->
+                    <!--InventoryQuantity-->
+                    <!--<div class="form-group row">
+                        <label for="example-number-input" class="col-md-3 col-form-label">Tên thuộc tính</label>
+                        <div class="col-md-9">
+                            <input ng-model="variation.Name" name="variationName" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Đóng</button>
+                    <button ng-click="AddVariation()" data-dismiss="modal" type="button" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop1" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="staticBackdropLabel1">Thêm thông tin thuộc tính</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">-->
+                    <!--InventoryQuantity-->
+                    <!--<div class="form-group row">
+                        <label for="example-number-input" class="col-md-3 col-form-label">Giá trị</label>
+                        <div class="col-md-9">
+                            <input ng-model="variationOption.Value" name="variationOptionName" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Đóng</button>
+                    <button ng-click="AddVariationOptionContinue()" data-dismiss="modal" type="button" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-title-box d-flex align-items-center justify-content-between">
+        <h4 class="mb-0 mt-4 ng-binding">Danh sách sản phẩm</h4>
+    </div>
+
+    <div ng-repeat="item in productItems" class="d-flex">
+        <div class="table-responsive">
+            <table class="table mb-0">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên</th>
+                        <th>Giá vốn</th>
+                        <th>Giá bán</th>
+                        <th>Giá thực tế</th>
+                        <th>Tồn kho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key, value) in item">
+                        <th scope="row">{{$index+1}}</th>
+                        <td>{{value}} /&nbsp</td>
+                        <td><input ng-model="product.CostPrice" name="costprice" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0"></td>
+                        <td><input ng-model="product.SellPrice" name="sellprice" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0"></td>
+                        <td><input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0"></td>
+                        <td><input ng-model="product.SellPriceActual" name="sellpriceactual" class="form-control form-control-sm" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= sellprice.value ? Math.abs(this.value):sellprice.value) : 0"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+
+
+                    <hr style="height:3px;" />
+                    <!-- InventoryQuantity -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Tồn kho</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.InventoryQuantity" name="inventoryquantity" class="form-control" type="number" value="0" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : 0">
+                        </div>
+                    </div>
+
+                    <!-- MinimumInventoryQuantity -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Tồn kho tối thiểu</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.MinimumInventoryQuantity" name="minimuminventoryquantity" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) <= maximuminventoryquantity.value ? Math.abs(this.value):maximuminventoryquantity.value) : 0">
+                        </div>
+                    </div>
+
+                    <!-- MaximumInventoryQuantity -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Tồn kho tối đa</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.MaximumInventoryQuantity" name="maximuminventoryquantity" class="form-control" type="number" min="0" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? (this.value = !!this.value && Math.abs(this.value) >= minimuminventoryquantity.value ? Math.abs(this.value):minimuminventoryquantity.value) : minimuminventoryquantity.value">
+                        </div>
+                    </div>
+
+                    <!-- DisplayOrder -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
+                        <div class="col-md-10">
+                            <input ng-model="product.DisplayOrder" required name="displayorder" class="form-control" type="number" value="0" id="example-number-input">
+                        </div>
+                    </div>
+
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" id="Published" switch="none" checked="" ng-model="product.Published" ng-checked="product.Published">
+                            <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="product" class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                        <button ng-disabled="formAddProduct.$invalid" type="submit" class="btn btn-primary waves-effect waves-light">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+<script src="/assets/libs/UI-Transition/transition.js"></script>
+<script src="/assets/libs/UI-Dropdown-master/dropdown.js"></script>

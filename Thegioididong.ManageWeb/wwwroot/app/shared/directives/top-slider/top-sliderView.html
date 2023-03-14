@@ -1,0 +1,23 @@
+﻿<div class="banner-media" style="background-color: #ffd400;">
+    <div class="container p-0">
+        <div ng-repeat="item in sliders | filter:{Position:'index_top'} | limitTo: 1" id="banner-media" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <a ng-repeat="slider in item.SliderItems" href="{{slider.URL}}">
+                    <div ng-if="$index==4" class="carousel-item active">
+                        <img src="{{slider.ImagePath}}" class="d-block w-100" alt="{{slider.Content}}">
+                    </div>
+                    <div ng-if="$index!=0" class="carousel-item">
+                        <img src="{{slider.ImagePath}}" class="d-block w-100" alt="{{slider.Content}}">
+                    </div>
+                </a>
+            </div>
+        <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#banner-media" data-bs-slide="prev">
+            <i class="fal fa-angle-left"></i>
+        </button>
+        <button class="carousel-control carousel-control-next" type="button" data-bs-target="#banner-media" data-bs-slide="next">
+            <i class="fal fa-angle-right"></i>
+        </button>
+    </div>
+        
+    </div>
+</div>

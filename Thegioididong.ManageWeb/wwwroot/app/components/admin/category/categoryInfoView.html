@@ -1,0 +1,91 @@
+﻿<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">{{config.nameManage}}</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item"><a ui-sref="category">Quản lý {{config.nameManage}}</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="add-category"></a>{{config.namePage}}</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" role="form">
+                    <!-- Name -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Tên loại sản phẩm</label>
+                        <div class="col-md-10">
+                            <input ng-model="category.Name" readonly class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ParentCategoryID -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mục loại sản phẩm cha</label>
+                        <div class="col-md-10">
+                            <input ng-model="parentCategory.Name" placeholder="--- Trống ---" readonly class="form-control" type="text" value="">
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Icon thanh điều hướng</label>
+                        <div class="col-md-10">
+                            <img style="width:160px" class="animate__fadeInDown img-fluid rounded" ng-show="true" name="picturepath" src="{{category.PicturePath}}">
+                        </div>
+                    </div>
+
+                    <!-- ImagePath -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Ảnh đại diện</label>
+                        <div class="col-md-10">
+                            <img style="width:160px" class="animate__fadeInDown img-fluid rounded" ng-show="true" name="imageavatar" src="{{category.ImageAvatar}}">
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-md-2 col-form-label">Mô tả</label>
+                        <div class="col-md-10">
+                            <textarea ck-editor ng-model="category.Description" id="DAGStoreTextArea" rows="10" cols="80"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- DisplayOrder -->
+                    <div class="form-group row">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Độ ưu tiên</label>
+                        <div class="col-md-10">
+                            <input ng-model="category.DisplayOrder" readonly class="form-control" type="number" id="example-number-input">
+                        </div>
+                    </div>
+
+                    <!-- Published -->
+                    <div class="form-group row d-flex align-items-center">
+                        <label for="example-number-input" class="col-md-2 col-form-label">Hoạt động</label>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <input type="checkbox" readonly switch="none" checked="" ng-model="category.Published" ng-checked="category.Published">
+                            <label class="mr-0" for="Published" data-on-label="On" data-off-label="Off"></label>
+                        </div>
+                    </div>
+
+                    <div class="add-btn mb-4 d-flex justify-content-end" style="gap:12px">
+                        <button ui-sref="category" readonly class="btn btn-secondary waves-effect waves-light">Trở lại</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+<!-- end row -->

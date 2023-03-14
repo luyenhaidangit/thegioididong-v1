@@ -1,0 +1,267 @@
+<div ng-if="statusForm==2 || statusForm==1" class="container-sm d-flex justify-content-center">
+    <section class="wrapper login border rounded p-4" style="margin: 80px 0;">
+         <div ng-if="statusForm==1" class="d-flex flex-column align-items-center">
+            <img src="/Content/client/img/ico/i1.png" class="img-fluid">
+            <span class="login__text pt-4">Tra cứu thông tin đơn hàng</span>
+            <form class="login__form-email d-flex flex-column">
+                <input ng-model="emailverifi.email" class="login__email" type="tel" name="txtPhoneNumber" id="txtPhoneNumber" placeholder="Nhập email mua hàng">
+                <label class="hide"></label>
+                <button ng-click="SendCode()" class="btn-continue">Tiếp tục</button>
+                <a ng-show="notFindExist" class="text-danger text-center">Email không tồn tại, thử lại!</a>
+            </form>
+        </div>
+         <div ng-if="statusForm==2" class="d2 step2 hide d-flex flex-column align-items-center" style="min-height: 400px;padding: 40px 0;">
+            <span class="login__text text-center">Mã xác nhận đã được gửi đến email <b>{{emailverifi.email}}</b></span>
+            <form class="login__form-email d-flex flex-column">
+                <input ng-model="emailverifi.code" class="login__email" name="txtOTP" placeholder="Nhập mã xác nhận gồm 6 chữ số" maxlength="6" autocomplete="one-time-code">
+                <label class="hide"></label>
+                <button class="btn-continue" ng-click="SubmitForm()" class="btn">Tiếp tục</button>
+                <a ng-show="notCodeExist" class="text-danger text-center">Mã xác nhận không hợp lệ, thử lại!</a>
+            </form>
+            <a class="resend-sms" ng-click="ReturnEmailForm()">Trở lại</a>
+
+        </div>
+    </section>
+</div>
+
+
+<style>
+    .login {
+        max-width: 500px;
+    }
+
+    .login__text {
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.5;
+        display: block;
+        margin-bottom: 25px;
+    }
+
+    .login__email {
+        border: 1px solid #e0e0e0;
+        border-radius: 100px;
+        width: 302px;
+        height: 48px;
+        padding: 0 50px;
+        background-repeat: no-repeat;
+        background-position: 25px center;
+        margin-bottom: 15px;
+        font-size: 15px;
+        box-sizing: border-box;
+        font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+        color: #333;
+        outline: none;
+    }
+
+    .login__form-email {
+        position: relative;
+    }
+
+    .btn-continue {
+        background-image: linear-gradient(-106deg,#51beed 2%,#288ad6 100%);
+        box-shadow: 0 2px 6px 0 #9ed4ec;
+        border-radius: 100px;
+        width: 302px;
+        height: 50px;
+        border: none;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 17px;
+        max-width: 100%;
+    }
+</style>
+
+<style>
+    .list {
+        padding: 25px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .list > b {
+            font-size: 20px;
+            padding-bottom: 10px;
+            display: block;
+        }
+
+    .table {
+        width: 100%;
+        word-break: break-word;
+    }
+
+        .table th {
+            color: #818181;
+            padding: 10px 5px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .table td {
+            border-top: 1px solid #e3e3e3;
+            padding: 10px 5px;
+            vertical-align: top;
+            color: #818181;
+            position: relative;
+        }
+
+            .table td:first-child {
+                width: 12%;
+                vertical-align: middle;
+            }
+
+            .table td:nth-child(2) {
+                display: flex;
+                vertical-align: middle;
+            }
+
+                .table td:nth-child(2) img {
+                    max-width: 60px;
+                }
+</style>
+
+<div ng-if="statusForm==3" class="container mt-4">
+    <div class="row">
+        <dic class="col-3">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="">
+                    <a class="nav-link active nav-link-tab" data-bs-toggle="pill" href="#menu1"><i class="fad fa-book-alt me-1"></i> Danh sách đơn hàng đã mua</a>
+                </li>
+                <li class="">
+                    <a class="nav-link nav-link-tab" data-bs-toggle="pill" href="#menu2"><i class="fas fa-user-circle me-1"></i> Thông tin cá nhân và số địa chỉ</a>
+                </li>
+            </ul>
+        </dic>
+
+        <dic class="col-9">
+            <div class="tab-content">
+                <div class="tab-pane container active" id="menu1">
+                    <div class="d-flex justify-content-between">
+                        <div>Chào anh <strong>{{OrderCustomer[0].OrderItems[0].Order.Customer.Name}} - {{OrderCustomer[0].OrderItems[0].Order.Customer.Email}}</strong></div>
+                        <div>
+                            <a href="" class="text-decoration-none"><i class="fad fa-question me-1"></i> Phản hồi, góp ý</a>
+                            <span class="text-decoration-none mx-2 text-primary">|</span>
+                            <a href="" class="text-decoration-none">Thoát tài khoản</a>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-1 p-4 my-3">
+                        <h5 class="fw-bold">Đơn hàng đã mua gần đây</h5>
+                        <aside>
+                            <i class="fad fa-info-circle text-primary"></i>
+                            <span class="ms-1">Đây là danh sách đơn hàng bạn đã mua từ ngày <strong>07/12/2020</strong> đến <strong>07/12/2022</strong></span>
+                        </aside>
+                        <table class="table mt-2 w-100">
+                            <tbody>
+                                <tr class="text-secondary pb-3">
+                                    <th class="fw-normal">Mã đơn hàng</th>
+                                    <th class="fw-normal">Sản phẩm</th>
+                                    <th class="fw-normal">Tổng tiền</th>
+                                    <th class="fw-normal">Ngày đặt mua</th>
+                                    <th class="fw-normal">Trạng thái</th>
+                                </tr>
+
+                                <tr ng-repeat="item in OrderCustomer">
+                                    <td><a href="" class="text-decoration-none">#HDD{{item.ID}}</a></td>
+                                    <td class="d-flex">
+                                        <div>
+                                            <a href=""><img src="{{item.OrderItems[0].Product.PicturePath}}" style="width: 50px;" alt=""></a>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <div>
+                                                <a href="" class="text-decoration-none text-dark">{{item.Title}}</a>
+                                            </div>
+                                            <div>
+                                                <a href="" class="text-decoration-none">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                        
+                                    </td>
+                                    <td>
+                                        <p class="text-danger">{{item.TotalBill | formatCurrencyVND}}<sup class="text-decoration-underline">đ</sup></p>
+                                    </td>
+                                    <td>
+                                        <span>10/12/2022</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-success">Đã nhận hàng</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane container" id="menu2">
+                    <div class="border rounded-1 p-4 mt-4">
+                        <div class="border-bottom pb-4">
+                            <h5 class="fw-normal">Thông tin cá nhân</h5>
+                            <div class="mt-2">
+                                <input checked type="radio" name="sex" value="Anh" id="man">
+                                <label for="man">Anh</label>
+                                <input type="radio" name="sex" value="Chị" id="woman">
+                                <label for="woman">Chị</label>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col"><input class="form-control" type="text" name="" value="Luyện Hải Đăng" id=""></div>
+                                <div class="col"><input class="form-control" type="tel" name="" value="0922002360" readonly id=""></div>
+                                <div class="col"><input class="form-control" type="tel" name="" value="luyenhaidangit@gmail.com" readonly id=""></div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-primary"><i class="fa-light fa-circle-plus"></i> Thêm địa chỉ nhận hàng</p>
+                            <div class="bg-light p-2">
+                                <div class="row">
+                                    <div class="col"><input class="form-control" type="text" name="" value="Ngọc Long - Yên Mỹ - Hưng Yên" id=""></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3">
+                            <a href="" class="btn btn-primary px-5">CẬP NHẬT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dic>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size:15px;
+    }
+
+    .nav-link-tab.active {
+        background-color: #e8f0ff !important;
+        color: #288ad6 !important;
+        /*font-weight: bold;*/
+        border-radius: 0 20px 20px 0 !important;
+    }
+
+    .nav-link-tab {
+        display: block;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 14px;
+        padding: 10px;
+        line-height: 22px;
+        font-weight: unset;
+        font-family: Helvetica, Arial, sans-serif !important
+    }
+
+        .nav-link-tab:hover {
+            color: unset;
+        }
+
+        table{
+            font-size:14px !important;
+        }
+
+        .tab-content{
+            min-height: 420px;
+        }
+
+</style>

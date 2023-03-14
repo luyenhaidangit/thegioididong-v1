@@ -1,0 +1,74 @@
+﻿<!-- DataTables -->
+<link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Begin: Page Title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">Nhà cung cấp</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a ui-sref="dashboard">DAGStore</a></li>
+                    <li class="breadcrumb-item active"><a ui-sref="supplier"></a>Nhà cung cấp</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End: Page Title -->
+<!-- Begin: Table  -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-4 d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-success waves-effect waves-light"><i class="far fa-plus"></i> Thêm mới</button>
+                </div>
+
+                <table id="DAGStoreDatatable" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">STT</th>
+                            <th style="width: 15%;">Tên nhà cung cấp</th>
+                            <th style="width: 10%;">Địa chỉ</th>
+                            <th style="width: 10%;">Số điện thoại</th>
+                            <th style="width: 20%;">Email</th>
+                            <th style="width: 15%;">Trạng thái</th>
+                            <th style="width: 15%;">Thao tác</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="item in suppliers track by $index" data-show="????">
+                            <td>{{$index+1}}</td>
+                            <td>{{item.Name}}</td>
+                            <td>{{item.Andress}}</td>
+                            <td>{{item.NumberPhone}}</td>
+                            <td>{{item.Email}}</td>
+                            <td>
+                                <button type="button" ng-class="{'btn btn-success waves-effect waves-light btn-sm':item.Published==true,'btn btn-danger waves-effect waves-light btn-sm':item.Published==false}">{{item.Published | statusFilter}}</button>
+                            </td>
+                            <td>
+                                <span class="badge badge-info" style="cursor: pointer;padding: 8px;"> <i class="fas fa-info-circle"></i></span>
+                                <span class="badge badge-primary" style="cursor: pointer;padding: 8px;"> <i class="far fa-edit"></i></span>
+                                <span class="badge badge-danger" style="cursor: pointer;padding: 8px;"> <i class="fas fa-trash-alt"></i></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input id="getIndex" type="hidden">
+            </div>
+        </div>
+    </div> 
+</div>
+<!-- End: Table  -->
+
+<!-- Required datatable js -->
+<script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<!-- Responsive examples -->
+<script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>

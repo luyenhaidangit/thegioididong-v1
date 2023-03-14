@@ -1,0 +1,2160 @@
+﻿<link rel="stylesheet" href="/Content/client/css/product-detail.css">
+
+<!-- begin: content -->
+<div class="content">
+    <div class="container py-2">
+        <!-- begin: breadcumbb -->
+        <ol class="breadcrumb mb-2">
+            <li class="breadcrumb-item"><a ui-sref="category({id:product.CategoryID})">{{product.CategoryName}}</a></li>
+            <li class="breadcrumb-item active">{{product.CategoryName}} {{product.BrandName}}</li>
+        </ol>
+        <!-- end: breadcrumb -->
+        <!-- begin: intro-product -->
+        <div class="intro-product d-flex align-items-center pb-2 border-bottom flex-wrap">
+            <strong class="product-title d-block d-md-inline-block mw-100">{{product.CategoryName}} {{product.Name}}</strong>
+            <a href="#" class="product-rate d-flex align-items-center mx-3 flex-wrap">
+                <div class="small-ratings d-flex gap-1">
+                    <i class="fa fa-star rating-color"></i>
+                    <i class="fa fa-star rating-color"></i>
+                    <i class="fa fa-star rating-color"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <span href="#" class="text-primary ms-2">6 đánh giá</span>
+            </a>
+            <a href="#" class="product-compare text-primary d-none d-md-flex align-items-center me-auto"><i class="fal fa-plus-circle me-1"></i><span>So sánh</span></a>
+            <div class="introduct-product__social-btn me-1 d-none d-md-block"><i class="fas fa-thumbs-up me-1"></i>Thích 12K</div>
+            <div class="introduct-product__social-btn d-none d-md-block">Chia sẻ</div>
+        </div>
+        <!-- end: introproduct -->
+        <!-- begin: main-content-product -->
+        <div class="main-content-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="pills-preview-product-1" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="product-preview px-0 pt-4 pb-1">
+                                    <div class="swiper product-preview__list-img-product">
+                                        <div class="swiper-wrapper">
+                                            <div ng-repeat="item in product.ImageProducts" class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="{{item.ImagePath}}" />
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                    </div>
+                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1 product-preview-tab" control="#childButtonTab1" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-1" type="button" role="tab" aria-controls="pills-content-product-1" aria-selected="true">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-preview-product-2" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="product-preview px-0 pt-4 pb-1">
+                                    <div class="swiper product-preview__list-img-product">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-1-1.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-2-1.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-dong-3.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-4.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-5.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-6.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-7.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-8.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                    </div>
+                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1 product-preview-tab" control="#childButtonTab2" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-2" type="button" role="tab" aria-controls="pills-content-product-2" aria-selected="true">Xem tất cả ảnh nổi bật</a>(8/8)</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-preview-product-3" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="product-preview px-0 pt-4 pb-1">
+                                    <div class="swiper product-preview__list-img-product">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-1.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-2.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-3 (1).jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-4-1.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-5-1.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-6-2.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-10.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-9.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                    </div>
+                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1 product-preview-tab" control="#childButtonTab3" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-3" type="button" role="tab" aria-controls="pills-content-product-3" aria-selected="true">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-preview-product-5" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <div class="product-preview px-0 pt-4 pb-1">
+                                    <div class="swiper product-preview__list-img-product">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-1-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-2-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-3-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-4-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-5-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-6-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-7-800x800.jpg" />
+                                            </div>
+
+                                            <div class="swiper-slide slide-img-core">
+                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-8-800x800.jpg" />
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                    </div>
+                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1 product-preview-tab" control="#childButtonTab5" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-5" type="button" role="tab" aria-controls="pills-content-product-5" aria-selected="true">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-pills mb-3 d-flex justify-content-center gap-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core active" control="#childButtonTab1" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-preview-product-1" type="button" role="tab" aria-controls="pills-preview-product-1" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/medal.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Điểm nổi bật
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab2" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-preview-product-2" type="button" role="tab" aria-controls="pills-preview-product-2" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/product/oppo-reno8-z-5g-vang-thumb-2-200x200.jpg" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Vàng đồng
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab3" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-preview-product-3" type="button" role="tab" aria-controls="pills-preview-product-3" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/product/oppo-reno8z-5g-den-thumb-200x200.jpg" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Đen
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab4" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-4" type="button" role="tab" aria-controls="pills-content-product-4" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/open-box.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Hình mở hộp
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab5" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-preview-product-5" type="button" role="tab" aria-controls="pills-preview-product-5" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/camera.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Chụp từ camera
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab6" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" role="tab" aria-controls="pills-preview-product-6" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/360-degrees.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Hình 360 độ
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab7" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" role="tab" aria-controls="pills-preview-product-7" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/magic-box.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Thông số kỹ thuật
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <div class="product-preview-tab tab-item-core" control="#childButtonTab8" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" role="tab" aria-controls="pills-preview-product-8" aria-selected="true">
+                                    <div class="thumb-tab-item p-2">
+                                        <img class="img-fluid" src="/Content/client/img/ico/to-do-list.png" alt="">
+                                    </div>
+                                    <div class="title-tab-item text-center">
+                                        Thông tin sản phẩm
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="modal fade product-info-content" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog my-0">
+                                <div class="modal-content rounded-0 h-100">
+                                    <div class="modal-header d-flex align-items-center justify-content-center gap-3 p-0">
+                                        <ul class="nav nav-pills d-flex justify-content-center gap-3" id="pills-tab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab1" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-1" type="button" role="tab" aria-controls="pills-content-product-1" aria-selected="true">
+                                                    <span class="py-3 px-1">Điểm nổi bật</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab2" id="demo" data-bs-toggle="pill" data-bs-target="#pills-content-product-2" type="button" role="tab" aria-controls="pills-content-product-2" aria-selected="true">
+                                                    <span class="py-3 px-1">Vàng đồng</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab3" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-3" type="button" role="tab" aria-controls="pills-content-product-3" aria-selected="true">
+                                                    <span class="py-3 px-1">Đen</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab4" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-4" type="button" role="tab" aria-controls="pills-content-product-4" aria-selected="true">
+                                                    <span class="py-3 px-1">Hình mở hộp</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab5" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-5" type="button" role="tab" aria-controls="pills-content-product-5" aria-selected="true">
+                                                    <span class="py-3 px-1">Chụp từ camera</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab6" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-6" type="button" role="tab" aria-controls="pills-content-product-6" aria-selected="true">
+                                                    <span class="py-3 px-1">Hình 360</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab7" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-7" type="button" role="tab" aria-controls="pills-content-product-7" aria-selected="true">
+                                                    <span class="py-3 px-1">Thông số kỹ thuật</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="nav-item" role="presentation">
+                                                <div class="product-content-tab tab-item-core" control="#childButtonTab8" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-content-product-8" type="button" role="tab" aria-controls="pills-content-product-8" aria-selected="true">
+                                                    <span class="py-3 px-1">Thông tin sản phẩm</span>
+                                                </div>
+                                            </li>
+
+
+                                        </ul>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab1" id="pills-content-product-1" role="tabpanel" aria-labelledby="pills-content-product-1">
+                                                <div class="product-content px-0 pt-4 pb-1">
+                                                    <div class="swiper product-content__list-img-product">
+                                                        <div class="swiper-wrapper">
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(1).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(4).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(2).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(5).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(3).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/vi-vn-oppo-reno8-z-5g--(6).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/bg_csmh_tgdd-min.png" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-button-next slide-button-next-core product-content__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                                        <div class="swiper-button-prev slide-button-prev-core product-content__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                                    </div>
+                                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab2" id="pills-content-product-2" role="tabpanel" aria-labelledby="pills-content-product-2">
+                                                <div class="product-preview px-0 pt-4 pb-1">
+                                                    <div class="swiper product-preview__list-img-product">
+                                                        <div class="swiper-wrapper">
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-1-1.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-2-1.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-dong-3.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-4.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-5.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-6.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-7.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-vang-8.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                                    </div>
+                                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1">Xem tất cả ảnh nổi bật</a>(8/8)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab3" id="pills-content-product-3" role="tabpanel" aria-labelledby="pills-content-product-3">
+                                                <div class="product-preview px-0 pt-4 pb-1">
+                                                    <div class="swiper product-preview__list-img-product">
+                                                        <div class="swiper-wrapper">
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-1.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-2.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-3 (1).jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-4-1.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-5-1.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-6-2.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-10.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-9.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                                    </div>
+                                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab4" id="pills-content-product-4" role="tabpanel" aria-labelledby="pills-content-product-4">
+                                                <div class="container">
+                                                    <div class="d-flex justify-content-center flex-column">
+                                                        <img class="img-fluid" src="/Content/client/img/product/oppo-reno8-z-5g-mo-hop-org.jpg" alt="">
+                                                        <div class="p-3 mb-2 bg-secondary text-white  rounded">Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Ốp lưng, Cáp Type C, Củ sạc nhanh Type C</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab5" id="pills-content-product-5" role="tabpanel" aria-labelledby="pills-content-product-5">
+                                                <div class="product-preview px-0 pt-4 pb-1">
+                                                    <div class="swiper product-preview__list-img-product">
+                                                        <div class="swiper-wrapper">
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-1-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-2-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-3-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-4-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-5-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-6-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-7-800x800.jpg" />
+                                                            </div>
+
+                                                            <div class="swiper-slide slide-img-core d-flex justify-content-center">
+                                                                <img class="img-fluid rounded" src="/Content/client/img/product/oppo-reno8-z-5g-8-800x800.jpg" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="swiper-button-next slide-button-next-core product-preview__list-img-product__button-next"><i class="far fa-angle-right"></i></div>
+                                                        <div class="swiper-button-prev slide-button-prev-core product-preview__list-img-product__button-pre"><i class="far fa-angle-left"></i></div>
+                                                    </div>
+                                                    <span class="product-preview__total-preview d-block text-center my-3"><a href="#" class="me-1 product-preview-tab" control="#childButtonTab5" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bs-target="#pills-content-product-5" type="button" role="tab" aria-controls="pills-content-product-5" aria-selected="true">Xem tất cả ảnh nổi bật</a>(7/7)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab6" id="pills-content-product-6" role="tabpanel" aria-labelledby="pills-content-product-6">
+                                                <div class="container">
+                                                    <div class="d-flex justify-content-center flex-column">
+                                                        <img class="img-fluid" src="/Content/client/img/product/oppo-reno8-z-5g-vang-1-1.jpg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab7" id="pills-content-product-7" role="tabpanel" aria-labelledby="pills-content-product-7">
+                                                <div class="container">
+                                                    <div class="d-flex justify-content-center flex-column">
+                                                        <img class="img-fluid" src="/Content/client/img/product/oppo-reno8-z-5g-note.jpg" alt="">
+
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr class="table-secondary">
+                                                                    <th scope="col" colspan="2">Màn hình</th>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Độ phân giải</th>
+                                                                    <td>Full HD+ (1080 x 2400 Pixels)</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Màn hình rộng</th>
+                                                                    <td>6.43" - Tần số quét 60 Hz</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Mặt kính cảm ứng:</th>
+                                                                    <td>Kính cường lực Schott Xensation UP</td>
+                                                                </tr>
+
+                                                                <tr class="table-secondary">
+                                                                    <th scope="col" colspan="2">Camera sau</th>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Quay phim</th>
+                                                                    <td>FullHD 1080p@30fpsHD 720p@30fps</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Đèn Flash:</th>
+                                                                    <td>Có</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Tính năng:</th>
+                                                                    <td>
+                                                                        <ul>
+                                                                            <li>AI Camera</li>
+                                                                            <li>Ban đêm (Night Mode)</li>
+                                                                            <li>Bộ lọc màu</li>
+                                                                            <li>Chuyên nghiệp (Pro)</li>
+                                                                            <li>Google Lens</li>
+                                                                            <li>Bộ lọc màu</li>
+                                                                            <li>AI Camera</li>
+                                                                            <li>HDR</li>
+                                                                            <li>Hiệu ứng Bokeh</li>
+                                                                            <li>Làm đẹp</li>
+                                                                            <li>Nhãn dán (AR Stickers)</li>
+                                                                            <li>Quay chậm (Slow Motion)</li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr class="table-secondary">
+                                                                    <th scope="col" colspan="2">Camera trước</th>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Độ phân giải:</th>
+                                                                    <td>16 MP</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Tính năng:</th>
+                                                                    <td>
+                                                                        <ul>
+                                                                            <li>Xóa phông</li>
+                                                                            <li>Nhãn dán (AR Stickers)</li>
+                                                                            <li>Quay video HD</li>
+                                                                            <li>Toàn cảnh (Panorama)</li>
+                                                                            <li>Bộ lọc màu</li>
+                                                                            <li>Quay video Full HD</li>
+                                                                            <li>HDR</li>
+                                                                            <li>Trôi nhanh thời gian (Time Lapse)</li>
+                                                                            <li>Chụp bằng cử chỉ</li>
+                                                                            <li>Chụp đêm</li>
+                                                                        </ul>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr class="table-secondary">
+                                                                    <th scope="col" colspan="2">Hệ điều hành & CPU</th>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Hệ điều hành:</th>
+                                                                    <td>Android 12</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Chip xử lý (CPU):</th>
+                                                                    <td>Snapdragon 695 5G 8 nhân</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Tốc độ CPU:</th>
+                                                                    <td>2.2 GHz</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Chip đồ họa (GPU):</th>
+                                                                    <td>Adreno 619</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Hệ điều hành:</th>
+                                                                    <td>Android 12</td>
+                                                                </tr>
+
+                                                                <tr class="table-secondary">
+                                                                    <th scope="col" colspan="2">Bộ nhớ & Lưu trữ</th>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">RAM:</th>
+                                                                    <td>8 GB</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Bộ nhớ trong:</th>
+                                                                    <td>256 GB</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Thẻ nhớ:</th>
+                                                                    <td>236 GB</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Bộ nhớ còn lại (khả dụng) khoảng:</th>
+                                                                    <td>MicroSD, hỗ trợ tối đa 1 TB</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th scope="row">Danh bạ:</th>
+                                                                    <td>Không giới hạn</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade product-content-tab-child" control="#childButtonTab8" id="pills-content-product-8" role="tabpanel" aria-labelledby="pills-content-product-8">
+                                                <div class="container">
+                                                    <div class="d-flex justify-content-center flex-column" ng-bind-html = "Message">
+                                                        <!--<strong>OPPO Reno8 Z 5G đã được ra mắt trên thị trường di động Việt Nam. Điện thoại có vẻ ngoài được tạo hình vuông vức với màu sắc hết sức trẻ trung, cùng với đó là một hiệu năng mạnh mẽ và bộ camera có khả năng chụp ảnh sắc nét.</strong>
+
+                                                        <strong>Ngoại hình vuông vức hợp xu hướng</strong>
+
+                                                        <p>Reno8 Z 5G được OPPO sử dụng kiểu thiết kế vuông vức khá tương đồng với phiên bản tiền nhiệm Reno7 Z 5G khi mặt lưng và các cạnh bên được vát phẳng một cách tinh tế, mang lại cho người dùng một cái nhìn sang trọng và thời thượng hơn khi cầm nắm sử dụng trên tay.</p>
+                                                        <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-104602.jpg" alt="" class="img-fluid rounded">
+                                                        <p>Mặt lưng của máy được làm từ vật liệu kính cùng một độ nhám nhất định giúp cho thiết bị có khả năng hạn chế các vết xước nhẹ, tình trạng bám dấu vân tay cũng được cải thiện đáng kể nên người dùng sẽ không cần tốn quá nhiều thời gian để vệ sinh máy.</p>
+                                                        <strong>Màn hình hiển thị chất lượng</strong>
+                                                        <p>Reno8 Z 5G mang đến cho bạn những hình ảnh sống động đầy rực rỡ khi được phủ lên trên một tấm nền AMOLED cao cấp, ngoài ra với kích thước màn hình lên đến 6.43 inch và độ phân giải Full HD+ (1080 x 2400 Pixels) nên mọi thông tin trên màn hình đều được tái hiện sắc nét và to rõ.</p>
+                                                        <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-111635.jpg" alt="" class="img-fluid rounded">
+                                                        <strong>Nâng tầm trải nghiệm chụp ảnh</strong>
+                                                        <p>Reno8 Z 5G được OPPO trang bị 3 camera với camera chính có độ phân giải lên đến 64 MP cùng hai ống kính phụ có chung độ phân giải 2 MP, điều này giúp cho điện thoại có thể bắt lại những khung cảnh đẹp sắc nét hơn hay thỏa mình sáng tạo với nhiều góc độ khác nhau thông qua các tính năng chụp mới mẻ mà ống kính phụ mang lại.</p>
+                                                        <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-104833.jpg" alt="" class="img-fluid rounded">
+                                                        <strong>Hiệu năng mạnh mẽ đến từ chipset Qualcomm</strong>
+                                                        <p>OPPO Reno8 Z 5G được vận hành bởi con chip Snapdragon 695 5G 8 nhân với hiệu suất tôi đa có thể đạt được là 2.2 GHz, đi kèm với đó là sự tối ưu về hệ điều hành Android 12 giúp cho các nhu cầu sử dụng hàng ngày trở nên mượt mà hơn hẳn.</p>
+                                                        <img src="/Content/client/img/product/oppo-reno8-z-5g-250722-105256.jpg" alt="" class="img-fluid rounded">
+                                                        <p>Điện thoại RAM 8 GB giúp bạn có thể mở đồng thời nhiều ứng dụng mà không cần phải lo lắng đến vấn đề giật lag trong lúc đa nhiệm. Ngoài ra hãng còn bổ sung thêm cho thiết bị tính năng mở rộng RAM nhằm giúp cho người dùng sử dụng nhiều tác vụ nâng cao được ổn định hơn.</p>
+                                                        <strong>Hỗ trợ sạc pin nhanh chóng</strong>
+                                                        <p>Với viên pin có dung lượng 4500 mAh thừa sức mang lại cho bạn thời lượng dùng lên đến cả ngày cho các tác vụ đàm thoại, nhắn tin hay nghe nhạc. Để tối ưu thời gian sạc trên thiết bị nên OPPO cũng đã tích hợp thêm công nghệ SuperVOOC 33 W có khả năng lấp đầy viên pin trong tích tắc.</p>
+                                                        <img src="/Content/client/img/product/oppo-reno8-z-5g-050822-105151.jpg" alt="" class="img-fluid rounded">
+                                                        <p>Với vẻ ngoài trẻ trung, lịch lãm sản phẩm sẽ thu hút được rất nhiều bạn trẻ hiện nay và nhất là thế hệ GenZ, bên cạnh đó thì OPPO Reno8 Z 5G cũng được trang bị bộ 3 camera chất lượng để bạn có thể nâng cấp khả năng nhiếp ảnh hay một cấu hình mạnh mẽ giúp bạn tối ưu công việc nhanh chóng.</p>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accompanying-program-product">
+                            <div class="row border-bottom">
+                                <div class="col-12 col-md-6">
+                                    <div class="accompanying-program-product__item d-flex py-2">
+                                        <i class="fad fa-box-usd text-primary me-2"></i>
+                                        <div class="product-item-core__text text-dark">
+                                            Hư gì đổi nấy <strong>12 tháng</strong> tại 3301 siêu thị toàn quốc (miễn phí tháng đầu) <a class="ms-2" href="#">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="accompanying-program-product__item d-flex py-2">
+                                        <i class="fad fa-shield-check text-primary me-2"></i>
+                                        <div class="product-item-core__text text-dark">
+                                            Bảo hành <strong>chính hãng điện thoại 1 năm</strong> tại các trung tâm bảo hành hãng <a class="ms-2" href="#">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="accompanying-program-product__item d-flex py-2">
+                                        <i class="fad fa-box text-primary me-2"></i>
+                                        <div class="product-item-core__text text-dark">
+                                            Bộ sản phẩm gồm: Hộp, Sách hướng dẫn, Cây lấy sim, Ốp lưng, Cáp Type C, Củ sạc nhanh Type C  <a class="ms-2" href="#">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-6">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item-core__text text-dark">
+                            <a class="ms-2" href="#">Xem Điện thoại OPPO Reno8 Z 5G cũ giá từ <span class="text-danger">7.570.000₫</span> <span class="text-dark bg-secondary py-1 px-2 rounded ms-2">Tiết kiệm đến <span class="text-danger">27%</span></span></a>
+                        </div>
+
+                        <div class="box-info-product overflow-hidden">
+                            <h5 class="my-3">Thông tin sản phẩm</h5>
+                            <div class="d-flex justify-content-center flex-column" ng-bind-html = "Message">
+                                
+                            </div>
+                            <div class="bg-article"></div>
+                            <div class="btn-read-more">
+                                <div class="nav-item" role="presentation">
+                                    <div class="product-preview-tab d-flex justify-content-center" control="#childButtonTab8" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" role="tab" aria-controls="pills-preview-product-8" aria-selected="false" tabindex="-1">
+
+                                        <button type="button" class="btn btn-outline-primary w-60">Xem thêm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="list-models-group-product pt-4 pb-2">
+                            <div class="models-group-product mb-2">
+                                <button type="button" class="btn">Zeno8</button>
+                                <button type="button" class="btn active">Zeno8 Z 5G</button>
+                                <button type="button" class="btn">Zeno8 5G</button>
+                            </div>
+                            <div class="models-group-product">
+                                <button type="button" class="btn active">Vàng đồng</button>
+                                <button type="button" class="btn">Đen</button>
+                            </div>
+                        </div>
+
+                        <div class="box-pay-product">
+                            <div class="product-item-core__text">Giá tại <a href="#">Hà Nội<i class="fas fa-caret-down"></i></a></div>
+                            <div class="product-item-core__row">
+                                <strong class="product-item-core__price me-2">
+                                    <span>{{product.SellPriceActual | formatCurrencyVND}}</span>
+                                </strong>
+                                <div class="product-item-core__label">
+                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h6 class="card-title">Khuyến mãi</h6>
+                                <span class="text-sm d-block">Giá và khuyến mãi dự kiến áp dụng đến 23:59 | 16/09</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">1</div>
+                                    Giảm 20% gói Bảo hành Mở rộng 12 tháng <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">2</div>
+                                    Nhập mã TGDD giảm 5% tối đa 200.000đ cho đơn hàng từ 500.000đ trở lên khi thanh toán qua Ví Moca trên ứng dụng Grab <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">3</div>
+                                    Nhập mã SPPMWG giảm 10% tối đa 100.000đ khi thanh toán qua Ví ShopeePay <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">4</div>
+                                    Nhập mã MWG18 giảm 3% tối đa 100.000đ khi thanh toán quét QRcode qua App của ngân hàng <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item-core__text text-dark">
+                            <i class="fas fa-map-marker text-primary me-2"></i>
+                            Giao hàng tới Số nhà 106, Chi Long, Ngọc Long, Yên Mỹ, Hưng Yên <a class="ms-2" href="#">Đổi</a>
+                        </div>
+
+                        <div class="product-item-core__text text-success">
+                            Giao hàng Từ <strong>10h - 12h ngày mai (12/09)</strong>
+                        </div>
+
+                        <div class="product-item-core__text text-success">
+                            Miễn phí giao hàng
+                        </div>
+
+                        <div class="product-item-core__text text-primary">
+                            <i class="far fa-store text-primary"></i>
+                            <a class="ms-2" href="#">Xem siêu thị có hàng</a>
+                        </div>
+
+                        <div class="border-bottom my-2"></div>
+
+                        <div class="box-endow-product">
+                            <h6>Ưu đãi khi thanh toán</h6>
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="form-check m-0">
+                                        <div class="mb-3">
+                                            <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label d-flex align-items-center" for="flexCheckDefault">
+                                                <img src="/Content/client/img/banner-ads/eximbank.jpg" class="" alt="" height="18px">
+                                                <small class="ms-2 text-dark">
+                                                    Giảm <strong>500.000đ</strong> sản phẩm từ 3Tr
+                                                </small>
+                                            </label>
+                                        </div>
+                                        <div class="mb-2">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex mb-1">
+                                <button class="btn btn-primary btn-md w-100" data-bs-toggle="modal" data-bs-target="#addShoppingCart">MUA NGAY</button>
+                            </div>
+
+                            <div class="modal fade" id="addShoppingCart" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content modal__add-cart">
+                                        <div class="modal-header modal__add-cart__header">
+                                            <span class="modal__add-cart__header-text">{{product.Category.Name}} {{product.Name}}</span>
+                                            <span class="modal__add-cart__header-text"> {{product.SellPriceActual | formatCurrencyVND}} <strike>6.490.000₫</strike></span>
+                                        </div>
+                                        <div class="modal-body modal__add-cart__body">
+                                            <div class="choose-custom-product">
+                                                <strong>Chọn màu:</strong>
+                                                <div class="choose-color-product d-flex gap-3">
+                                                    <div class="nav-item" role="presentation">
+                                                        <div class="product-preview-tab tab-item-core align-items-center">
+                                                            <div class="thumb-tab-item p-2">
+                                                                <img class="img-fluid" src="/Content/client/img/product/oppo-reno8-z-5g-vang-thumb-2-200x200.jpg" alt="">
+                                                             
+                                                            </div>
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                            <div class="title-tab-item text-center">
+                                                                Vàng đồng
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="nav-item" role="presentation">
+                                                        <div class="product-preview-tab tab-item-core align-items-center">
+                                                            <div class="thumb-tab-item p-2">
+                                                                <img class="img-fluid" src="/Content/client/img/product/oppo-reno8z-5g-den-thumb-200x200.jpg" alt="">
+                                                            </div>
+                                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                            <div class="title-tab-item text-center">
+                                                                Đen
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--<div class="choose-custom-product d-flex align-items-center">
+                                                <strong class="w-50">Chọn số lượng:</strong>
+                                                <input class="d-inline form-control-sm" id="demo3" type="text" value="1" name="demo3">
+                                            </div>-->
+
+                                            <div class="submit-custom-product d-flex align-items-center mt-4 border-bottom">
+                                                <button ng-click="AddSessionProductCart(product.ID)" type="button" class="btn btn-primary d-block w-100" data-bs-dismiss="modal" aria-label="Close">Đặt mua</button>
+                                            </div>
+                                        </div>
+                                        <div class="modal__close-btn" data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="fal fa-times"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary btn-md w-100" type="button">
+                                    <h6 class="m-0">MUA TRẢ GÓP 0%</h6>
+                                    <small>Duyệt hồ sơ trong 5p</small>
+                                </button>
+
+                                <button class="btn btn-primary btn-md w-100" type="button">
+                                    <h6 class="m-0">TRẢ GÓP QUA THẺ</h6>
+                                    <small>Visa, Mastercard, JCB, Amex</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="product-item-core__text text-dark text-center my-2">
+                            Gọi đặt hàng
+                            <a class="" href="tel:18001060">1800.1060</a>
+                            (7:30 - 22:00)
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h6 class="card-title d-inline-block">2 ưu đãi thêm</h6>
+                                <small class="product-item-core__text">Dự kiến áp dụng đến 23:00 | 30/09</small>
+                            </div>
+                            <div class="card-body">
+                                <div class="product-item-core__text">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    Khách hàng mua tai nghe OPPO giảm 20% khi mua kèm điện thoại /tablet OPPO <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+
+                                <div class="product-item-core__text">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    Khách hàng mua tai nghe giảm đến 40% khi mua kèm Điện thoại/Laptop/Tablet <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="box-info-product">
+                            <h5>Cấu hình Điện thoại OPPO Reno8 Z 5G</h5>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">Màn hình:</td>
+                                        <td>AMOLED6.43"Full HD+</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">Hệ điều hành:</td>
+                                        <td>Android 12</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">Camera sau:</td>
+                                        <td>Chính 64 MP & Phụ 2 MP, 2 MP</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">Camera trước:</td>
+                                        <td>16 MP</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">Chip:</td>
+                                        <td>Snapdragon 695 5G</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">RAM:</td>
+                                        <td>8GB</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td scope="row">Bộ nhớ trong: </td>
+                                        <td>256GB</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">SIM:</td>
+                                        <td>2 Nano SIMHỗ trợ 5G</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="row">Pin, Sạc:</td>
+                                        <td>4500 mAh33 W</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="nav-item" role="presentation">
+                                <div class="product-preview-tab d-flex justify-content-center" control="#childButtonTab7" id="pills-home-tab" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="button" role="tab" aria-controls="pills-preview-product-7" aria-selected="false" tabindex="-1">
+
+                                    <button type="button" class="btn btn-outline-primary w-60">Xem thêm cấu hình chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="review-product col-12 col-lg-7 mt-4">
+                        <div class="card mb-3">
+
+                            <div class="card-body">
+                                <h5>Đánh giá {{category.Name}} {{product.Name}}</h5>
+                                <div class="product-item-core__text">
+                                    <div class="small-ratings d-flex gap-1 align-items-center">
+                                        <h3 class="rating-color">4.4</h3>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star rating-color"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>73 đánh giá</span>
+                                    </div>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">2</div>
+                                    Nhập mã TGDD giảm 5% tối đa 200.000đ cho đơn hàng từ 500.000đ trở lên khi thanh toán qua Ví Moca trên ứng dụng Grab <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">3</div>
+                                    Nhập mã SPPMWG giảm 10% tối đa 100.000đ khi thanh toán qua Ví ShopeePay <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">4</div>
+                                    Nhập mã MWG18 giảm 3% tối đa 100.000đ khi thanh toán quét QRcode qua App của ngân hàng <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">2</div>
+                                    Nhập mã TGDD giảm 5% tối đa 200.000đ cho đơn hàng từ 500.000đ trở lên khi thanh toán qua Ví Moca trên ứng dụng Grab <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">3</div>
+                                    Nhập mã SPPMWG giảm 10% tối đa 100.000đ khi thanh toán qua Ví ShopeePay <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">4</div>
+                                    Nhập mã MWG18 giảm 3% tối đa 100.000đ khi thanh toán quét QRcode qua App của ngân hàng <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">2</div>
+                                    Nhập mã TGDD giảm 5% tối đa 200.000đ cho đơn hàng từ 500.000đ trở lên khi thanh toán qua Ví Moca trên ứng dụng Grab <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">3</div>
+                                    Nhập mã SPPMWG giảm 10% tối đa 100.000đ khi thanh toán qua Ví ShopeePay <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                                <div class="product-item-core__text">
+                                    <div class="product-item-core__dot me-2">4</div>
+                                    Nhập mã MWG18 giảm 3% tối đa 100.000đ khi thanh toán quét QRcode qua App của ngân hàng <a class="ms-2" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="suggestion-product py-3">
+                        <div class="suggestion-product__accessory my-2">
+                            <div class="suggestion-product__accessory-header d-flex justify-content-between">
+                                <h5>Xem thêm {{product.CategoryName}} khác</h5>
+                                <a href="#">Xem tất cả</a>
+                            </div>
+                            <div class="suggestion-product__accessory__carousel">
+                                <div class="swiper suggestion-product__accessory__swiper">
+                                    <div class="swiper-wrapper">
+                                        <div ng-repeat="product in productSuggestCategory" class="swiper-slide product-item-core border">
+                                            <a ui-sref="product({id:product.IDProduct})">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="{{product.ImageProduct}}" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    {{product.NameProduct}}
+                                                </h3>
+
+                                                <span class="product-item-core__order-online">
+                                                    Online giá rẻ
+                                                </span>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>{{product.PriceProduct | formatCurrencyVND}}<small class="product-item-core__price-percent-discount">-{{product.DiscountRate}}%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    {{product.DescriptionProduct}}
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <a class="swiper-button-next carousel-button-next-core hot-deal__button-next"><i class="far fa-angle-right"></i></a>
+                                    <a class="swiper-button-prev carousel-button-prev-core hot-deal__button-prev"><i class="far fa-angle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="suggestion-product__more my-4">
+                            <div class="suggestion-product__more-header d-flex justify-content-between">
+                                <h5>Xem thêm điện thoại khác</h5>
+                                <a href="#">Xem tất cả</a>
+                            </div>
+                            <div class="suggestion-product__more__carousel">
+                                <div class="swiper suggestion-product__more__swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/samsung-galaxy-z-fold4-5g-thumb-1a-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Samsung Galaxy Z Fold4 256GB
+                                                </h3>
+
+                                                <span class="product-item-core__order-online">
+                                                    Hàng sắp về
+                                                </span>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>40.990.000₫</span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    Tặng PMH 3.5 triệu, Gói Samsung Care+ 4.5 triệu, Trả góp 0%
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/oppo-reno8-z-5g-thumb-1-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    OPPO Reno8 Z 5G
+                                                </h3>
+
+                                                <p class="product-item-core__order-online">
+                                                    Hàng sắp về
+                                                </p>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>10.990.000₫</span>
+                                                </strong>
+
+                                                <p class="product-item-core__gift">
+                                                    Bộ quà đến 1.99 Triệu (Massage Mắt Olike + Tai nghe OPPO Enco Buds) + Trả góp 0%
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-vnpay">
+                                                        <img src="/Content/client/img/ico/icon6-50x50.png" alt="">
+                                                        <span>VNPay giảm 500k</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/250262.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    iPhone 13 Pro Max 128GB
+                                                </h3>
+
+                                                <span class="product-item-core__order-online">
+                                                    Online giá rẻ
+                                                </span>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>28.290.000₫<small class="product-item-core__price-percent-discount">-16%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.6</b><i class="fas fa-star"></i>(524)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/samsung-galaxy-a33-5g-xanh-thumb-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Samsung Galaxy A33 5G
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>6.890.000₫<small class="product-item-core__price-percent-discount">-18%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>3.5</b><i class="fas fa-star"></i>(62)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-preorder">Đặt trước đến 25/08</span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/samsung-galaxy-watch-5-pro-lte-den-thumbn-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Samsung Galaxy Watch5 Pro LTE 45mm dây silicone
+                                                </h3>
+
+                                                <p class="product-item-core__order-online">
+                                                    Hàng sắp về
+                                                </p>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>12.990.000₫</span>
+                                                </strong>
+
+                                                <p class="product-item-core__gift">
+                                                    Tặng quà khủng đến 3.000.000đ
+                                                </p>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-xiaomi">
+                                                        <img src="/Content/client/img/ico/icon5-50x50.png" alt="">
+                                                        <span>Tuần lễ Xiaomi</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/xiaomi-poco-c40-thumb-vang-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    POCO C40
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>2.990.000₫<small class="product-item-core__price-percent-discount">-14%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.2</b><i class="fas fa-star"></i>(60)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/vivo-y21s-white-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Vivo Y21s 6GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>4.990.000₫<small class="product-item-core__price-percent-discount">-9%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>3.6</b><i class="fas fa-star"></i>(105)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/Galaxy-S22-Ultra-Burgundy-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Samsung Galaxy S22 Ultra 5G 256GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>28.990.000₫<small class="product-item-core__price-percent-discount">-14%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>3.9</b><i class="fas fa-star"></i>(51)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/nokia-c21-plus-1-2-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Nokia C21 Plus 64GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>2.890.000₫<small class="product-item-core__price-percent-discount">-9%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>3.8</b><i class="fas fa-star"></i>(13)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-vnpay">
+                                                        <img src="/Content/client/img/ico/icon6-50x50.png" alt="">
+                                                        <span>VNPay giảm 500k</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/iphone-xi-den-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    iPhone 11 64GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>11.490.000₫<small class="product-item-core__price-percent-discount">-23%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.0</b><i class="fas fa-star"></i>(864)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-sale-sock">
+                                                        <img src="/Content/client/img/ico/icon3-50x50.png" alt="">
+                                                        <span>Giảm cực sốc</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/samsung-galaxy-z-flip-3-cream-1-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Samsung Galaxy Z Flip3 5G 128GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>14.590.000₫<small class="product-item-core__price-percent-discount">-41%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    Tặng quà khủng đến 500.000₫
+                                                </div>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.3</b><i class="fas fa-star"></i>(58)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/realme-c11-2021-gray-600x600.jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Realme C11 (2021) 4GB/64GB
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>2.790.000₫<small class="product-item-core__price-percent-discount">-2̉6%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>3.0</b><i class="fas fa-star"></i>(34)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-sale-sock-weekend">
+                                                        <img src="/Content/client/img/ico/icon5-50x50.png" alt="">
+                                                        <span>Giá sốc cuối tuần</span>
+                                                    </span>
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/apple-macbook-air-2020-mgn63saa-(12).jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    MacBook Air M1 2020 7-core GPU
+                                                </h3>
+
+                                                <span class="product-item-core__order-online">
+                                                    Online giá rẻ
+                                                </span>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>24.290.000₫<small class="product-item-core__price-percent-discount">-14%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    Tặng quà khủng đến 650.000₫
+                                                </div>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.3</b><i class="fas fa-star"></i>(77)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-sale-sock">
+                                                        <img src="/Content/client/img/ico/icon3-50x50.png" alt="">
+                                                        <span>Giảm cực sốc</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/acer-travelmate-b3-tmb311-31-p49d-n5030-nxvnfsv005-(22).jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Acer TravelMate B3 TMB311 31 P49D N5030 (NX.VNFSV.005)
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>5.490.000₫<small class="product-item-core__price-percent-discount">-50%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    Tặng quà khủng đến 300.000₫
+                                                </div>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.4</b><i class="fas fa-star"></i>(55)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="swiper-slide product-item-core border">
+                                            <a href="/page/client/product/product.html">
+                                                <div class="product-item-core__label">
+                                                    <span class="label-product-round-core label-insurance">
+                                                        <img src="/Content/client/img/ico/icon4-50x50.png" alt="">
+                                                        <span>+1 năm bảo hành</span>
+                                                    </span>
+                                                    <span class="lalel-product-core label-installment">Trả góp 0%</span>
+                                                </div>
+                                                <div class="product-item-core__img">
+                                                    <img src="/Content/client/img/product/lenovo-ideapad-3-15iml05-i3-81wb01dyvn-(4).jpg" alt="">
+                                                </div>
+
+                                                <h3 class="product-item-core__title">
+                                                    Lenovo IdeaPad 3 15IML05 i3 10110U (81WB01DYVN)
+                                                </h3>
+
+                                                <strong class="product-item-core__price">
+                                                    <span>9.290.000₫<small class="product-item-core__price-percent-discount">-26%</small></span>
+                                                </strong>
+
+                                                <div class="product-item-core__gift">
+                                                    Tặng quà khủng đến 300.000₫
+                                                </div>
+
+                                                <div class="product-item-core__vote">
+                                                    <b>4.0</b><i class="fas fa-star"></i>(6)
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <a class="swiper-button-next carousel-button-next-core suggestion-product__more__button-next"><i class="far fa-angle-right"></i></a>
+                                    <a class="swiper-button-prev carousel-button-prev-core suggestion-product__more__button-prev"><i class="far fa-angle-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-5 pb-4">
+                    <div class="col-7">
+                        <textarea class="mb-3 p-2" name="" id="" cols="100" rows="4" placeholder="Mời bạn để lại bình luận..."></textarea>
+                        <div>
+                            <h6 class="d-inline me-3">425 Bình luận</h6>
+                            <input type="checkbox" name="" id="">
+                            <span class="text-capitalize">xem bình luận kỹ thuật</span>
+                            <div class="border rounded-1 p-2 d-inline float-end">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                                <input type="text" class="no-outline border-0 px-1" placeholder="Tìm theo nội dung, người gửi...">
+                            </div>
+                            <div class="mt-5 mb-4">
+                                <span class="me-3">Sắp xếp theo</span>
+                                <input type="radio" name="sort" id="sort1"> <label for="sort1" class="me-3"> Độ chính xác</label>
+                                <input type="radio" name="sort" id="sort2"> <label for="sort2"> Mới nhất</label>
+                            </div>
+                            <ul class="list-unstyled border-top pt-2">
+                                <li class="mt-3">
+                                    <div class="d-flex">
+                                        <div style="width: 25px;" class="bg-secondary text-center">T</div>
+                                        <strong class="ms-2">Trần Thị Thủy Tiên</strong>
+                                    </div>
+                                    <div>
+                                        Sản phẩm tốt
+                                    </div>
+                                    <div>
+                                        <a href="" class="text-decoration-none d-flex">Trả lời <p class="text-secondary ms-2">- 2 ngày trước</p></a>
+                                    </div>
+                                    <div class="rep-comment bg-light p-2 border">
+                                        <div class="">
+                                            <img src="./images/favicon.ico" alt="">
+                                            <strong>Trương Khánh Duy</strong>
+                                            <a href="" class="text-decoration-none text-dark fz-11 bg-warning rounded-1">Quản trị viên</a>
+                                        </div>
+                                        <div>
+                                            <p>Dạ chúc anh có nhiều trải nghiệm tốt với sản phẩm và sẽ luôn ủng hộ TGDĐ/ĐMX nhé.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="text-decoration-none">Trả lời</a>
+                                            <a href="" class="text-decoration-none"> - <i class="fa-solid fa-thumbs-up"></i> Hài lòng</a>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- end: main-content-product -->
+                        </div>
+
+
+
+                    </div>
+                    <!-- end: content -->
+                    <style>
+                        .rep-comment {
+                            position: relative;
+                        }
+
+                            .rep-comment::before {
+                                content: "";
+                                position: absolute;
+                                top: -25px;
+                                display: block;
+                                border: 12px solid;
+                                border-color: transparent transparent rgb(248, 249, 250) transparent;
+                            }
+                    </style>
+
+                    <script>
+                        $(document).ready(function () {
+                            //Big Campaign Carousel
+                            var swiperBigCampaign = new Swiper(".big-campaign__swiper", {
+                                slidesPerView: 1,
+                                spaceBetween: 0,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                                pagination: {
+                                    el: ".big-campaign__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".big-campaign__button-next",
+                                    prevEl: ".big-campaign__button-pre",
+                                },
+
+                                breakpoints: {
+                                    992: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16
+                                    }
+                                }
+                            });
+
+
+                            //Hot Deal Carousel
+                            var swiperHotDeal = new Swiper(".hot-deal__swiper", {
+                                spaceBetween: 16,
+                                slidesPerGroup: 2,
+                                freeMode: true,
+                                navigation: {
+                                    nextEl: ".hot-deal__button-next",
+                                    prevEl: ".hot-deal__button-prev",
+                                },
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 16,
+                                        slidesPerGroup: 5,
+                                        loop: true,
+                                    },
+                                    1200: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 4,
+                                        loop: true,
+                                    },
+
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 3,
+                                        loop: true,
+                                    },
+                                    768: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                    },
+                                    567: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                        loop: true,
+                                        freeMode: false,
+                                    },
+                                }
+                            });
+
+                            // Promo Brand Carousel
+                            var swiperOutstanding = new Swiper(".promo-brand__swiper-outstanding", {
+                                slidesPerView: 1,
+                                spaceBetween: 16,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                                pagination: {
+                                    el: ".promo-brand-outstanding__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".promo-brand-outstanding__button-next",
+                                    prevEl: ".promo-brand-outstanding__button-prev",
+                                },
+
+                                breakpoints: {
+                                    // when window width is >= 320px
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 16
+                                    },
+
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16
+                                    }
+                                }
+                            });
+
+                            var swiperProduct = new Swiper(".promo-brand__swiper-product", {
+                                spaceBetween: 16,
+                                slidesPerGroup: 2,
+                                freeMode: true,
+                                navigation: {
+                                    nextEl: ".promo-brand-product__button-next",
+                                    prevEl: ".promo-brand-product__button-prev",
+                                },
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 16,
+                                        slidesPerGroup: 5,
+                                        loop: true,
+                                    },
+                                    1200: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 4,
+                                        loop: true,
+                                    },
+
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 3,
+                                        loop: true,
+                                    },
+                                    768: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                    },
+                                    567: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                        loop: true,
+                                        freeMode: false,
+                                    },
+                                }
+                            });
+
+                            // Cate Feature Carousel
+                            var swiperCateFeature = new Swiper(".cate-feature__body", {
+                                grid: {
+                                    rows: 2,
+                                },
+                                freeMode: true,
+                                spaceBetween: 8,
+                                pagination: {
+                                    el: ".swiper-pagination",
+                                    clickable: true,
+                                },
+                                breakpoints: {
+                                    1200: {
+                                        slidesPerView: 10,
+                                        grid: {
+                                            rows: 2,
+                                        },
+                                    },
+
+                                    992: {
+                                        slidesPerView: 8,
+                                        grid: {
+                                            rows: 2,
+                                        },
+                                    },
+                                    768: {
+                                        slidesPerView: 6,
+                                        grid: {
+                                            rows: 2,
+                                        },
+                                    },
+                                    576: {
+                                        slidesPerView: 4,
+                                        grid: {
+                                            rows: 2,
+                                        },
+                                    },
+                                    0: {
+                                        slidesPerView: 3,
+                                        grid: {
+                                            rows: 2,
+                                        },
+                                    }
+                                }
+                            });
+
+                            // Discount Payonl Carousel
+                            var swiperDiscountPayonl = new Swiper(".discount-payonl__swiper", {
+                                slidesPerView: 1,
+                                spaceBetween: 16,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                                pagination: {
+                                    el: ".discount-payonl__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".discount-payonl__button-next",
+                                    prevEl: ".discount-payonl__button-prev",
+                                },
+
+                                breakpoints: {
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 16
+                                    },
+
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16
+                                    }
+                                }
+                            });
+
+                            // Service Conv Carousel
+                            var swiperServiceConv = new Swiper(".service-conv__body", {
+                                slidesPerView: "auto",
+                                spaceBetween: 16,
+                                freeMode: true,
+                            });
+
+                            // Trademark Carousel
+                            var swiperTrademark = new Swiper(".trademark__swiper", {
+                                slidesPerView: 1,
+                                spaceBetween: 16,
+                                slidesPerGroup: 1,
+                                freeMode: true,
+                                // loop: true,
+                                loopFillGroupWithBlank: true,
+                                // autoplay: {
+                                //     delay: 3000,
+                                //     disableOnInteraction: false,
+                                // },
+                                pagination: {
+                                    el: ".trademark__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".trademark__button-next",
+                                    prevEl: ".trademark__button-prev",
+                                },
+
+                                breakpoints: {
+                                    // when window width is >= 320px
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 16
+                                    },
+
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16
+                                    }
+                                }
+                            });
+
+                            // NewChain Carousel
+                            var swiperTrademark = new Swiper(".newchain__swiper", {
+                                slidesPerView: 1,
+                                spaceBetween: 16,
+                                slidesPerGroup: 1,
+                                freeMode: true,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                                pagination: {
+                                    el: ".newchain__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".newchain__button-next",
+                                    prevEl: ".newchain__button-prev",
+                                },
+
+                                breakpoints: {
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 16
+                                    },
+
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16
+                                    }
+                                }
+                            });
+
+                            // Promo Bhx Carousel
+                            var swiperPromoBhx = new Swiper(".promo-bhx__swiper", {
+                                slidesPerView: 1,
+                                spaceBetween: 4,
+                                slidesPerGroup: 1,
+                                freeMode: true,
+                                // loop: true,
+                                loopFillGroupWithBlank: true,
+
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 12
+                                    },
+
+                                    1200: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 12
+                                    },
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 12
+                                    },
+                                    768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 12
+                                    },
+                                    576: {
+                                        slidesPerView: 1,
+                                        spaceBetween: 12
+                                    }
+                                }
+                            });
+
+                            // banner-top slider -- product categories
+                            var swiperOutstanding = new Swiper(".product-categories__top-banner__carousel", {
+                                slidesPerView: 1,
+                                spaceBetween: 16,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                // autoplay: {
+                                //     delay: 3000,
+                                //     disableOnInteraction: false,
+                                // },
+                                pagination: {
+                                    el: ".promo-brand-outstanding__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".product-categories__top-banner__carousel__button-next",
+                                    prevEl: ".product-categories__top-banner__carousel__button-prev",
+                                },
+
+                                // breakpoints: {
+                                //     // when window width is >= 320px
+                                //     992: {
+                                //         slidesPerView: 3,
+                                //         spaceBetween: 16
+                                //       },
+
+                                //     768: {
+                                //         slidesPerView: 2,
+                                //         spaceBetween: 16
+                                //       }
+                                //   }
+                            });
+
+                            // fitler product
+                            var boxFilterProductCategories = new Swiper(".box-filter__filter-group-item", {
+                                // slidesPerView: 7,
+                                // spaceBetween: 10,
+                                freeMode: true,
+                                // pagination: {
+                                //   el: ".swiper-pagination",
+                                //   clickable: true,
+                                // },
+                            });
+
+
+
+                            // Preview product
+                            var productPreviewListImgProduct = new Swiper(".product-preview__list-img-product", {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                pagination: {
+                                    el: ".discount-payonl__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".product-preview__list-img-product__button-next",
+                                    prevEl: ".product-preview__list-img-product__button-pre",
+                                },
+                            });
+
+                            // Content Product
+                            // Preview product
+                            var productPreviewListImgProduct = new Swiper(".product-content__list-img-product", {
+                                slidesPerView: 1,
+                                slidesPerGroup: 1,
+                                loop: true,
+                                loopFillGroupWithBlank: true,
+                                pagination: {
+                                    el: ".discount-payonl__dot",
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: ".product-content__list-img-product__button-next",
+                                    prevEl: ".product-content__list-img-product__button-pre",
+                                },
+                            });
+
+                            //Hot Deal Carousel
+                            var swiperHotDeal = new Swiper(".suggestion-product__accessory__swiper", {
+                                spaceBetween: 16,
+                                slidesPerGroup: 2,
+                                freeMode: true,
+                                navigation: {
+                                    nextEl: ".hot-deal__button-next",
+                                    prevEl: ".hot-deal__button-prev",
+                                },
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 16,
+                                        slidesPerGroup: 5,
+                                        loop: true,
+                                    },
+                                    1200: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 4,
+                                        loop: true,
+                                    },
+
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 3,
+                                        loop: true,
+                                    },
+                                    768: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                    },
+                                    567: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                        loop: true,
+                                        freeMode: false,
+                                    },
+                                }
+                            });
+
+                            //Hot Deal Carousel
+                            var swiperHotDeal = new Swiper(".suggestion-product__more__swiper", {
+                                spaceBetween: 16,
+                                slidesPerGroup: 2,
+                                freeMode: true,
+                                navigation: {
+                                    nextEl: ".suggestion-product__more__button-next",
+                                    prevEl: ".suggestion-product__more__button-prev",
+                                },
+                                breakpoints: {
+                                    1400: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 16,
+                                        slidesPerGroup: 5,
+                                        loop: true,
+                                    },
+                                    1200: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 4,
+                                        loop: true,
+                                    },
+
+                                    992: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 3,
+                                        loop: true,
+                                    },
+                                    768: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                    },
+                                    567: {
+                                        watchSlidesProgress: true,
+                                        slidesPerView: 2,
+                                        spaceBetween: 24,
+                                        slidesPerGroup: 2,
+                                        loop: true,
+                                        freeMode: false,
+                                    },
+                                }
+                            });
+
+
+
+
+
+
+                        });
+                    </script>
+
+                    <script>
+                        let select = "";
+                        let buttonTab = $(".product-preview-tab");
+                        let tab = $(".product-content-tab");
+                        let contentTab = $(".product-content-tab-child");
+
+                        buttonTab.click(function () {
+
+                            select = $(this).attr('control');
+
+                            tab.removeClass("active");
+                            for (let i = 0; i <= tab.length; i++) {
+
+                                if ($(tab[i]).attr("control") === select) {
+                                    $(tab[i]).addClass("active");
+                                }
+
+                                contentTab.removeClass("active").removeClass("show");
+                                for (let k = 0; k <= contentTab.length; k++) {
+
+                                    if ($(contentTab[k]).attr("control") === select) {
+
+                                        $(contentTab[k]).addClass("show").addClass("active");
+                                    }
+                                }
+                            }
+                        });
+                        // $(tab[2]).addClass("active");
+                    </script>
+
+                    <script>
+                        $("input[name ='demo3']").TouchSpin();
+                    </script>

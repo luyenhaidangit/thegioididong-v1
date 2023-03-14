@@ -1,4 +1,5 @@
 using Demo.Data.Infrastructure;
+using Microsoft.OpenApi.Models;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Service;
@@ -11,7 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(config =>
+{
+    config.EnableAnnotations();
+});
 
 
 // DI

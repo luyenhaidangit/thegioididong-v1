@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service.Common;
 
@@ -16,8 +17,9 @@ namespace Thegioididong.Service
     public partial interface IProductCategoryService
     {
         // Manage
+        PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request);
 
-        IEnumerable<ProductCategory> GetAll();
+        IEnumerable<ProductCategory> GetAll(); 
 
         IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
 
@@ -42,6 +44,11 @@ namespace Thegioididong.Service
         }
 
         #region Manage
+        public PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request)
+        {
+            return _productCategoryRepository.GetProductCategories(request);
+        }
+
         public IEnumerable<ProductCategory> GetAll()
         {
             return _productCategoryRepository.GetAll();
@@ -95,6 +102,8 @@ namespace Thegioididong.Service
         {
             return _productCategoryRepository.GetProductCategoryNavigation();
         }
+
+        
 
         #endregion
     }

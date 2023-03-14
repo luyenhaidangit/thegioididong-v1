@@ -1,3 +1,9 @@
+using Demo.Data.Infrastructure;
+using Thegioididong.Data.Infrastructure;
+using Thegioididong.Data.Repositories;
+using Thegioididong.Service;
+using Thegioididong.Service.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,9 +13,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// DI
+builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
+builder.Services.AddTransient<IProductCategoryRepository, ProductCategorytRepository>();
+builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
+builder.Services.AddTransient<ISlideService, SlideService>();
+builder.Services.AddTransient<ISlideRepository, SlideRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IStorageService, FileStorageService>();
+
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseDirectoryBrowser();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

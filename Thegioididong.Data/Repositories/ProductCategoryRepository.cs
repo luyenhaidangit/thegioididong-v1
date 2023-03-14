@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 
 namespace Thegioididong.Data.Repositories
@@ -13,12 +14,13 @@ namespace Thegioididong.Data.Repositories
     public partial interface IProductCategoryRepository
     {
         // Manage
+        PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request);
+
+        bool Create(ProductCategoryCreateRequest request);
 
         IEnumerable<ProductCategory> GetAll();
 
         IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
-
-        bool Create(ProductCategoryCreateRequest request);
 
         bool Update(ProductCategory model);
 
@@ -35,6 +37,28 @@ namespace Thegioididong.Data.Repositories
         }
 
         #region Manage
+
+        public PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request)
+        {
+            string[] valueJsonColumns = { "Items" };
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategoriesmanage", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var productCategories = dt.ConvertTo<PagedResult<ProductCategory>>(valueJsonColumns).FirstOrDefault();
+                return productCategories;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public IEnumerable<ProductCategory> GetAll()
         {

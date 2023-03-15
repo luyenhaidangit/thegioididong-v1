@@ -19,9 +19,9 @@ namespace Thegioididong.ManageApi.Controllers
             this._productCategoryService = productCategoryService;
         }
 
-        [Route("GetProductCategories")]
+        [Route("Get")]
         [HttpGet]
-        public PagedResult<ProductCategory> GetProductCategories([FromQuery] ProductCategoryPagingManageGetRequest request)
+        public PagedResult<ProductCategory> Get([FromQuery] ProductCategoryPagingManageGetRequest request)
         {
             return _productCategoryService.GetProductCategories(request);
         }

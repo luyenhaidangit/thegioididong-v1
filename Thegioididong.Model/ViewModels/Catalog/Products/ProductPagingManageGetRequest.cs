@@ -9,19 +9,15 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class ProductPagingManageGetRequest : PagingRequestBase
     {
+        public string? Name { get; set; }
+
+        public bool? Published { get; set; }
+
+        public bool? ShowOnHomePage { get; set; }
+
         public int? ProductCategoryId { get; set; }
 
         public int? BrandId { get; set; }
-
-        public string? Name { get; set; }
-
-        public int? UnitId { get; set; }
-
-        public bool? IsInterest { get; set; }
-
-        public bool ShowOnHomePage { get; set; }
-
-        public bool? Published { get; set; }
 
         public string? SortBy { get; set; }
 

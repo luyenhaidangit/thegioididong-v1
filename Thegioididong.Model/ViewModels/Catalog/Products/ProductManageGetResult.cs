@@ -14,8 +14,14 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public string Image { get; set; }
 
-        public string DisplayOrder { get; set; }
-
         public bool Published { get; set; }
+
+        public bool? ShowOnHomePage { get; set; }
+
+        public decimal Price { get; set; }
+
+        public int StockQuantity { get; set; }
+
+        public string DisplayOrder { get; set; }
     }
 }

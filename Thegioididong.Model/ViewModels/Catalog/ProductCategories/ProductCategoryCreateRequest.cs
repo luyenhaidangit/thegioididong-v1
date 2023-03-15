@@ -13,22 +13,15 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 {
     public class ProductCategoryCreateRequest
     {
-
         public int? ParentProductCategoryId { get; set; }
 
         public int? ProductCategoryGroupId { get; set; }
 
         public string Name { get; set; }
 
-        [SwaggerSchema(ReadOnly = true)]
         public string? BadgeIcon { get; set; }
 
-        public IFormFile? BadgeIconFile { get; set; }
-
-        [SwaggerSchema(ReadOnly = true)]
         public string? Image { get; set; }
-
-        public IFormFile? ImageFile { get; set; }
 
         public bool Published { get; set; }
 

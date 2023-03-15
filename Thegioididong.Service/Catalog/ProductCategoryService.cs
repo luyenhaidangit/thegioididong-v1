@@ -30,13 +30,10 @@ namespace Thegioididong.Service
     public partial class ProductCategoryService : IProductCategoryService
     {
         private IProductCategoryRepository _productCategoryRepository;
-        private IStorageService _storageService;
-        private const string USER_CONTENT_FOLDER_NAME = "upload";
 
-        public ProductCategoryService(IProductCategoryRepository productCategoryRepository, IStorageService storageService)
+        public ProductCategoryService(IProductCategoryRepository productCategoryRepository)
         {
             this._productCategoryRepository = productCategoryRepository;
-            this._storageService = storageService;
         }
 
         #region Manage
@@ -47,40 +44,12 @@ namespace Thegioididong.Service
 
         public bool Create(ProductCategoryCreateRequest request)
         {
-            if (request.BadgeIconFile != null)
-            {
-                request.BadgeIcon = this.SaveFile(request.BadgeIconFile);
-            }
-
-            if (request.ImageFile != null)
-            {
-                request.Image = this.SaveFile(request.ImageFile);
-            }
-
             return _productCategoryRepository.Create(request);
         }
 
         public bool Update(ProductCategoryCreateRequest request)
         {
-            if (request.BadgeIconFile != null)
-            {
-                request.BadgeIcon = this.SaveFile(request.BadgeIconFile);
-            }
-
-            if (request.ImageFile != null)
-            {
-                request.Image = this.SaveFile(request.ImageFile);
-            }
-
             return _productCategoryRepository.Create(request);
-        }
-
-        private string SaveFile(IFormFile file)
-        {
-            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
-            _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
-            return "/" + USER_CONTENT_FOLDER_NAME + "/" + fileName;
         }
 
         #endregion

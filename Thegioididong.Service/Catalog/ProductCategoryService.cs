@@ -23,6 +23,8 @@ namespace Thegioididong.Service
 
         bool Update(ProductCategoryUpdateRequest request);
 
+        bool Delete(int id);
+
         // Public
 
         PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
@@ -50,6 +52,11 @@ namespace Thegioididong.Service
         public bool Update(ProductCategoryUpdateRequest request)
         {
             return _productCategoryRepository.Update(request);
+        }
+
+        public bool Delete(int id)
+        {
+            return _productCategoryRepository.Delete(id);
         }
 
         #endregion

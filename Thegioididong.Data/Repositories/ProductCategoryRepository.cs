@@ -20,6 +20,8 @@ namespace Thegioididong.Data.Repositories
 
         bool Update(ProductCategoryUpdateRequest request);
 
+        bool Delete(int id);
+
         // Public
 
         PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
@@ -84,6 +86,26 @@ namespace Thegioididong.Data.Repositories
                 string msgError = "";
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_update",
                 "@request", requestJson);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                string msgError = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_delete",
+                "@id", id
+                );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

@@ -55,5 +55,20 @@ namespace Thegioididong.ManageApi.Controllers
                 return new ApiSuccessResult<string>("Cập nhật loại sản phẩm thất bại!");
             }
         }
+
+        [Route("Delete")]
+        [HttpDelete]
+        public ApiResult<string> Update([FromQuery] int id)
+        {
+            try
+            {
+                bool result = _productCategoryService.Delete(id);
+                return new ApiSuccessResult<string>("Xóa loại sản phẩm thành công!");
+            }
+            catch (Exception ex)
+            {
+                return new ApiSuccessResult<string>("Xóa loại sản phẩm thất bại!");
+            }
+        }
     }
 }

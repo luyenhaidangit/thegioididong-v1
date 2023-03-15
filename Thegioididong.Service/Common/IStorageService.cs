@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Thegioididong.Model.ViewModels.Plugins.File;
 
 namespace Thegioididong.Service.Common
 {
@@ -12,6 +14,10 @@ namespace Thegioididong.Service.Common
 
         Task SaveFileAsync(Stream mediaBinaryStream, string fileName);
 
+        string SaveFile(FormFileCreateRequest file);
+
         Task DeleteFileAsync(string fileName);
+
+        string SaveImage(FormFileCreateRequest form);
     }
 }

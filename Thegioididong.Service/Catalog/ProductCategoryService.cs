@@ -19,13 +19,9 @@ namespace Thegioididong.Service
         // Manage
         PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request);
 
-        IEnumerable<ProductCategory> GetAll(); 
-
-        IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
-
         bool Create(ProductCategoryCreateRequest request);
 
-        bool Update(ProductCategory model);
+        //bool Update(ProductCategoryUpdateRequest request);
 
         // Public
 
@@ -49,29 +45,22 @@ namespace Thegioididong.Service
             return _productCategoryRepository.GetProductCategories(request);
         }
 
-        public IEnumerable<ProductCategory> GetAll()
-        {
-            return _productCategoryRepository.GetAll();
-        }
-
-        public IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? MaDanhMuc, string TenDanhMuc, string option)
-        {
-            return _productCategoryRepository.Search(pageIndex, pageSize, out total, MaDanhMuc, TenDanhMuc, option);
-        }
-
-        //public bool Create(ProductCategory productCategory)
-        //{
-        //    return _productCategoryRepository.Create(productCategory);
-        //}
-
-        public bool Update(ProductCategory productCategory)
-        {
-            return _productCategoryRepository.Update(productCategory);
-        }
-
-
-
         public bool Create(ProductCategoryCreateRequest request)
+        {
+            if (request.BadgeIconFile != null)
+            {
+                request.BadgeIcon = this.SaveFile(request.BadgeIconFile);
+            }
+
+            if (request.ImageFile != null)
+            {
+                request.Image = this.SaveFile(request.ImageFile);
+            }
+
+            return _productCategoryRepository.Create(request);
+        }
+
+        public bool Update(ProductCategoryCreateRequest request)
         {
             if (request.BadgeIconFile != null)
             {

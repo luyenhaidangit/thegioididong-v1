@@ -18,13 +18,6 @@ namespace Thegioididong.API.Controllers
             this._productCategoryService = productCategoryService;
         }
 
-        [Route("GetAll")]
-        [HttpGet]
-        public IEnumerable<ProductCategory> GetAll()
-        {
-            return _productCategoryService.GetAll();
-        }
-
         //[Route("GetCategoryMainNavigation")]
         //[HttpGet]
         //public List<CategoryNavigationGetResult> GetCategoryMainNavigation()
@@ -76,11 +69,11 @@ namespace Thegioididong.API.Controllers
             }
         }
 
-        [Route("Update")]
-        [HttpPost]
-        public bool Update([FromBody] ProductCategory productCategory)
-        {
-            return _productCategoryService.Update(productCategory);
-        }
+        //[Route("Update")]
+        //[HttpPost]
+        //public bool Update([FromBody] ProductCategory productCategory)
+        //{
+        //    return _productCategoryService.Update(productCategory);
+        //}
     }
 }

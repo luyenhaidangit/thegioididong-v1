@@ -18,11 +18,7 @@ namespace Thegioididong.Data.Repositories
 
         bool Create(ProductCategoryCreateRequest request);
 
-        IEnumerable<ProductCategory> GetAll();
-
-        IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option);
-
-        bool Update(ProductCategory model);
+        bool Update(ProductCategoryUpdateRequest request);
 
         // Public
 
@@ -60,45 +56,6 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public IEnumerable<ProductCategory> GetAll()
-        {
-            string msgError = "";
-            try
-            {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getall");
-                if (!string.IsNullOrEmpty(msgError))
-                    throw new Exception(msgError);
-                return dt.ConvertTo<ProductCategory>();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public IEnumerable<ProductCategory> Search(int pageIndex, int pageSize, out long total, int? id, string name, string option)
-        {
-            string msgError = "";
-            total = 0;
-            try
-            {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_search",
-                    "@page_index", pageIndex,
-                    "@page_size", pageSize,
-                    "@name", name,
-                    "@option", option,
-                    "@id", id);
-                if (!string.IsNullOrEmpty(msgError))
-                    throw new Exception(msgError);
-                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
-                return dt.ConvertTo<ProductCategory>().ToList();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public bool Create(ProductCategoryCreateRequest request)
         {
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
@@ -119,17 +76,14 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public bool Update(ProductCategory model)
+        public bool Update(ProductCategoryUpdateRequest request)
         {
-            string msgError = "";
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
+                string msgError = "";
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_update",
-                "@Id", model.Id,
-                "@ParentCategoryId", model.ParentProductCategoryId,
-                "@Name", model.Name,
-                "@DisplayOrder", model.DisplayOrder,
-                "@Status", model.Published);
+                "@request", requestJson);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

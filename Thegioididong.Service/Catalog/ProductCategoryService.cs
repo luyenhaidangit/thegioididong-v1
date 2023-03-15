@@ -21,7 +21,7 @@ namespace Thegioididong.Service
 
         bool Create(ProductCategoryCreateRequest request);
 
-        //bool Update(ProductCategoryUpdateRequest request);
+        bool Update(ProductCategoryUpdateRequest request);
 
         // Public
 
@@ -47,9 +47,9 @@ namespace Thegioididong.Service
             return _productCategoryRepository.Create(request);
         }
 
-        public bool Update(ProductCategoryCreateRequest request)
+        public bool Update(ProductCategoryUpdateRequest request)
         {
-            return _productCategoryRepository.Create(request);
+            return _productCategoryRepository.Update(request);
         }
 
         #endregion

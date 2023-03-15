@@ -37,7 +37,22 @@ namespace Thegioididong.ManageApi.Controllers
             }
             catch (Exception ex)
             {
-                return new ApiSuccessResult<string>("Tạo mới loại sản phẩm thất bại! Lỗi"+ex.Message);
+                return new ApiSuccessResult<string>("Tạo mới loại sản phẩm thất bại!");
+            }
+        }
+
+        [Route("Update")]
+        [HttpPut]
+        public ApiResult<string> Update([FromForm] ProductCategoryUpdateRequest request)
+        {
+            try
+            {
+                bool result = _productCategoryService.Update(request);
+                return new ApiSuccessResult<string>("Cập nhật loại sản phẩm thành công!");
+            }
+            catch (Exception ex)
+            {
+                return new ApiSuccessResult<string>("Cập nhật loại sản phẩm thất bại!");
             }
         }
     }

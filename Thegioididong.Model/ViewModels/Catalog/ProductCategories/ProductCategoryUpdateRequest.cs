@@ -10,15 +10,15 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
     {
         public int Id { get; set; }
 
-        public int ParentProductCategoryId { get; set; }
+        public int? ParentProductCategoryId { get; set; }
 
-        public int ProductCategoryGroupId { get; set; }
+        public int? ProductCategoryGroupId { get; set; }
 
         public string Name { get; set; }
 
-        public string BadgeIcon { get; set; }
+        public string? BadgeIcon { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         public bool Published { get; set; }
 

@@ -1,7 +1,10 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Demo.Data.Infrastructure;
 using Microsoft.OpenApi.Models;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Data.Repositories;
+using Thegioididong.ManageApi.Modules;
 using Thegioididong.Service;
 using Thegioididong.Service.Common;
 
@@ -21,13 +24,18 @@ builder.Services.AddSwaggerGen(config =>
 
 // DI
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
-builder.Services.AddTransient<IProductCategoryRepository, ProductCategorytRepository>();
-builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
-builder.Services.AddTransient<ISlideService, SlideService>();
-builder.Services.AddTransient<ISlideRepository, SlideRepository>();
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IUserService, UserService>();
-builder.Services.AddTransient<IStorageService, FileStorageService>();
+//builder.Services.AddTransient<IProductCategoryRepository, ProductCategorytRepository>();
+//builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
+//builder.Services.AddTransient<ISlideService, SlideService>();
+//builder.Services.AddTransient<ISlideRepository, SlideRepository>();
+//builder.Services.AddTransient<IUserRepository, UserRepository>();
+//builder.Services.AddTransient<IUserService, UserService>();
+//builder.Services.AddTransient<IStorageService, FileStorageService>();
+
+// Register services directly with Autofac here. Don't
+// call builder.Populate(), that happens in AutofacServiceProviderFactory.
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacModule()));
 
 var app = builder.Build();
 app.UseStaticFiles();

@@ -15,7 +15,7 @@ namespace Thegioididong.Service
     {
         // Manage
 
-        PagedResult<Product> GetProducts(ProductPagingManageGetRequest request);
+        PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request);
 
         // Public
 
@@ -32,9 +32,9 @@ namespace Thegioididong.Service
 
         #region Manage
 
-        public PagedResult<Product> GetProducts(ProductPagingManageGetRequest request)
+        public PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request)
         {
-            return _productRepository.GetProducts(request);
+            return _productRepository.Get(request);
         }
 
         #endregion

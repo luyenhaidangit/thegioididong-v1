@@ -14,7 +14,7 @@ namespace Thegioididong.Data.Repositories
     {
         // Manage
 
-        PagedResult<Product> GetProducts(ProductPagingManageGetRequest request);
+        PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request);
 
         // Public
 
@@ -31,7 +31,7 @@ namespace Thegioididong.Data.Repositories
 
         #region Manage
 
-        public PagedResult<Product> GetProducts(ProductPagingManageGetRequest request)
+        public PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request)
         {
             string[] valueJsonColumns = { "Items" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
@@ -44,7 +44,7 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
 
-                var products = dt.ConvertTo<PagedResult<Product>>(valueJsonColumns).FirstOrDefault();
+                var products = dt.ConvertTo<PagedResult<ProductManageGetResult>>(valueJsonColumns).FirstOrDefault();
                 return products;
             }
             catch (Exception ex)

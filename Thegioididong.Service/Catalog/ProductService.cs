@@ -17,6 +17,8 @@ namespace Thegioididong.Service
 
         PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request);
 
+        bool Create(ProductManageCreateRequest request);
+
         // Public
 
         ProductDailySuggestGetResult GetProductDailySuggest();
@@ -35,6 +37,11 @@ namespace Thegioididong.Service
         public PagedResult<ProductManageGetResult> Get(ProductPagingManageGetRequest request)
         {
             return _productRepository.Get(request);
+        }
+
+        public bool Create(ProductManageCreateRequest request)
+        {
+            return _productRepository.Create(request);
         }
 
         #endregion

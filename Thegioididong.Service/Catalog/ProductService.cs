@@ -19,6 +19,8 @@ namespace Thegioididong.Service
 
         bool Create(ProductManageCreateRequest request);
 
+        bool Update(ProductManageUpdateRequest request);
+
         // Public
 
         ProductDailySuggestGetResult GetProductDailySuggest();
@@ -42,6 +44,11 @@ namespace Thegioididong.Service
         public bool Create(ProductManageCreateRequest request)
         {
             return _productRepository.Create(request);
+        }
+
+        public bool Update(ProductManageUpdateRequest request)
+        {
+            return _productRepository.Update(request);
         }
 
         #endregion

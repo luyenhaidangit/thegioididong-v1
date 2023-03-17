@@ -39,5 +39,20 @@ namespace Thegioididong.ManageApi.Controllers
                 return new ApiSuccessResult<string>("Tạo sản phẩm thất bại!");
             }
         }
+
+        [Route("Update")]
+        [HttpPut]
+        public ApiResult<string> Update([FromBody] ProductManageUpdateRequest request)
+        {
+            try
+            {
+                bool result = _productService.Update(request);
+                return new ApiSuccessResult<string>("Cập nhật sản phẩm thành công!");
+            }
+            catch (Exception ex)
+            {
+                return new ApiSuccessResult<string>("Cập nhật sản phẩm thất bại!");
+            }
+        }
     }
 }

@@ -21,6 +21,8 @@ namespace Thegioididong.Service
 
         bool Update(ProductManageUpdateRequest request);
 
+        bool Delete(int id);
+
         // Public
 
         ProductDailySuggestGetResult GetProductDailySuggest();
@@ -49,6 +51,11 @@ namespace Thegioididong.Service
         public bool Update(ProductManageUpdateRequest request)
         {
             return _productRepository.Update(request);
+        }
+
+        public bool Delete(int id)
+        {
+            return _productRepository.Delete(id);
         }
 
         #endregion

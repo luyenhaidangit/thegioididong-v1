@@ -5,8 +5,10 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Thegioididong.Common.Constants;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
+using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service.Common;
@@ -23,7 +25,7 @@ namespace Thegioididong.Service
 
         bool Delete(int id);
 
-        PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
+        PagedResult<SlideManageGetResult> GetSlides(SlidePagingManageGetRequest request);
 
         // Public
 
@@ -50,7 +52,7 @@ namespace Thegioididong.Service
             return _slideRepository.Delete(id);
         }
 
-        public PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request)
+        public PagedResult<SlideManageGetResult> GetSlides(SlidePagingManageGetRequest request)
         {
             return _slideRepository.GetSlides(request);
         }
@@ -65,7 +67,23 @@ namespace Thegioididong.Service
 
         public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
         {
-            return _slideRepository.GetSlides(request);
+            PagedResult<SlidePublicGetResult> result = _slideRepository.GetSlides(request);
+
+            foreach (var slide in result.Items)
+            {
+                if (slide != null)
+                {
+                    foreach (var slideChild in slide.SlideItems)
+                    {
+                        if (slideChild != null && slideChild.Image!=null)
+                        {
+                            slideChild.Image = ManageApiHostContant.baseURL + slideChild.Image;
+                        }
+                    }
+                } 
+            }
+
+            return result;
         }
 
         #endregion

@@ -9,5 +9,16 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
 {
     public class SlidePagingManageGetRequest : PagingRequestBase
     {
+        public string? Name { get; set; }
+
+        public string? Page { get; set; }
+
+        public string? Position { get; set; }
+
+        public bool? Published { get; set; }
+
+        public string? SortBy { get; set; }
+
+        public string? OrderBy { get; set; }
     }
 }

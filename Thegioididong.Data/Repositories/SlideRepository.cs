@@ -16,7 +16,7 @@ namespace Thegioididong.Data.Repositories
     {
         // Manage
 
-        PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request);
+        PagedResult<SlideManageGetResult> GetSlides(SlidePagingManageGetRequest request);
 
         bool Create(SlideCreateRequest request);
 
@@ -39,7 +39,7 @@ namespace Thegioididong.Data.Repositories
 
         #region Manage
 
-        public PagedResult<Slide> GetSlides(SlidePagingManageGetRequest request)
+        public PagedResult<SlideManageGetResult> GetSlides(SlidePagingManageGetRequest request)
         {
             string[] valueJsonColumns = {"Items" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
@@ -52,7 +52,7 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
                     
-                var slides = dt.ConvertTo<PagedResult<Slide>>(valueJsonColumns).FirstOrDefault();
+                var slides = dt.ConvertTo<PagedResult<SlideManageGetResult>>(valueJsonColumns).FirstOrDefault();
                 return slides;
             }
             catch (Exception ex)

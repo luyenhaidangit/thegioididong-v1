@@ -21,13 +21,13 @@ namespace Thegioididong.API.Controllers
 
         #region Manage
 
-        [Route("admin/[controller]/GetSlides")]
-        [Authorize]
-        [HttpGet]
-        public PagedResult<Slide> GetSlides([FromQuery] SlidePagingManageGetRequest request)
-        {
-            return _slideService.GetSlides(request);
-        }
+        //[Route("admin/[controller]/GetSlides")]
+        //[Authorize]
+        //[HttpGet]
+        //public PagedResult<Slide> GetSlides([FromQuery] SlidePagingManageGetRequest request)
+        //{
+        //    return _slideService.GetSlides(request);
+        //}
 
         [Route("admin/[controller]/Create")]
         [HttpPost]

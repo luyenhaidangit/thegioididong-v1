@@ -6,7 +6,7 @@ using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service;
 
-namespace Thegioididong.PublicApi.Controllers
+namespace Thegioididong.ManageApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,11 +18,9 @@ namespace Thegioididong.PublicApi.Controllers
             this._slideService = slideService;
         }
 
-
-
-        [Route("GetSlides")]
+        [Route("Get")]
         [HttpGet]
-        public PagedResult<SlidePublicGetResult> GetSlides([FromQuery] SlidePagingPublicGetRequest request)
+        public PagedResult<SlideManageGetResult> Get([FromQuery] SlidePagingManageGetRequest request)
         {
             return _slideService.GetSlides(request);
         }

@@ -15,6 +15,14 @@ namespace Thegioididong.Service.CMS
     {
         // Manage
 
+        PagedResult<BannerManageGetResult> Get(BannerPagingManageGetRequest request);
+
+        bool Create(BannerManageCreateRequest request);
+
+        bool Update(BannerManageUpdateRequest request);
+
+        bool Delete(int id);
+
         // Public
 
         PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request);
@@ -31,6 +39,25 @@ namespace Thegioididong.Service.CMS
 
         #region Manage
 
+        public PagedResult<BannerManageGetResult> Get(BannerPagingManageGetRequest request)
+        {
+            return _bannerRepository.Get(request);
+        }
+
+        public bool Create(BannerManageCreateRequest request)
+        {
+            return _bannerRepository.Create(request);
+        }
+
+        public bool Update(BannerManageUpdateRequest request)
+        {
+            return _bannerRepository.Update(request);
+        }
+
+        public bool Delete(int id)
+        {
+            return _bannerRepository.Delete(id);
+        }
 
         #endregion
 
@@ -39,7 +66,6 @@ namespace Thegioididong.Service.CMS
         {
             return _bannerRepository.GetBanners(request);   
         }
-
         #endregion
     }
 }

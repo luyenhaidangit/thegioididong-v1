@@ -32,5 +32,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _slideService.GetSlideBigCampaign();
         }
+
+        [Route("GetSlideOptionPromo")]
+        [HttpGet]
+        public SlidePublicGetResult GetSlideOptionPromo()
+        {
+            return _slideService.GetSlideOptionPromo();
+        }
     }
 }

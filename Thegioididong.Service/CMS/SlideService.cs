@@ -32,6 +32,8 @@ namespace Thegioididong.Service
         SlidePublicGetResult GetSlideHeaderTop();
 
         SlidePublicGetResult GetSlideBigCampaign();
+
+        SlidePublicGetResult GetSlideOptionPromo();
     }
     public partial class SlideService : ISlideService
     {
@@ -109,7 +111,26 @@ namespace Thegioididong.Service
             return result;
         }
 
+        public SlidePublicGetResult GetSlideOptionPromo()
+        {
+            SlidePublicGetRequest request = new SlidePublicGetRequest()
+            {
+                Page = "home",
+                Position = "option_promo",
+            };
 
+            SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();
+
+            if (result != null)
+            {
+                foreach (var slideItem in result.SlideItems)
+                {
+                    slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                }
+            }
+
+            return result;
+        }
         #endregion
     }
 }

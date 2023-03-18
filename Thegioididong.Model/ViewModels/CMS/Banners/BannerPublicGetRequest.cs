@@ -7,10 +7,10 @@ using Thegioididong.Model.ViewModels.Common;
 
 namespace Thegioididong.Model.ViewModels.CMS.Banners
 {
-    public class BannerPagingPublicGetRequest : PagingRequestBase
+    public class BannerPublicGetRequest 
     {
-        public string Page { get; set; }
+        public string? Page { get; set; }
 
-        public string Position { get; set; }
+        public string? Position { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Thegioididong.Common.Constants;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.CMS.Banners;
@@ -25,7 +26,7 @@ namespace Thegioididong.Service.CMS
 
         // Public
 
-        PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request);
+        BannerPublicGetResult GetBannerMain();
     }
 
     public partial class BannerService : IBannerService
@@ -62,9 +63,22 @@ namespace Thegioididong.Service.CMS
         #endregion
 
         #region Public
-        public PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request)
+        public BannerPublicGetResult GetBannerMain()
         {
-            return _bannerRepository.GetBanners(request);   
+            BannerPublicGetRequest request = new BannerPublicGetRequest()
+            {
+                Page = "home",
+                Position = "main",
+            };
+
+            BannerPublicGetResult result = _bannerRepository.Get(request).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Image = ManageApiHostContant.baseURL + result.Image;
+            }
+
+            return result;
         }
         #endregion
     }

@@ -18,11 +18,11 @@ namespace Thegioididong.PublicApi.Controllers
             this._bannerService = bannerService;
         }
 
-        [Route("GetBanners")]
+        [Route("GetBannerMain")]
         [HttpGet]
-        public PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request)
+        public BannerPublicGetResult GetBannerMain()
         {
-            return _bannerService.GetBanners(request);
+            return _bannerService.GetBannerMain();
         }
     }
 }

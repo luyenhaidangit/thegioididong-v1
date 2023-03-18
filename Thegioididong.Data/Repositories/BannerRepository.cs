@@ -25,7 +25,7 @@ namespace Thegioididong.Data.Repositories
 
         // Public
 
-        PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request);
+        List<BannerPublicGetResult> Get(BannerPublicGetRequest request);
     }
 
     public class BannerRepository : IBannerRepository
@@ -126,7 +126,7 @@ namespace Thegioididong.Data.Repositories
 
         #region Public
 
-        public PagedResult<BannerPublicGetResult> GetBanners(BannerPagingPublicGetRequest request)
+        public PagedResult<BannerPublicGetResult> GetBanners(BannerPublicGetRequest request)
         {
             string[] valueJsonColumns = { "Items" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
@@ -140,6 +140,27 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var slides = dt.ConvertTo<PagedResult<BannerPublicGetResult>>(valueJsonColumns).FirstOrDefault();
+                return slides;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<BannerPublicGetResult> Get(BannerPublicGetRequest request)
+        {
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_banner_getbannerspublic", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var slides = dt.ConvertTo<BannerPublicGetResult>().ToList();
                 return slides;
             }
             catch (Exception ex)

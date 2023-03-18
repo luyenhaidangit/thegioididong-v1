@@ -26,7 +26,7 @@ namespace Thegioididong.Data.Repositories
 
         // Public
 
-        PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request);
+        List<SlidePublicGetResult> GetSlides(SlidePublicGetRequest request);
     }
 
     public class SlideRepository : ISlideRepository
@@ -131,9 +131,9 @@ namespace Thegioididong.Data.Repositories
 
         #region Public
 
-        public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
+        public List<SlidePublicGetResult> GetSlides(SlidePublicGetRequest request)
         {
-            string[] valueJsonColumns = { "Items" };
+            string[] valueJsonColumns = { "SlideItems" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
@@ -144,7 +144,7 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
 
-                var slides = dt.ConvertTo<PagedResult<SlidePublicGetResult>>(valueJsonColumns).FirstOrDefault();
+                var slides = dt.ConvertTo<SlidePublicGetResult>(valueJsonColumns).ToList();
                 return slides;
             }
             catch (Exception ex)

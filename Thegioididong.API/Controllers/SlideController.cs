@@ -79,12 +79,12 @@ namespace Thegioididong.API.Controllers
 
         #region Public
 
-        [Route("[controller]/GetSlides")]
-        [HttpGet]
-        public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
-        {
-            return _slideService.GetSlides(request);
-        }
+        //[Route("[controller]/GetSlides")]
+        //[HttpGet]
+        //public PagedResult<SlidePublicGetResult> GetSlides(SlidePublicGetRequest request)
+        //{
+        //    return _slideService.GetSlides(request);
+        //}
 
         #endregion
     }

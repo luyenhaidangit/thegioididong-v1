@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
+using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service;
@@ -18,13 +19,26 @@ namespace Thegioididong.PublicApi.Controllers
             this._slideService = slideService;
         }
 
+        //[Route("GetSlideHeaderTop")]
+        //[HttpGet]
+        //public ApiResult<SlidePublicGetResult> GetSlideHeaderTop()
+        //{
+        //    try
+        //    {
+        //        SlidePublicGetResult result = _slideService.GetSlideHeaderTop();
+        //        return new ApiSuccessResult<SlidePublicGetResult>(result);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new ApiSuccessResult<SlidePublicGetResult>("Lấy slide thất bại!");
+        //    }
+        //}
 
-
-        [Route("GetSlides")]
+        [Route("GetSlideHeaderTop")]
         [HttpGet]
-        public PagedResult<SlidePublicGetResult> GetSlides([FromQuery] SlidePagingPublicGetRequest request)
+        public SlidePublicGetResult GetSlideHeaderTop()
         {
-            return _slideService.GetSlides(request);
+            return _slideService.GetSlideHeaderTop();
         }
     }
 }

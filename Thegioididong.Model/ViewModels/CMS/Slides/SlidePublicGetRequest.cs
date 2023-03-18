@@ -7,7 +7,7 @@ using Thegioididong.Model.ViewModels.Common;
 
 namespace Thegioididong.Model.ViewModels.CMS.Slides
 {
-    public class SlidePagingPublicGetRequest : PagingRequestBase
+    public class SlidePublicGetRequest 
     {
         public string Page { get; set; }
 

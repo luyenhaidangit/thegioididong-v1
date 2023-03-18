@@ -29,7 +29,7 @@ namespace Thegioididong.Service
 
         // Public
 
-        PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request);
+        SlidePublicGetResult GetSlideHeaderTop();
     }
     public partial class SlideService : ISlideService
     {
@@ -65,26 +65,28 @@ namespace Thegioididong.Service
 
         #region Public
 
-        public PagedResult<SlidePublicGetResult> GetSlides(SlidePagingPublicGetRequest request)
+        public SlidePublicGetResult GetSlideHeaderTop()
         {
-            PagedResult<SlidePublicGetResult> result = _slideRepository.GetSlides(request);
-
-            foreach (var slide in result.Items)
+            SlidePublicGetRequest request = new SlidePublicGetRequest()
             {
-                if (slide != null)
+                Page = "client",
+                Position = "header_top",
+            };
+
+            SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();
+
+            if(result!=null)
+            {
+                foreach (var slideItem in result.SlideItems)
                 {
-                    foreach (var slideChild in slide.SlideItems)
-                    {
-                        if (slideChild != null && slideChild.Image!=null)
-                        {
-                            slideChild.Image = ManageApiHostContant.baseURL + slideChild.Image;
-                        }
-                    }
-                } 
+                    slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                }
             }
 
             return result;
         }
+
+        
 
         #endregion
     }

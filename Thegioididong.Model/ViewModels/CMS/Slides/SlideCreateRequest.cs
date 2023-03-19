@@ -9,11 +9,11 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
 {
     public class SlideItemCreateRequest
     {
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        public string URL { get; set; }
+        public string? URL { get; set; }
     }
 
     public class SlideCreateRequest

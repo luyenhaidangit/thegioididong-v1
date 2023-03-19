@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Infrastructure;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 
@@ -25,6 +26,8 @@ namespace Thegioididong.Data.Repositories
         // Public
 
         PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
+
+        List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome();
     }
     public partial class ProductCategorytRepository : IProductCategoryRepository
     {
@@ -132,6 +135,26 @@ namespace Thegioididong.Data.Repositories
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<PagedResult<CategoryNavigationGetResult>>(valueJsonColumns).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome()
+        {
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productfeature_getproductfeatureshome");
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var productFeatures = dt.ConvertTo<ProductCategoryFeatureHome>().ToList();
+                return productFeatures;
             }
             catch (Exception ex)
             {

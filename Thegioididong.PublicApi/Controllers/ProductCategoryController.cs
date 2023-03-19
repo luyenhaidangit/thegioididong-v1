@@ -23,5 +23,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _productCategoryService.GetProductCategoryNavigation();
         }
+
+        [Route("GetProductCategoriesFeaturesHome")]
+        [HttpGet]
+        public List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome()
+        {
+            return _productCategoryService.GetProductCategoriesFeaturesHome();
+        }
     }
 }

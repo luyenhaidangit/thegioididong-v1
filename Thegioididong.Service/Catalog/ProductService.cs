@@ -118,6 +118,10 @@ namespace Thegioididong.Service
                 foreach (var product in result)
                 {
                     product.Image = ManageApiHostContant.baseURL + product.Image;
+                    if (product?.BadgeProduct != null)
+                    {
+                        product.BadgeProduct.Image = ManageApiHostContant.baseURL + product?.BadgeProduct?.Image;
+                    }
                 }
             }
 

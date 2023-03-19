@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Thegioididong.Service\Thegioididong.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Upload\Image\Banner\" />
-  </ItemGroup>
-
 </Project>

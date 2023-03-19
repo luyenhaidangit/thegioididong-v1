@@ -24,5 +24,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _bannerService.GetBannerMain();
         }
+
+        [Route("GetBannerTopzone")]
+        [HttpGet]
+        public BannerPublicGetResult GetBannerTopzone()
+        {
+            return _bannerService.GetBannerTopzone();
+        }
     }
 }

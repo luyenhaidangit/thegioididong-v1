@@ -27,6 +27,8 @@ namespace Thegioididong.Service.CMS
         // Public
 
         BannerPublicGetResult GetBannerMain();
+
+        BannerPublicGetResult GetBannerTopzone();
     }
 
     public partial class BannerService : IBannerService
@@ -69,6 +71,24 @@ namespace Thegioididong.Service.CMS
             {
                 Page = "home",
                 Position = "main",
+            };
+
+            BannerPublicGetResult result = _bannerRepository.Get(request).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Image = ManageApiHostContant.baseURL + result.Image;
+            }
+
+            return result;
+        }
+
+        public BannerPublicGetResult GetBannerTopzone()
+        {
+            BannerPublicGetRequest request = new BannerPublicGetRequest()
+            {
+                Page = "home",
+                Position = "topzone",
             };
 
             BannerPublicGetResult result = _bannerRepository.Get(request).FirstOrDefault();

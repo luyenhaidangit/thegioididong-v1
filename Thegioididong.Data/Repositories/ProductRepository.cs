@@ -25,6 +25,8 @@ namespace Thegioididong.Data.Repositories
 
         // Public
 
+        List<ProductItemCardDefault> GetProductsHotDeal();
+
         ProductDailySuggestGetResult GetProductDailySuggest();
     }
 
@@ -137,6 +139,27 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var products = dt.ConvertTo<ProductDailySuggestGetResult>(valueJsonColumns).FirstOrDefault();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ProductItemCardDefault> GetProductsHotDeal()
+        {
+            string[] valueJsonColumns = { "BadgeProduct" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductshotdeal");
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<ProductItemCardDefault>(valueJsonColumns).ToList();
                 return products;
             }
             catch (Exception ex)

@@ -8,6 +8,7 @@ using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Common.Constants;
+using Thegioididong.Model.ViewModels.CMS.Slides;
 
 namespace Thegioididong.Service
 {
@@ -26,6 +27,8 @@ namespace Thegioididong.Service
         // Public
 
         ProductDailySuggestGetResult GetProductDailySuggest();
+
+        List<ProductItemCardDefault> GetProductsHotDeal();
     }
     public partial class ProductService : IProductService
     {
@@ -102,6 +105,21 @@ namespace Thegioididong.Service
                 }
             }
 
+
+            return result;
+        }
+
+        public List<ProductItemCardDefault> GetProductsHotDeal()
+        {
+            List<ProductItemCardDefault> result = _productRepository.GetProductsHotDeal();
+
+            if (result != null)
+            {
+                foreach (var product in result)
+                {
+                    product.Image = ManageApiHostContant.baseURL + product.Image;
+                }
+            }
 
             return result;
         }

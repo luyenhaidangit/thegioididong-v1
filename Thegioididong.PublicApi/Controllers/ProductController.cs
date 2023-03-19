@@ -21,5 +21,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _productService.GetProductDailySuggest();
         }
+
+        [Route("GetProductsHotDeal")]
+        [HttpGet]
+        public List<ProductItemCardDefault> GetProductsHotDeal()
+        {
+            return _productService.GetProductsHotDeal();
+        }
     }
 }

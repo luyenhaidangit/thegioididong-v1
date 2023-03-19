@@ -29,6 +29,8 @@ namespace Thegioididong.Service
         ProductDailySuggestGetResult GetProductDailySuggest();
 
         List<ProductItemCardDefault> GetProductsHotDeal();
+
+        List<ProductFeatureHome> GetProductFeaturesHome();
     }
     public partial class ProductService : IProductService
     {
@@ -125,6 +127,37 @@ namespace Thegioididong.Service
                 }
             }
 
+            return result;
+        }
+
+        public List<ProductFeatureHome> GetProductFeaturesHome()
+        {
+            List<ProductFeatureHome> result = _productRepository.GetProductFeaturesHome();
+            if (result != null)
+            {
+                foreach (var productFeature in result)
+                {
+                    if (productFeature.Slide != null)
+                    {
+                        foreach (var slideItem in productFeature.Slide.SlideItems)
+                        {
+                            slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                        }
+                    }
+
+                    if (productFeature.Products != null)
+                    {
+                        foreach (var product in productFeature.Products)
+                        {
+                            product.Image = ManageApiHostContant.baseURL + product.Image;
+                            if (product?.BadgeProduct != null)
+                            {
+                                product.BadgeProduct.Image = ManageApiHostContant.baseURL + product?.BadgeProduct?.Image;
+                            }
+                        }
+                    }
+                }
+            }
             return result;
         }
 

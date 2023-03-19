@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 
-namespace Thegioididong.Model.ViewModels.Features.ProductFeature
+namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class ProductFeatureHome
     {

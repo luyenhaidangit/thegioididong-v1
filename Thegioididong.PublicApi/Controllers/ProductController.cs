@@ -28,5 +28,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _productService.GetProductsHotDeal();
         }
+
+        [Route("GetProductFeaturesHome")]
+        [HttpGet]
+        public List<ProductFeatureHome> GetProductFeaturesHome()
+        {
+            return _productService.GetProductFeaturesHome();
+        }
     }
 }

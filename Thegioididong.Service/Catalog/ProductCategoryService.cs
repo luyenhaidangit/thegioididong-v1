@@ -80,7 +80,10 @@ namespace Thegioididong.Service
             {
                 foreach(var productCategory in result)
                 {
-                    productCategory.Image = ManageApiHostContant.baseURL + productCategory.Image;
+                    if(productCategory.Image != null)
+                    {
+                        productCategory.Image = ManageApiHostContant.baseURL + productCategory.Image;
+                    }
                 }
             }
 

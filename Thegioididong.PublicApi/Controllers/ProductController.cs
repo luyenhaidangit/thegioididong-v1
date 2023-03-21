@@ -17,7 +17,7 @@ namespace Thegioididong.PublicApi.Controllers
 
         [Route("GetProductDailySuggest")]
         [HttpGet]
-        public ProductDailySuggestGetResult GetProductDailySuggest()
+        public ProductDailySuggest GetProductDailySuggest()
         {
             return _productService.GetProductDailySuggest();
         }

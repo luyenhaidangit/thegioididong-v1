@@ -29,7 +29,7 @@ namespace Thegioididong.Data.Repositories
 
         List<ProductFeatureHome> GetProductFeaturesHome();
 
-        ProductDailySuggestGetResult GetProductDailySuggest();
+        ProductDailySuggest GetProductDailySuggest();
     }
 
     public class ProductRepository : IProductRepository
@@ -128,9 +128,9 @@ namespace Thegioididong.Data.Repositories
 
         #region Public
 
-        public ProductDailySuggestGetResult GetProductDailySuggest()
+        public ProductDailySuggest GetProductDailySuggest()
         {
-            string[] valueJsonColumns = { "LatestProducts", "PopularProducts", "BestSellingProducts", "TopRatedProducts" };
+            string[] valueJsonColumns = { "LatestProducts", "PopularProducts", "SellingProducts", "TopRatedProducts" };
             try
             {
                 string msgError = "";
@@ -140,7 +140,7 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
 
-                var products = dt.ConvertTo<ProductDailySuggestGetResult>(valueJsonColumns).FirstOrDefault();
+                var products = dt.ConvertTo<ProductDailySuggest>(valueJsonColumns).FirstOrDefault();
                 return products;
             }
             catch (Exception ex)

@@ -26,7 +26,7 @@ namespace Thegioididong.Service
 
         // Public
 
-        ProductDailySuggestGetResult GetProductDailySuggest();
+        ProductDailySuggest GetProductDailySuggest();
 
         List<ProductItemCardDefault> GetProductsHotDeal();
 
@@ -67,9 +67,9 @@ namespace Thegioididong.Service
 
         #region Public
 
-        public ProductDailySuggestGetResult GetProductDailySuggest()
+        public ProductDailySuggest GetProductDailySuggest()
         {
-            ProductDailySuggestGetResult result = _productRepository.GetProductDailySuggest();
+            ProductDailySuggest result = _productRepository.GetProductDailySuggest();
 
             foreach (var product in result.LatestProducts)
             {
@@ -89,7 +89,7 @@ namespace Thegioididong.Service
                 }
             }
 
-            foreach (var product in result.BestSellingProducts)
+            foreach (var product in result.SellingProducts)
             {
                 product.Image = ManageApiHostContant.baseURL + product.Image;
                 if (product.BadgeProduct != null)

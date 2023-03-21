@@ -29,7 +29,7 @@ namespace Thegioididong.Service
 
         // Public
 
-        PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
+        List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
 
         List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome();
     }
@@ -67,9 +67,22 @@ namespace Thegioididong.Service
 
         #region Public
 
-        public PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation()
+        public List<ProductCategoryHomeNavigation> GetProductCategoryNavigation()
         {
-            return _productCategoryRepository.GetProductCategoryNavigation();
+            List<ProductCategoryHomeNavigation> result = _productCategoryRepository.GetProductCategoryNavigation();
+
+            if (result != null)
+            {
+                foreach (var productCategory in result)
+                {
+                    if (productCategory.BadgeIcon != null)
+                    {
+                        productCategory.BadgeIcon = ManageApiHostContant.baseURL + productCategory.BadgeIcon;
+                    }
+                }
+            }
+
+            return result;
         }
 
         public List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome()

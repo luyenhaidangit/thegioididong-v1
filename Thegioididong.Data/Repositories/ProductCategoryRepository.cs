@@ -25,7 +25,7 @@ namespace Thegioididong.Data.Repositories
 
         // Public
 
-        PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation();
+        List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
 
         List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome();
     }
@@ -125,16 +125,20 @@ namespace Thegioididong.Data.Repositories
 
         #region Public
 
-        public PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation()
+        public List<ProductCategoryHomeNavigation> GetProductCategoryNavigation()
         {
-            string msgError = "";
-            string[] valueJsonColumns = { "Items" };
+            string[] valueJsonColumns = { "ProductCategoryGroups" };
             try
             {
+                string msgError = "";
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategorynavigation");
                 if (!string.IsNullOrEmpty(msgError))
+                {
                     throw new Exception(msgError);
-                return dt.ConvertTo<PagedResult<CategoryNavigationGetResult>>(valueJsonColumns).FirstOrDefault();
+                }
+
+                var productFeatures = dt.ConvertTo<ProductCategoryHomeNavigation>(valueJsonColumns).ToList();
+                return productFeatures;
             }
             catch (Exception ex)
             {

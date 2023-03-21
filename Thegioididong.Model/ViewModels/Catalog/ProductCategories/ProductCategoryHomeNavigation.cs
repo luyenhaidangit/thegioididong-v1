@@ -26,7 +26,7 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 
     }
 
-    public class CategoryNavigationGetResult
+    public class ProductCategoryHomeNavigation
     {
         public int Id { get; set; }
 

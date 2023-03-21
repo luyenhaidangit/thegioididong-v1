@@ -19,7 +19,7 @@ namespace Thegioididong.PublicApi.Controllers
 
         [Route("GetProductCategoryNavigation")]
         [HttpGet]
-        public PagedResult<CategoryNavigationGetResult> GetProductCategoryNavigation()
+        public List<ProductCategoryHomeNavigation> GetProductCategoryHomeNavigation()
         {
             return _productCategoryService.GetProductCategoryNavigation();
         }

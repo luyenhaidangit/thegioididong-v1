@@ -21,6 +21,11 @@ builder.Services.AddSwaggerGen(config =>
     config.EnableAnnotations();
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 
 // DI
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
@@ -48,6 +53,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.UseHttpsRedirection();
 

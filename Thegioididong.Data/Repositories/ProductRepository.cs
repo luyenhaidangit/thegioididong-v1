@@ -30,6 +30,8 @@ namespace Thegioididong.Data.Repositories
         List<ProductFeatureHome> GetProductFeaturesHome();
 
         ProductDailySuggest GetProductDailySuggest();
+
+        ProductDetailPage GetProductDetailPage(int id);
     }
 
     public class ProductRepository : IProductRepository
@@ -141,6 +143,28 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var products = dt.ConvertTo<ProductDailySuggest>(valueJsonColumns).FirstOrDefault();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ProductDetailPage GetProductDetailPage(int id)
+        {
+            //string[] valueJsonColumns = { "ProductVariants", "ProductAttributes" };
+            string[] valueJsonColumns = { "ProductVariants" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductdetailpage", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<ProductDetailPage>(valueJsonColumns).FirstOrDefault();
                 return products;
             }
             catch (Exception ex)

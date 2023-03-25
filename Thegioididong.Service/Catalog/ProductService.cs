@@ -31,6 +31,8 @@ namespace Thegioididong.Service
         List<ProductItemCardDefault> GetProductsHotDeal();
 
         List<ProductFeatureHome> GetProductFeaturesHome();
+
+        ProductDetailPage GetProductDetailPage(int id);
     }
     public partial class ProductService : IProductService
     {
@@ -159,6 +161,11 @@ namespace Thegioididong.Service
                 }
             }
             return result;
+        }
+
+        public ProductDetailPage GetProductDetailPage(int id)
+        {
+            return _productRepository.GetProductDetailPage(id);
         }
 
         #endregion

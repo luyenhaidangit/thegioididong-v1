@@ -13,6 +13,7 @@ using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Model.ViewModels.System.Users;
 using Thegioididong.Service.Common;
+using Thegioididong.Service.System;
 using static Thegioididong.Common.Constants.SystemConstant;
 
 namespace Thegioididong.Service
@@ -29,12 +30,23 @@ namespace Thegioididong.Service
     {
         private IUserRepository _userRepository;
         private IStorageService _storageService;
+        private IEmailService _emailService;
         private const string USER_CONTENT_FOLDER_NAME = "upload";
 
-        public UserService(IUserRepository userRepository, IStorageService storageService)
+        public UserService(IUserRepository userRepository, IStorageService storageService,IEmailService emailService)
         {
             this._userRepository = userRepository;
             this._storageService= storageService;
+            this._emailService= emailService;
+        }
+
+        public bool VerificationAccount(int id)
+        {
+            Random r = new Random();
+            string otp = r.Next(100001, 999999).ToString();
+            string content = "Mã xác nhận của bạn là:" + otp;
+
+            return true;
         }
 
         public UserClaim Authencate(LoginRequest request)

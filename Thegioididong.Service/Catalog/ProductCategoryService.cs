@@ -27,6 +27,8 @@ namespace Thegioididong.Service
 
         bool Delete(int id);
 
+        bool DeleteMulti(List<int> ids);
+
         // Public
 
         List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
@@ -61,6 +63,11 @@ namespace Thegioididong.Service
         public bool Delete(int id)
         {
             return _productCategoryRepository.Delete(id);
+        }
+
+        public bool DeleteMulti(List<int> ids)
+        {
+            return _productCategoryRepository.DeleteMulti(ids);
         }
 
         #endregion

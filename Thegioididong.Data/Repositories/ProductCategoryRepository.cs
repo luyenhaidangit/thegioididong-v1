@@ -23,6 +23,8 @@ namespace Thegioididong.Data.Repositories
 
         bool Delete(int id);
 
+        bool DeleteMulti(List<int> ids);
+
         // Public
 
         List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
@@ -108,6 +110,27 @@ namespace Thegioididong.Data.Repositories
                 string msgError = "";
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_delete",
                 "@id", id
+                );
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool DeleteMulti(List<int> ids)
+        {
+            try
+            {
+                string msgError = "";
+                var requestJson = ids != null ? MessageConvert.SerializeObject(ids) : null;
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_productcategory_deletemulti",
+                "@ids", requestJson
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

@@ -70,5 +70,20 @@ namespace Thegioididong.ManageApi.Controllers
                 return new ApiSuccessResult<string>("Xóa loại sản phẩm thất bại!");
             }
         }
+
+        [Route("DeleteMulti")]
+        [HttpDelete]
+        public ApiResult<string> DeleteMulti(List<int> ids)
+        {
+            try
+            {
+                bool result = _productCategoryService.DeleteMulti(ids);
+                return new ApiSuccessResult<string>("Xóa danh sách loại sản phẩm thành công!");
+            }
+            catch (Exception ex)
+            {
+                return new ApiSuccessResult<string>("Xóa danh sách loại sản phẩm thất bại!");
+            }
+        }
     }
 }

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Thegioididong.Model.ViewModels.Catalog.Brands;
+using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
+using Thegioididong.Model.ViewModels.Catalog.Rating;
+using Thegioididong.Model.ViewModels.CMS.Galleries;
 
 namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
@@ -65,17 +69,6 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
         public string Value { get; set; }
     }
 
-    public class ProductVariant
-    {
-        public int Id { set; get; }
-
-        public string Name { get; set; }
-
-        public decimal OriginalPrice { get; set; }
-
-        public List<ProductAttribute> Options { get; set; }
-    }
-
     //public class ProductAttribute
     //{
     //    public string Name { get; set; }
@@ -91,16 +84,37 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
     }
 
+    public class ProductVariant
+    {
+        public int Id { set; get; }
+
+        public string Name { get; set; }
+
+        public decimal OriginalPrice { get; set; }
+
+        public decimal DiscountedPrice { get; set; }
+
+        public int DiscountPercent { get; set; }
+
+        public bool IsInterest { get; set; }
+
+        public List<ProductAttribute> Options { get; set; }
+    }
+
     public class ProductDetailPage
     {
         public string Id { get; set; }
 
+        public ProductCategoryBasicViewModel ProductCategory { get; set; }
+
+        public BrandBasicViewModel Brand { get; set; }
+
         public string Name { get; set; }
 
-        //public List<ProductAttribute> ProductAttributes { get; set; }
+        public RatingProductPageViewModel Rating { get; set; }
 
         public List<ProductVariant> ProductVariants { get; set; }
 
-        public decimal OriginalPrice { get; set; }
+        public List<GalleryImageProductDetailPageViewModel> Galleries { get; set; }
     }
 }

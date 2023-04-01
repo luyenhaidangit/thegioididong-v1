@@ -116,7 +116,40 @@ namespace Thegioididong.Service
 
         public ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id)
         {
-            return _productCategoryRepository.GetProductCategoryTopBanner(id);
+            ProductCategoryTopBannerGetResult result = _productCategoryRepository.GetProductCategoryTopBanner(id);
+
+            if (result != null)
+            {
+                if (result.Slide != null)
+                {
+                    foreach (var slideItem in result.Slide.SlideItems)
+                    {
+                        if (slideItem.Image != null)
+                        {
+                            slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                        }
+                       
+                    }
+                }
+
+                if (result.BannerFirst != null)
+                {
+                    if(result.BannerFirst.Image!= null)
+                    {
+                        result.BannerFirst.Image = ManageApiHostContant.baseURL + result.BannerFirst.Image;
+                    }
+                }
+
+                if (result.BannerSecond != null)
+                {
+                    if (result.BannerSecond.Image != null)
+                    {
+                        result.BannerSecond.Image = ManageApiHostContant.baseURL + result.BannerFirst.Image;
+                    }
+                }
+            }
+
+            return result;
         }
 
         public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)

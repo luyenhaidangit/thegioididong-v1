@@ -107,7 +107,7 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public ProductCategoryBasicViewModel ProductCategory { get; set; }
 
-        public BrandBasicViewModel Brand { get; set; }
+        public BrandPublicGetResult Brand { get; set; }
 
         public string Name { get; set; }
 

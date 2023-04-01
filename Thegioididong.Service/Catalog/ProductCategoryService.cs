@@ -34,6 +34,10 @@ namespace Thegioididong.Service
         List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
 
         List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome();
+
+        ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id);
+
+        ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id);
     }
     public partial class ProductCategoryService : IProductCategoryService
     {
@@ -108,6 +112,16 @@ namespace Thegioididong.Service
             }
 
             return result;
+        }
+
+        public ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id)
+        {
+            return _productCategoryRepository.GetProductCategoryTopBanner(id);
+        }
+
+        public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)
+        {
+            return _productCategoryRepository.GetProductCategoryBoxFilter(id);
         }
 
         #endregion

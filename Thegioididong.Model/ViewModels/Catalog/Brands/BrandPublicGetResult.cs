@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Thegioididong.Model.ViewModels.Catalog.Brands
 {
-    public class BrandBasicViewModel
+    public class BrandPublicGetResult
     {
         public int Id { get; set; }
 
         public string Name { get; set; }    
+
+        public string Image { get; set; }
     }
 }

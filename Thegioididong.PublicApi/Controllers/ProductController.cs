@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.ViewModels.Catalog.Products;
+using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service;
 
 namespace Thegioididong.PublicApi.Controllers
@@ -41,6 +42,13 @@ namespace Thegioididong.PublicApi.Controllers
         public ProductDetailPage GetProductDetailPage(int id)
         {
             return _productService.GetProductDetailPage(id);
+        }
+
+        [Route("GetProductsProductCategoryDetailPage")]
+        [HttpGet]
+        public PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        {
+            return _productService.GetProductsProductCategoryDetailPage(request);
         }
     }
 }

@@ -30,6 +30,10 @@ namespace Thegioididong.Data.Repositories
         List<ProductCategoryHomeNavigation> GetProductCategoryNavigation();
 
         List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome();
+
+        ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id);
+
+        ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id);
     }
     public partial class ProductCategorytRepository : IProductCategoryRepository
     {
@@ -182,6 +186,48 @@ namespace Thegioididong.Data.Repositories
 
                 var productFeatures = dt.ConvertTo<ProductCategoryFeatureHome>().ToList();
                 return productFeatures;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id)
+        {
+            string[] valueJsonColumns = { "Slide", "BannerFirst", "BannerSecond" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategorytopbanner", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var productCategories = dt.ConvertTo<ProductCategoryTopBannerGetResult>(valueJsonColumns).FirstOrDefault();
+                return productCategories;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)
+        {
+            string[] valueJsonColumns = { "BrandsFilter", "RangePricesFilter", "ProductAttributesFilter" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategoryboxfilter", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var productCategories = dt.ConvertTo<ProductCategoryBoxFilterGetResult>(valueJsonColumns).FirstOrDefault();
+                return productCategories;
             }
             catch (Exception ex)
             {

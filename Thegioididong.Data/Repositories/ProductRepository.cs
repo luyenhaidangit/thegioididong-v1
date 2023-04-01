@@ -32,6 +32,8 @@ namespace Thegioididong.Data.Repositories
         ProductDailySuggest GetProductDailySuggest();
 
         ProductDetailPage GetProductDetailPage(int id);
+
+        PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
 
     public class ProductRepository : IProductRepository
@@ -186,6 +188,28 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var products = dt.ConvertTo<ProductItemCardDefault>(valueJsonColumns).ToList();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        {
+            string[] valueJsonColumns = { "Items" };
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductsproductcategorydetailpage", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<PagedResult<ProductItemCardProductCategoryPage>>(valueJsonColumns).FirstOrDefault();
                 return products;
             }
             catch (Exception ex)

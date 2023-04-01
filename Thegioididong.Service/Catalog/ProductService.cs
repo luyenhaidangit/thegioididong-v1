@@ -33,6 +33,8 @@ namespace Thegioididong.Service
         List<ProductFeatureHome> GetProductFeaturesHome();
 
         ProductDetailPage GetProductDetailPage(int id);
+
+        PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
     {
@@ -166,6 +168,11 @@ namespace Thegioididong.Service
         public ProductDetailPage GetProductDetailPage(int id)
         {
             return _productRepository.GetProductDetailPage(id);
+        }
+
+        public PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        {
+            return _productRepository.GetProductsProductCategoryDetailPage(request);
         }
 
         #endregion

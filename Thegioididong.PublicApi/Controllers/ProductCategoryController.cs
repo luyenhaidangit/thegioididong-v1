@@ -30,5 +30,19 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _productCategoryService.GetProductCategoriesFeaturesHome();
         }
+
+        [Route("GetProductCategoryTopBanner")]
+        [HttpGet]
+        public ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id)
+        {
+            return _productCategoryService.GetProductCategoryTopBanner(id);
+        }
+
+        [Route("GetProductCategoryBoxFilter")]
+        [HttpGet]
+        public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)
+        {
+            return _productCategoryService.GetProductCategoryBoxFilter(id);
+        }
     }
 }

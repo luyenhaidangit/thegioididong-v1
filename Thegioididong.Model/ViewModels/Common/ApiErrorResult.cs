@@ -16,21 +16,21 @@ namespace Thegioididong.Model.ViewModels.Common
 
         public ApiErrorResult(string message)
         {
-            IsSuccessed = false;
+            StatusCode = 0;
             Message = message;
         }
 
         public ApiErrorResult(string[] validationErrors)
         {
-            IsSuccessed = false;
+            StatusCode = 0;
             ValidationErrors = validationErrors;
         }
 
         public ApiErrorResult(T resultObj, string message)
         {
-            IsSuccessed = false;
+            StatusCode = 0;
             Message = message;
-            ResultObj = resultObj;
+            Data = resultObj;
         }
     }
 }

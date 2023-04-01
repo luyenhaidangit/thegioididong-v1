@@ -33,9 +33,14 @@ namespace Thegioididong.PublicApi.Controllers
 
         [Route("GetProductCategoryTopBanner")]
         [HttpGet]
-        public ProductCategoryTopBannerGetResult GetProductCategoryTopBanner(int id)
+        public ApiResult<ProductCategoryTopBannerGetResult> GetProductCategoryTopBanner(int id)
         {
-            return _productCategoryService.GetProductCategoryTopBanner(id);
+            ProductCategoryTopBannerGetResult result = _productCategoryService.GetProductCategoryTopBanner(id);
+            if (result == null)
+            {
+                return new ApiSuccessResult<ProductCategoryTopBannerGetResult>(204,null,result);
+            }
+            return new ApiSuccessResult<ProductCategoryTopBannerGetResult>(result);
         }
 
         [Route("GetProductCategoryBoxFilter")]

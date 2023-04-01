@@ -10,26 +10,33 @@ namespace Thegioididong.Model.ViewModels.Common
     {
         public ApiSuccessResult(T resultObj)
         {
-            IsSuccessed = true;
-            ResultObj = resultObj;
+            StatusCode = 200;
+            Data = resultObj;
         }
 
         public ApiSuccessResult()
         {
-            IsSuccessed = true;
+            StatusCode = 200;
         }
 
         public ApiSuccessResult(string message)
         {
-            IsSuccessed = true;
+            StatusCode = 200;
             Message = message;
         }
 
         public ApiSuccessResult(T resultObj,string message)
         {
-            IsSuccessed = true;
+            StatusCode = 200;
             Message= message;
-            ResultObj = resultObj;
+            Data = resultObj;
+        }
+
+        public ApiSuccessResult(int statusCode,string message, T resultObj)
+        {
+            StatusCode = statusCode;
+            Message = message;
+            Data = resultObj;
         }
     }
 }

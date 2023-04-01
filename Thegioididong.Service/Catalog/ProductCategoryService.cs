@@ -144,7 +144,7 @@ namespace Thegioididong.Service
                 {
                     if (result.BannerSecond.Image != null)
                     {
-                        result.BannerSecond.Image = ManageApiHostContant.baseURL + result.BannerFirst.Image;
+                        result.BannerSecond.Image = ManageApiHostContant.baseURL + result.BannerSecond.Image;
                     }
                 }
             }

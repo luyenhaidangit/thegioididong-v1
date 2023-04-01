@@ -26,6 +26,6 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
 
         public bool Published { get; set; }
 
-        public List<SlideItemCreateRequest> SlideItems { get; set; }
+        public List<SlideItemCreateRequest?>? SlideItems { get; set; }
     }
 }

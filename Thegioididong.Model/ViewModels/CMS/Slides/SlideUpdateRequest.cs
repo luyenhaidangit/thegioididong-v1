@@ -10,11 +10,11 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
     {
         public int? Id { get; set; }
 
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        public string URL { get; set; }
+        public string? URL { get; set; }
     }
 
     public class SlideUpdateRequest
@@ -29,6 +29,6 @@ namespace Thegioididong.Model.ViewModels.CMS.Slides
 
         public bool Published { get; set; }
 
-        public List<SlideItemUpdateRequest> SlideItems { get; set; }
+        public List<SlideItemUpdateRequest?>? SlideItems { get; set; }
     }
 }

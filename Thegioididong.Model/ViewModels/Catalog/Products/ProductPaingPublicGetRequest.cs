@@ -10,9 +10,9 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class ProductPaingPublicGetRequest : PagingRequestBase
     {
-        public List<int> ProductCategoryId { get; set; }
+        public int ProductCategoryId { get; set; }
 
-        public List<int> BrandId { get; set; }
+        public List<int> BrandIds { get; set; }
 
         public decimal StartPrice { get; set; }
 

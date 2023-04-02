@@ -17,11 +17,11 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public bool IsInterest { get; set; }
 
-        public List<string> SpecialAttribute { get; set; }
+        public BadgeProductPublicGetResult BadgeProduct { get; set; }
+
+        public List<AttributeProductValueFilterGetResult> SpecialAttribute { get; set; }
 
         public List<AttributeProductFilterGetResult> ProductAttributesOption { get; set; }
-
-        public BadgeProductPublicGetResult BadgeProduct { get; set; }
 
         public decimal OriginalPrice { get; set; }
 

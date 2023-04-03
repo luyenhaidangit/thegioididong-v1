@@ -9,6 +9,7 @@ using Thegioididong.Service;
 
 namespace Thegioididong.ManageApi.Controllers
 {
+    //[Authorize(Roles = "administrator")]
     [Route("api/[controller]")]
     [ApiController]
     public class SlideController : ControllerBase

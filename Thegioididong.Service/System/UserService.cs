@@ -22,6 +22,8 @@ namespace Thegioididong.Service
     {
         UserClaim Authencate(LoginRequest request);
 
+        UserClaim Authentication(LoginRequest request);
+
         bool Register(RegisterRequest request);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
@@ -67,7 +69,37 @@ namespace Thegioididong.Service
                 {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role),
-                    new Claim(ClaimTypes.DenyOnlyWindowsDeviceGroup, user.Password)
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var tmp = tokenHandler.CreateToken(tokenDescriptor);
+            var token = tokenHandler.WriteToken(tmp);
+
+            user.Token = token;
+
+            return user;
+        }
+
+        public UserClaim Authentication(LoginRequest request)
+        {
+            UserClaim user = _userRepository.Authentication(request);
+
+            if (user == null)
+            {
+                user = null;
+                return user;
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(SecretConfiguration.SecretKey);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Role, user.Role),
+                    new Claim(ClaimTypes.DenyOnlyWindowsDeviceGroup, user.Username)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

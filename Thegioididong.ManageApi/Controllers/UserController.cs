@@ -19,20 +19,20 @@ namespace Thegioididong.ManageApi.Controllers
 
         [Route("Login")]
         [HttpPost]
-        public ApiResult<UserClaim> Create([FromQuery] LoginRequest request)
+        public ApiResult<UserClaim> Authentication([FromQuery] LoginRequest request)
         {
             try
             {
-                UserClaim result = _userService.Authencate(request);
+                UserClaim result = _userService.Authentication(request);
                 if (result == null)
                 {
-                    return new ApiErrorResult<UserClaim>(null, "Tên tài khoản hoặc mật khẩu không hợp lệ");
+                    return new ApiResult<UserClaim>(401,"Tên tài khoản hoặc mật khẩu không hợp lệ!", result);
                 }
-                return new ApiSuccessResult<UserClaim>(result, "Đăng nhập thành công");
+                return new ApiResult<UserClaim>(200, "Đăng nhập thành công",result);
             }
             catch (Exception ex)
             {
-                return new ApiErrorResult<UserClaim>(null, ex.Message.ToString());
+                return new ApiResult<UserClaim>(400, "Lỗi: "+ex.Message, null);
             }
         }
 

@@ -10,15 +10,15 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class ProductPaingPublicGetRequest : PagingRequestBase
     {
-        public int ProductCategoryId { get; set; }
+        public int? ProductCategoryId { get; set; }
 
-        public List<int> BrandIds { get; set; }
+        public List<int>? BrandIds { get; set; }
 
-        public decimal StartPrice { get; set; }
+        public decimal? StartPrice { get; set; }
 
-        public decimal EndPrice { get; set; }
+        public decimal? EndPrice { get; set; }
 
-        public List<AttributeProductFilterGetResult> ProductAttributes { get; set; }
+        public List<AttributeProductFilterGetResult?>? ProductAttributes { get; set; }
 
         public string? SortBy { get; set; }
 

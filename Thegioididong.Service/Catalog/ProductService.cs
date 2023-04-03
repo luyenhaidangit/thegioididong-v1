@@ -34,7 +34,7 @@ namespace Thegioididong.Service
 
         ProductDetailPage GetProductDetailPage(int id);
 
-        PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+        List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
     {
@@ -170,9 +170,28 @@ namespace Thegioididong.Service
             return _productRepository.GetProductDetailPage(id);
         }
 
-        public PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        public List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
-            return _productRepository.GetProductsProductCategoryDetailPage(request);
+            List<ProductItemCardProductCategoryPage> result = _productRepository.GetProductsProductCategoryDetailPage(request);
+            if(result!=null && result.Count > 0)
+            {
+                foreach(var product in result)
+                {
+                    if(product.Image != null)
+                    {
+                        product.Image = ManageApiHostContant.baseURL + product.Image;
+                    }
+
+                    if(product.BadgeProduct != null)
+                    {
+                        if (product.BadgeProduct.Image != null)
+                        {
+                            product.BadgeProduct.Image = ManageApiHostContant.baseURL + product.BadgeProduct.Image;
+                        }
+                    }
+                }
+            }
+            return result;
         }
 
         #endregion

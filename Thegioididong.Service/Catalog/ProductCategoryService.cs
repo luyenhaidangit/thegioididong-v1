@@ -154,7 +154,21 @@ namespace Thegioididong.Service
 
         public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)
         {
-            return _productCategoryRepository.GetProductCategoryBoxFilter(id);
+            ProductCategoryBoxFilterGetResult result = _productCategoryRepository.GetProductCategoryBoxFilter(id);
+            if (result != null)
+            {
+                if(result.BrandsFilter != null && result.BrandsFilter.Count > 0)
+                {
+                    foreach(var brand in result.BrandsFilter)
+                    {
+                        if(brand.Image!= null)
+                        {
+                            brand.Image = ManageApiHostContant.baseURL + brand.Image;
+                        }
+                    }
+                }
+            }
+            return result;
         }
 
         #endregion

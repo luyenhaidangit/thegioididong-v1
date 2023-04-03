@@ -33,7 +33,9 @@ namespace Thegioididong.Data.Repositories
 
         ProductDetailPage GetProductDetailPage(int id);
 
-        PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+        List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+
+        //List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage1(ProductPaingPublicGetRequest request);
     }
 
     public class ProductRepository : IProductRepository
@@ -196,9 +198,9 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public PagedResult<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        public List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
-            string[] valueJsonColumns = { "Items" };
+            string[] valueJsonColumns = { "BadgeProduct", "SpecialAttribute", "ProductAttributesOption" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
@@ -209,7 +211,7 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
 
-                var products = dt.ConvertTo<PagedResult<ProductItemCardProductCategoryPage>>(valueJsonColumns).FirstOrDefault();
+                var products = dt.ConvertTo<ProductItemCardProductCategoryPage>(valueJsonColumns).ToList();
                 return products;
             }
             catch (Exception ex)

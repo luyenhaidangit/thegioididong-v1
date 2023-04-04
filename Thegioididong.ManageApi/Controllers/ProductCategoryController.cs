@@ -28,7 +28,7 @@ namespace Thegioididong.ManageApi.Controllers
 
         [Route("GetProductCategoryParentAndGroupSelectFilter")]
         [HttpGet]
-        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter([FromQuery] string name)
+        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter([FromQuery] string? name)
         {
             return _productCategoryService.GetProductCategoryParentAndGroupSelectFilter(name);
         }

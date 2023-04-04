@@ -237,7 +237,7 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string name)
+        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string? name)
         {
             try
             {

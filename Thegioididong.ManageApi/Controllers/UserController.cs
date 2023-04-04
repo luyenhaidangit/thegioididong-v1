@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Common;
@@ -33,6 +34,21 @@ namespace Thegioididong.ManageApi.Controllers
             catch (Exception ex)
             {
                 return new ApiResult<UserClaim>(400, "Lỗi: "+ex.Message, null);
+            }
+        }
+
+        [Route("VerifyAdminToken")]
+        [Authorize(Roles = "administrator")]
+        [HttpGet]
+        public string VerifyAdminToken([FromQuery] string token)
+        {
+            try
+            {
+                return token;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

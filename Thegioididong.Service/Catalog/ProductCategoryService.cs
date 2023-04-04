@@ -21,6 +21,8 @@ namespace Thegioididong.Service
         // Manage
         PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request);
 
+        List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string name);
+
         bool Create(ProductCategoryCreateRequest request);
 
         bool Update(ProductCategoryUpdateRequest request);
@@ -72,6 +74,11 @@ namespace Thegioididong.Service
         public bool DeleteMulti(List<int> ids)
         {
             return _productCategoryRepository.DeleteMulti(ids);
+        }
+
+        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string name)
+        {
+            return _productCategoryRepository.GetProductCategoryParentAndGroupSelectFilter(name);
         }
 
         #endregion

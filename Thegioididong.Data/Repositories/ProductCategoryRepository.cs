@@ -15,6 +15,8 @@ namespace Thegioididong.Data.Repositories
     public partial interface IProductCategoryRepository
     {
         // Manage
+        List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string name);
+
         PagedResult<ProductCategory> GetProductCategories(ProductCategoryPagingManageGetRequest request);
 
         bool Create(ProductCategoryCreateRequest request);
@@ -228,6 +230,26 @@ namespace Thegioididong.Data.Repositories
 
                 var productCategories = dt.ConvertTo<ProductCategoryBoxFilterGetResult>(valueJsonColumns).FirstOrDefault();
                 return productCategories;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter(string name)
+        {
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategoryparentandgroupfilter","@name",name);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var productFeatures = dt.ConvertTo<ProductCategoryFilterSelect>().ToList();
+                return productFeatures;
             }
             catch (Exception ex)
             {

@@ -26,6 +26,13 @@ namespace Thegioididong.ManageApi.Controllers
             return _productCategoryService.GetProductCategories(request);
         }
 
+        [Route("GetProductCategoryParentAndGroupSelectFilter")]
+        [HttpGet]
+        public List<ProductCategoryFilterSelect> GetProductCategoryParentAndGroupSelectFilter([FromQuery] string name)
+        {
+            return _productCategoryService.GetProductCategoryParentAndGroupSelectFilter(name);
+        }
+
         [Route("Create")]
         [HttpPost]
         public ApiResult<string> Create([FromForm] ProductCategoryCreateRequest request)

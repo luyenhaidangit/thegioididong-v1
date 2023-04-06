@@ -27,17 +27,16 @@ namespace Thegioididong.Service.System
                 mail.Subject = request.Title;
                 mail.Body = request.Content;
                 mail.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp-mail.outlook.com";
+
+                SmtpClient smtp = new SmtpClient("smtp-mail.outlook.com", 587);
                 smtp.EnableSsl = true;
-                NetworkCredential credential = new NetworkCredential("luyenhaidangit@outlook.com", "Haidang106");
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = credential;
-                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("luyenhaidangit@outlook.com", "Haidang106");
                 smtp.Send(mail);
             }
 
             return true;
         }
+
     }
 }

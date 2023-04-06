@@ -8,6 +8,8 @@ namespace Thegioididong.Model.ViewModels.System.Emails
 {
     public class OtpGetResult
     {
+        public string Email { get; set; }
+
         public string Code { get; set; }
     }
 }

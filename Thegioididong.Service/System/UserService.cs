@@ -140,7 +140,21 @@ namespace Thegioididong.Service
 
         public OtpGetResult CreateOtp(int id)
         {
-            return _userRepository.CreateOtp(id);
+            try
+            {
+                var result = _userRepository.CreateOtp(id);
+                SendEmailRequest request = new SendEmailRequest();
+                request.Title = "Mã xác nhận hệ thông Thegioididong";
+                request.Content = "Mã xác nhận của bạn là:" + result.Code;
+                request.Email = result.Email;
+
+                bool sendMail = _emailService.Send(request);
+                return _userRepository.CreateOtp(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

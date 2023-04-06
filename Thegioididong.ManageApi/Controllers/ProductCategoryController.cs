@@ -35,16 +35,16 @@ namespace Thegioididong.ManageApi.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public ApiResult<string> Create([FromForm] ProductCategoryCreateRequest request)
+        public ApiResult<ProductCategoryCreateRequest> Create([FromBody] ProductCategoryCreateRequest request)
         {
             try
             {
                 bool result = _productCategoryService.Create(request);
-                return new ApiSuccessResult<string>("Tạo mới loại sản phẩm thành công!");
+                return new ApiResult<ProductCategoryCreateRequest>(201,"Tạo mới loại sản phẩm thành công!", request);
             }
             catch (Exception ex)
             {
-                return new ApiSuccessResult<string>("Tạo mới loại sản phẩm thất bại!");
+                return new ApiResult<ProductCategoryCreateRequest>(400,"Tạo mới loại sản phẩm thất bại!", request);
             }
         }
 

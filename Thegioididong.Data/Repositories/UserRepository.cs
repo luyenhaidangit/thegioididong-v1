@@ -115,5 +115,26 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
+
+        public bool RegisterCustomer(CustomerRegisterRequest request)
+        {
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_user_customerregister",
+                "@request", requestJson
+                );
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

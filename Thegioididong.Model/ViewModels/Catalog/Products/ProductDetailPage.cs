@@ -90,6 +90,8 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public string Name { get; set; }
 
+        public string Image { get; set; }
+
         public decimal OriginalPrice { get; set; }
 
         public decimal DiscountedPrice { get; set; }

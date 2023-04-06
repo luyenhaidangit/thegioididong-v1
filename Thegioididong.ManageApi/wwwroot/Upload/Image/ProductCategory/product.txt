@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Thegioididong.Model.ViewModels.Catalog.Products
+{
+    public class BrandProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
+
+    public class ProductCategoryProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
+
+    public class GalleryProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string GalleryName { get; set; }
+
+        public string Image { get; set; }
+
+        public List<GalleryImageProductDetailPage> GalleryImages { get; set; }
+    }
+
+    public class GalleryImageProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string ImageName { get; set; }
+
+        public string Image { get; set; }
+    }
+
+    public class ProductAttributesProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Value { get; set; }
+
+        public bool IsSelect { get; set; }
+    }
+
+    public class PromoDetailProductDetailPage
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+    }
+
+    
+
+    public class ProductDetailPage
+    {
+        public BrandProductDetailPage Brand { get; set; }
+
+        public ProductCategoryProductDetailPage ProductCategory { get; set; }
+
+        public string Name { get; set; }
+
+        public int StarRating { get; set; }
+
+        public int ReviewCount { get; set; }
+
+        public GalleryProductDetailPage Gallery { get; set; }
+
+        public List<ProductAttributesProductDetailPage> ProductAttributes { get; set; }
+
+        public decimal OriginalPrice { get; set; }
+
+        public double DiscountedPrice { get; set; }
+
+        public int DiscountPercent { get; set; }
+
+        public List<PromoDetailProductDetailPage> Promos { get; set; }
+
+        public string FullDescription { get; set; }
+
+    }
+}

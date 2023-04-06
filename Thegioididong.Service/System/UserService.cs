@@ -30,6 +30,8 @@ namespace Thegioididong.Service
         OtpGetResult CreateOtp(int id);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
+
+        UserClaim SubmitOtp(SubmitOTPRequest request);
     }
     public partial class UserService : IUserService
     {
@@ -155,6 +157,36 @@ namespace Thegioididong.Service
             {
                 throw ex;
             }
+        }
+
+        public UserClaim SubmitOtp(SubmitOTPRequest request)
+        {
+            UserClaim user = _userRepository.SubmitOtp(request);
+
+            if (user == null)
+            {
+                user = null;
+                return user;
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(SecretConfiguration.SecretKey);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Role, user.Role),
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var tmp = tokenHandler.CreateToken(tokenDescriptor);
+            var token = tokenHandler.WriteToken(tmp);
+
+            user.Token = token;
+
+            return user;
         }
     }
 }

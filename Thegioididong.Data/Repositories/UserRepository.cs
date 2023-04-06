@@ -19,6 +19,8 @@ namespace Thegioididong.Data.Repositories
 
         UserClaim Authentication(LoginRequest request);
 
+        UserClaim SubmitOtp(SubmitOTPRequest request);
+
         bool Register(RegisterRequest request);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
@@ -153,6 +155,27 @@ namespace Thegioididong.Data.Repositories
                     throw new Exception(msgError);
                 }
                 return dt.ConvertTo<OtpGetResult>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public UserClaim SubmitOtp(SubmitOTPRequest request)
+        {
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_user_submitotp",
+                "@request", requestJson
+                );
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+                return dt.ConvertTo<UserClaim>().FirstOrDefault();
             }
             catch (Exception ex)
             {

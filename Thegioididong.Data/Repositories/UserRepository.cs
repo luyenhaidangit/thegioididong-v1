@@ -8,6 +8,7 @@ using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 
 namespace Thegioididong.Data.Repositories
@@ -21,6 +22,8 @@ namespace Thegioididong.Data.Repositories
         bool Register(RegisterRequest request);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
+
+        OtpGetResult CreateOtp(int id);
     }
 
     public class UserRepository : IUserRepository
@@ -136,5 +139,26 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
+
+        public OtpGetResult CreateOtp(int id)
+        {
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_user_createotp",
+                "@id", id
+                );
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+                return dt.ConvertTo<OtpGetResult>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

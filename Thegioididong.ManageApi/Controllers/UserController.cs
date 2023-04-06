@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 using Thegioididong.Service;
 
@@ -58,5 +59,19 @@ namespace Thegioididong.ManageApi.Controllers
         {
             return _userService.GetUsers(request);
         }
+
+        [Route("CreateOtp")]
+        [HttpGet]
+        public OtpGetResult CreateOtp(int id)
+        {
+            return _userService.CreateOtp(id);
+        }
+
+        //[Route("CreateOtp")]
+        //[HttpGet]
+        //public OtpGetResult(int int)
+        //{
+        //    return _userService.GetUsers(request);
+        //}
     }
 }

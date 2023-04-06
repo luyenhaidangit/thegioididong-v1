@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Thegioididong.Data.Repositories;
 using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 using Thegioididong.Service.Common;
 using Thegioididong.Service.System;
@@ -25,6 +26,8 @@ namespace Thegioididong.Service
         UserClaim Authentication(LoginRequest request);
 
         bool Register(RegisterRequest request);
+
+        OtpGetResult CreateOtp(int id);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
     }
@@ -133,6 +136,11 @@ namespace Thegioididong.Service
         public PagedResult<User> GetUsers(UserPagingManageGetRequest request)
         {
             return _userRepository.GetUsers(request);
+        }
+
+        public OtpGetResult CreateOtp(int id)
+        {
+            return _userRepository.CreateOtp(id);
         }
     }
 }

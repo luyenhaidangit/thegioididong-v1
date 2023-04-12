@@ -30,7 +30,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_search_getsearchsuggestpublic", "@keyword", keyword);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Seach_GetPublicSuggestSearch", "@keyword", keyword);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

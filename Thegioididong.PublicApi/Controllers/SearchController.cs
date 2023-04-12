@@ -16,7 +16,7 @@ namespace Thegioididong.PublicApi.Controllers
             this._searchService = searchService;
         }
 
-        [Route("GetSearchSuggest")]
+        [Route("suggest")]
         [HttpGet]
         public SearchSuggestPublicGetResult GetSearchSuggest([FromQuery] string keyword)
         {

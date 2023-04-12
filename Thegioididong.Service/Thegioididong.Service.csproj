@@ -15,7 +15,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
 	  <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+	  <PackageReference Include="NEST" Version="7.17.5" />
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
 	</ItemGroup>
 

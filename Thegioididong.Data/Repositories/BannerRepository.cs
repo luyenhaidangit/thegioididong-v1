@@ -154,7 +154,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_banner_getbannerspublic", "@request", requestJson);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Banner_GetPublicBanners", "@request", requestJson);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

@@ -18,14 +18,14 @@ namespace Thegioididong.PublicApi.Controllers
             this._bannerService = bannerService;
         }
 
-        [Route("GetBannerMain")]
+        [Route("banner-main")]
         [HttpGet]
         public BannerPublicGetResult GetBannerMain()
         {
             return _bannerService.GetBannerMain();
         }
 
-        [Route("GetBannerTopzone")]
+        [Route("banner-topzone")]
         [HttpGet]
         public BannerPublicGetResult GetBannerTopzone()
         {

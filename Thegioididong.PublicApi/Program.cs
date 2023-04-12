@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Demo.Data.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
@@ -16,7 +17,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.DocumentFilter<SwaggerModule>();
+});
 
 // Config authenciation
 builder.Services.AddCors(options =>

@@ -22,5 +22,19 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _saleInvoiceService.CreateSaleOrder(request);
         }
+
+        [Route("GetListOrderByUser")]
+        [HttpPost]
+        public bool GetListOrderByUser(SaleInvoicePublicCreateRequest request)
+        {
+            return _saleInvoiceService.CreateSaleOrder(request);
+        }
+
+        [Route("GetOrderByUser")]
+        [HttpPost]
+        public bool GetOrderByUser(SaleInvoicePublicCreateRequest request)
+        {
+            return _saleInvoiceService.CreateSaleOrder(request);
+        }
     }
 }

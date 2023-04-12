@@ -9,6 +9,7 @@ using Thegioididong.Service;
 
 namespace Thegioididong.ManageApi.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -38,20 +39,7 @@ namespace Thegioididong.ManageApi.Controllers
             }
         }
 
-        [Route("VerifyAdminToken")]
-        [Authorize(Roles = "administrator")]
-        [HttpGet]
-        public string VerifyAdminToken([FromQuery] string token)
-        {
-            try
-            {
-                return token;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
+        
 
         [Route("GetUsers")]
         [HttpGet]
@@ -68,24 +56,7 @@ namespace Thegioididong.ManageApi.Controllers
         //    return _userService.CreateOtp(id);
         //}
 
-        [Route("CreateOtp")]
-        [HttpGet]
-        public ApiResult<string> CreateOtp(int id)
-        {
-            try
-            {
-                OtpGetResult result = _userService.CreateOtp(id);
-                if (result == null)
-                {
-                    return new ApiResult<string>(400, "Có lỗi xảy ra gửi mã OTP thất bại!", "Thất bại!");
-                }
-                return new ApiResult<string>(200, "Mã OTP đã được gửi!", "Thành công!");
-            }
-            catch (Exception ex)
-            {
-                return new ApiResult<string>(400, "Lỗi: " + ex.Message, null);
-            }
-        }
+        
 
         //[Route("SubmitOtp")]
         //[HttpPost]
@@ -94,24 +65,7 @@ namespace Thegioididong.ManageApi.Controllers
         //    return _userService.SubmitOtp(request);
         //}
 
-        [Route("SubmitOtp")]
-        [HttpPost]
-        public ApiResult<UserClaim> SubmitOtp([FromBody] SubmitOTPRequest request)
-        {
-            try
-            {
-                UserClaim result = _userService.SubmitOtp(request);
-                if (result == null)
-                {
-                    return new ApiResult<UserClaim>(401, "Mã OTP không chính xác hoặc hết hạn!", result);
-                }
-                return new ApiResult<UserClaim>(200, "Xác nhận thành công!", result);
-            }
-            catch (Exception ex)
-            {
-                return new ApiResult<UserClaim>(400, "Lỗi: " + ex.Message, null);
-            }
-        }
+        
 
         //[Route("CreateOtp")]
         //[HttpGet]

@@ -138,7 +138,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_slide_getslidespublic", "@request", requestJson);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Slide_GetPublicSlides", "@request", requestJson);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

@@ -19,21 +19,21 @@ namespace Thegioididong.PublicApi.Controllers
             this._slideService = slideService;
         }
 
-        [Route("GetSlideHeaderTop")]
+        [Route("header-top")]
         [HttpGet]
         public SlidePublicGetResult GetSlideHeaderTop()
         {
             return _slideService.GetSlideHeaderTop();
         }
 
-        [Route("GetSlideBigCampaign")]
+        [Route("big-campaign")]
         [HttpGet]
         public SlidePublicGetResult GetSlideBigCampaign()
         {
             return _slideService.GetSlideBigCampaign();
         }
 
-        [Route("GetSlideOptionPromo")]
+        [Route("option-promo")]
         [HttpGet]
         public SlidePublicGetResult GetSlideOptionPromo()
         {

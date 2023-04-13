@@ -180,7 +180,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategoryfeatureshome");
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_ProductCategory_GetPublicFeatures");
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

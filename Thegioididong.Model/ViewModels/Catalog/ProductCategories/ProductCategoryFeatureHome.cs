@@ -13,5 +13,7 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
         public string Name { get; set; }
 
         public string Image { get; set; }
+
+        public int TotalViewCount { get; set; }
     }
 }

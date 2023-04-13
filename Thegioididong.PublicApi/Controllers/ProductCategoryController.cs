@@ -24,7 +24,7 @@ namespace Thegioididong.PublicApi.Controllers
             return _productCategoryService.GetProductCategoryNavigation();
         }
 
-        [Route("GetProductCategoriesFeaturesHome")]
+        [Route("features")]
         [HttpGet]
         public List<ProductCategoryFeatureHome> GetProductCategoriesFeaturesHome()
         {

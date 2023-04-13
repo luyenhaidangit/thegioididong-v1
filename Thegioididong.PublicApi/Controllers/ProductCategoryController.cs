@@ -7,7 +7,7 @@ using Thegioididong.Service;
 
 namespace Thegioididong.PublicApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product-category")]
     [ApiController]
     public class ProductCategoryController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace Thegioididong.PublicApi.Controllers
             this._productCategoryService = productCategoryService;
         }
 
-        [Route("GetProductCategoryNavigation")]
+        [Route("navigation")]
         [HttpGet]
         public List<ProductCategoryHomeNavigation> GetProductCategoryHomeNavigation()
         {

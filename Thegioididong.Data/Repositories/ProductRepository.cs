@@ -226,7 +226,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productfeature_getproductfeatureshome");
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Product_GetPublicFeatures");
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

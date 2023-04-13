@@ -27,6 +27,8 @@ namespace Thegioididong.Service
 
         PagedResult<SlideManageGetResult> GetSlides(SlidePagingManageGetRequest request);
 
+        SlidePublicGetResult GetSlideShoppingTrends();
+
         // Public
 
         SlidePublicGetResult GetSlideHeaderTop();
@@ -117,6 +119,27 @@ namespace Thegioididong.Service
             {
                 Page = "home",
                 Position = "option_promo",
+            };
+
+            SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();
+
+            if (result != null)
+            {
+                foreach (var slideItem in result.SlideItems)
+                {
+                    slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                }
+            }
+
+            return result;
+        }
+
+        public SlidePublicGetResult GetSlideShoppingTrends()
+        {
+            SlidePublicGetRequest request = new SlidePublicGetRequest()
+            {
+                Page = "home",
+                Position = "shopping_trends",
             };
 
             SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();

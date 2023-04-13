@@ -183,7 +183,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductshotdeal");
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Product_GetPublicHotDeal");
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

@@ -39,5 +39,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _slideService.GetSlideOptionPromo();
         }
+
+        [Route("shopping-trends")]
+        [HttpGet]
+        public SlidePublicGetResult GetSlideShoppingTrends()
+        {
+            return _slideService.GetSlideShoppingTrends();
+        }
     }
 }

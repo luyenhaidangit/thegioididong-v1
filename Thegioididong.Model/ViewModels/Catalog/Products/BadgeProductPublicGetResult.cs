@@ -8,10 +8,10 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class BadgeProductPublicGetResult
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        public string BackgroundColor { get; set; }
+        public string? BackgroundColor { get; set; }
     }
 }

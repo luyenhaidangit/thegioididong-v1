@@ -18,7 +18,7 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 
         public string? ShortDescription { get; set; }
 
-        public BadgeProductPublicGetResult BadgeProduct { get; set; }
+        public BadgeProductPublicGetResult? BadgeProduct { get; set; }
 
         public decimal OriginalPrice { get; set; }
 

@@ -201,7 +201,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategorytopbanner", "@id", id);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_ProductCategory_GetPublicTopBanner", "@id", id);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

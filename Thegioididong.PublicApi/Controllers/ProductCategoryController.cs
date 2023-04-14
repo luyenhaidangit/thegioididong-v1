@@ -31,7 +31,7 @@ namespace Thegioididong.PublicApi.Controllers
             return _productCategoryService.GetProductCategoriesFeaturesHome();
         }
 
-        [Route("GetProductCategoryTopBanner")]
+        [Route("top-banner")]
         [HttpGet]
         public ApiResult<ProductCategoryTopBannerGetResult> GetProductCategoryTopBanner(int id)
         {

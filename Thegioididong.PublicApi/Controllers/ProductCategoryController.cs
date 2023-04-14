@@ -43,7 +43,7 @@ namespace Thegioididong.PublicApi.Controllers
             return new ApiSuccessResult<ProductCategoryTopBannerGetResult>(result);
         }
 
-        [Route("GetProductCategoryBoxFilter")]
+        [Route("box-filter")]
         [HttpGet]
         public ProductCategoryBoxFilterGetResult GetProductCategoryBoxFilter(int id)
         {

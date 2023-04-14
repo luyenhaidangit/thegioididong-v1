@@ -222,7 +222,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_productcategory_getproductcategoryboxfilter", "@id", id);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_ProductCategory_GetPublicBoxFilter", "@id", id);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);

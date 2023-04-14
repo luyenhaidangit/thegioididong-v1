@@ -27,6 +27,8 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 
     public class AttributeProductFilterGetResult
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public List<AttributeProductValueFilterGetResult> AttributeValueProducts { get; set; }
@@ -34,6 +36,8 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 
     public class AttributeProductValueFilterGetResult
     {
+        public int Id { set; get; }
+
         public string Value { get; set; }
     }
 

@@ -33,7 +33,7 @@ namespace Thegioididong.Data.Repositories
 
         ProductDetailPage GetProductDetailPage(int id);
 
-        List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+        List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
 
         //List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage1(ProductPaingPublicGetRequest request);
     }
@@ -198,20 +198,20 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        public List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
             string[] valueJsonColumns = { "BadgeProduct", "SpecialAttribute", "ProductAttributesOption" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_product_getproductsproductcategorydetailpage", "@request", requestJson);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Product_GetPublicProducts", "@request", requestJson);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);
                 }
 
-                var products = dt.ConvertTo<ProductItemCardProductCategoryPage>(valueJsonColumns).ToList();
+                var products = dt.ConvertTo<ProductItemCardDefault>(valueJsonColumns).ToList();
                 return products;
             }
             catch (Exception ex)

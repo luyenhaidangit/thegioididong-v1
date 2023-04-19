@@ -12,6 +12,8 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
     {
         public int? ProductCategoryId { get; set; }
 
+        public List<int>? ProductCategoryIds { get; set; }
+
         public List<int>? BrandIds { get; set; }
 
         public decimal? StartPrice { get; set; }

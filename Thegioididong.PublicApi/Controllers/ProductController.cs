@@ -44,9 +44,8 @@ namespace Thegioididong.PublicApi.Controllers
             return _productService.GetProductDetailPage(id);
         }
 
-        [Route("GetProductsProductCategoryDetailPage")]
         [HttpPost]
-        public List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage([FromBody]ProductPaingPublicGetRequest request)
+        public List<ProductItemCardDefault> GetProductsProductCategoryDetailPage([FromBody]ProductPaingPublicGetRequest request)
         {
             return _productService.GetProductsProductCategoryDetailPage(request);
         }

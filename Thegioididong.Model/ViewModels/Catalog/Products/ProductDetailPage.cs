@@ -10,39 +10,39 @@ using Thegioididong.Model.ViewModels.CMS.Galleries;
 
 namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
-    //public class BrandProductDetailPage
-    //{
-    //    public int Id { get; set; }
+    public class BrandProductDetail
+    {
+        public int Id { get; set; }
 
-    //    public string Name { get; set; }
-    //}
+        public string Name { get; set; }
+    }
 
-    //public class ProductCategoryProductDetailPage
-    //{
-    //    public int Id { get; set; }
+    public class ProductCategoryProduct
+    {
+        public int Id { get; set; }
 
-    //    public string Name { get; set; }
-    //}
+        public string Name { get; set; }
+    }
 
-    //public class GalleryProductDetailPage
-    //{
-    //    public int Id { get; set; }
+    public class GalleryProductDetal
+    {
+        public int Id { get; set; }
 
-    //    public string GalleryName { get; set; }
+        public string GalleryName { get; set; }
 
-    //    public string Image { get; set; }
+        public string Image { get; set; }
 
-    //    public List<GalleryImageProductDetailPage> GalleryImages { get; set; }
-    //}
+        public List<GalleryImageProductDetailPage> GalleryImages { get; set; }
+    }
 
-    //public class GalleryImageProductDetailPage
-    //{
-    //    public int Id { get; set; }
+    public class GalleryImageProductDetailPage
+    {
+        public int Id { get; set; }
 
-    //    public string ImageName { get; set; }
+        public string ImageName { get; set; }
 
-    //    public string Image { get; set; }
-    //}
+        public string Image { get; set; }
+    }
 
     //public class ProductAttribute
     //{

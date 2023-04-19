@@ -34,7 +34,7 @@ namespace Thegioididong.Service
 
         ProductDetailPage GetProductDetailPage(int id);
 
-        List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+        List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
     {
@@ -170,9 +170,9 @@ namespace Thegioididong.Service
             return _productRepository.GetProductDetailPage(id);
         }
 
-        public List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        public List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
-            List<ProductItemCardProductCategoryPage> result = _productRepository.GetProductsProductCategoryDetailPage(request);
+            List<ProductItemCardDefault> result = _productRepository.GetProductsProductCategoryDetailPage(request);
             if(result!=null && result.Count > 0)
             {
                 foreach(var product in result)

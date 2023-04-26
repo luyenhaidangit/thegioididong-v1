@@ -36,6 +36,21 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
         //public List<AttributeProductValueFilterGetResult> AttributeValueProducts { get; set; }
     }
 
+    public class AttributeProductCategoryFilterGetResult
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        //public List<int> AttributeValueIds { get; set; }
+
+        //public string Name { get; set; }
+
+        public List<AttributeProductValueFilterGetResult> AttributeValueProducts { get; set; }
+    }
+
+
+
     public class AttributeProductValueFilterGetResult
     {
         public int Id { set; get; }
@@ -49,7 +64,7 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
 
         public RangePriceProductCategoryFilterGetResult RangePricesFilter { get; set; }
 
-        public List<AttributeProductFilterGetResult> ProductAttributesFilter { get; set; }
+        public List<AttributeProductCategoryFilterGetResult> ProductAttributesFilter { get; set; }
 
     }
 }

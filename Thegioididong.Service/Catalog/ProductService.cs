@@ -173,16 +173,16 @@ namespace Thegioididong.Service
         public List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
             List<ProductItemCardDefault> result = _productRepository.GetProductsProductCategoryDetailPage(request);
-            if(result!=null && result.Count > 0)
+            if (result != null && result.Count > 0)
             {
-                foreach(var product in result)
+                foreach (var product in result)
                 {
-                    if(product.Image != null)
+                    if (product.Image != null)
                     {
                         product.Image = ManageApiHostContant.baseURL + product.Image;
                     }
 
-                    if(product.BadgeProduct != null)
+                    if (product.BadgeProduct != null)
                     {
                         if (product.BadgeProduct.Image != null)
                         {
@@ -191,6 +191,22 @@ namespace Thegioididong.Service
                     }
                 }
             }
+
+            //Tính toán trang hiện tại
+            int currentPageIndex = request.PageIndex.GetValueOrDefault(1);
+            int pageSize = request.PageSize.GetValueOrDefault(0);
+            int pageIndex = request.PageIndex.GetValueOrDefault(1);
+
+            //Lấy danh sách sản phẩm
+
+            //Tính toán số lượng trang
+            int totalItems = result.Count;
+            int totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
+
+            //Lấy danh sách sản phẩm cho trang hiện tại
+            result = result.Skip((currentPageIndex - 1) * pageSize).Take(pageSize).ToList();
+
+
             return result;
         }
 

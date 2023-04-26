@@ -34,7 +34,7 @@ namespace Thegioididong.Service
 
         ProductDetailPage GetProductDetailPage(int id);
 
-        List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
+        PagedResult<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
     {
@@ -170,7 +170,7 @@ namespace Thegioididong.Service
             return _productRepository.GetProductDetailPage(id);
         }
 
-        public List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
+        public PagedResult<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {
             List<ProductItemCardDefault> result = _productRepository.GetProductsProductCategoryDetailPage(request);
             if (result != null && result.Count > 0)
@@ -197,17 +197,20 @@ namespace Thegioididong.Service
             int pageSize = request.PageSize.GetValueOrDefault(0);
             int pageIndex = request.PageIndex.GetValueOrDefault(1);
 
-            //Lấy danh sách sản phẩm
-
-            //Tính toán số lượng trang
             int totalItems = result.Count;
             int totalPages = (int)Math.Ceiling(totalItems / (double)request.PageSize);
 
             //Lấy danh sách sản phẩm cho trang hiện tại
             result = result.Skip((currentPageIndex - 1) * pageSize).Take(pageSize).ToList();
 
+            PagedResult<ProductItemCardDefault> result1 = new PagedResult<ProductItemCardDefault>();
+            result1.Items = result;
+            result1.PageIndex = pageIndex;
+            result1.PageSize = pageSize;
+            result1.TotalPages = totalPages;
+            result1.TotalRecords = result.Count;
 
-            return result;
+            return result1;
         }
 
         #endregion

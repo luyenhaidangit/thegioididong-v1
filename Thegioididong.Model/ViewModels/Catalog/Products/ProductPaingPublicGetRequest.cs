@@ -10,8 +10,6 @@ namespace Thegioididong.Model.ViewModels.Catalog.Products
 {
     public class ProductPaingPublicGetRequest : PagingRequestBase
     {
-        public int? ProductCategoryId { get; set; }
-
         public List<int>? ProductCategoryIds { get; set; }
 
         public List<int>? BrandIds { get; set; }

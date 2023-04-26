@@ -29,9 +29,11 @@ namespace Thegioididong.Model.ViewModels.Catalog.ProductCategories
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public List<int> AttributeValueIds { get; set; }
 
-        public List<AttributeProductValueFilterGetResult> AttributeValueProducts { get; set; }
+        //public string Name { get; set; }
+
+        //public List<AttributeProductValueFilterGetResult> AttributeValueProducts { get; set; }
     }
 
     public class AttributeProductValueFilterGetResult

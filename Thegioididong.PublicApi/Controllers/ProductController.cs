@@ -37,7 +37,6 @@ namespace Thegioididong.PublicApi.Controllers
             return _productService.GetProductFeaturesHome();
         }
 
-        [Route("GetProductDetailPage")]
         [HttpGet]
         public ProductDetailPage GetProductDetailPage(int id)
         {

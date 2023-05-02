@@ -19,24 +19,24 @@ namespace Thegioididong.PublicApi.Controllers
             this._userService = userService;
         }
 
-        [Route("Register")]
-        [HttpPost]
-        public ApiResult<bool> Register([FromForm] RegisterRequest request)
-        {
-            try
-            {
-                request.Account.Role = "Customer";
-                bool register = _userService.Register(request);
-                return new ApiSuccessResult<bool>(true, "Đăng ký thành công");
-            }
-            catch (Exception ex)
-            {
-                return new ApiErrorResult<bool>(ex.Message.ToString());
-            }
-        }
+        //[Route("Register")]
+        //[HttpPost]
+        //public ApiResult<bool> Register([FromForm] RegisterRequest request)
+        //{
+        //    try
+        //    {
+        //        request.Account.Role = "Customer";
+        //        bool register = _userService.Register(request);
+        //        return new ApiSuccessResult<bool>(true, "Đăng ký thành công");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new ApiErrorResult<bool>(ex.Message.ToString());
+        //    }
+        //}
 
         [Route("create-otp")]
-        [HttpGet]
+        [HttpPost]
         public ApiResult<string> CreateOtp(string email)
         {
             try

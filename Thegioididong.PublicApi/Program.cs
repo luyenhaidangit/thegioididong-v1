@@ -22,6 +22,9 @@ builder.Services.AddSwaggerGen(c =>
     c.DocumentFilter<SwaggerModule>();
 });
 
+builder.Services.AddHttpClient();
+
+
 // Config authenciation
 builder.Services.AddCors(options =>
 {

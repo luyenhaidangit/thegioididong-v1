@@ -27,7 +27,7 @@ namespace Thegioididong.Service
 
         bool Register(RegisterRequest request);
 
-        OtpGetResult CreateOtp(int id);
+        OtpGetResult CreateOtp(string email);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
 
@@ -140,18 +140,18 @@ namespace Thegioididong.Service
             return _userRepository.GetUsers(request);
         }
 
-        public OtpGetResult CreateOtp(int id)
+        public OtpGetResult CreateOtp(string email)
         {
             try
             {
-                var result = _userRepository.CreateOtp(id);
+                var result = _userRepository.CreateOtp(email);
                 SendEmailRequest request = new SendEmailRequest();
                 request.Title = "Mã xác nhận hệ thông Thegioididong";
                 request.Content = "Mã xác nhận của bạn là:" + result.Code;
                 request.Email = result.Email;
 
                 bool sendMail = _emailService.Send(request);
-                return _userRepository.CreateOtp(id);
+                return result;
             }
             catch (Exception ex)
             {

@@ -25,7 +25,7 @@ namespace Thegioididong.Data.Repositories
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
 
-        OtpGetResult CreateOtp(string email);
+        OtpGetResult CreateOtp(string email,string ip);
     }
 
     public class UserRepository : IUserRepository
@@ -142,13 +142,13 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public OtpGetResult CreateOtp(string email)
+        public OtpGetResult CreateOtp(string email,string ip)
         {
             try
             {
                 string msgError = "";
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_User_CreateOtp",
-                "@email", email
+                "@email", email,"@ip",ip
                 );
                 if (!string.IsNullOrEmpty(msgError))
                 {

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
@@ -15,6 +16,12 @@ using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 using Thegioididong.Service.Common;
 using Thegioididong.Service.System;
+using Microsoft.AspNetCore.Mvc;
+using Nest;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using System.Net;
+using System.Net.Http;
 using static Thegioididong.Common.Constants.SystemConstant;
 
 namespace Thegioididong.Service
@@ -32,6 +39,8 @@ namespace Thegioididong.Service
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
 
         UserClaim SubmitOtp(SubmitOTPRequest request);
+
+        string GetIpAddress();
     }
     public partial class UserService : IUserService
     {
@@ -43,8 +52,8 @@ namespace Thegioididong.Service
         public UserService(IUserRepository userRepository, IStorageService storageService,IEmailService emailService)
         {
             this._userRepository = userRepository;
-            this._storageService= storageService;
-            this._emailService= emailService;
+            this._storageService = storageService;
+            this._emailService = emailService;
         }
 
         public bool VerificationAccount(int id)
@@ -140,18 +149,34 @@ namespace Thegioididong.Service
             return _userRepository.GetUsers(request);
         }
 
+        public string GetIpAddress()
+        {
+            string url = "https://api.ipify.org";
+            WebClient client = new WebClient();
+            string ip = client.DownloadString(url);
+            return ip;
+        }
+
         public OtpGetResult CreateOtp(string email)
         {
             try
             {
-                var result = _userRepository.CreateOtp(email);
-                SendEmailRequest request = new SendEmailRequest();
-                request.Title = "Mã xác nhận hệ thông Thegioididong";
-                request.Content = "Mã xác nhận của bạn là:" + result.Code;
-                request.Email = result.Email;
+                var result = _userRepository.CreateOtp(email, GetIpAddress());
+                if(result.Email != null)
+                {
+                    SendEmailRequest request = new SendEmailRequest();
+                    request.Title = "Mã xác nhận hệ thông Thegioididong";
+                    request.Content = "Mã xác nhận của bạn là:" + result.Code;
+                    request.Email = result.Email;
 
-                bool sendMail = _emailService.Send(request);
-                return result;
+                    bool sendMail = _emailService.Send(request);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {

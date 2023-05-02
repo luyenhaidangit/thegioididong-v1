@@ -12,7 +12,7 @@ namespace Thegioididong.Model.ViewModels.Sales.Orders
 
         public string Sex { get; set; }
 
-        public int? NumberPhone { get; set; }
+        public string? NumberPhone { get; set; }
 
         public string Email { get; set; }
     }

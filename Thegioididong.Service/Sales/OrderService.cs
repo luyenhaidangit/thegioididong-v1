@@ -12,32 +12,33 @@ using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.Sales.SaleInvoices;
 using Thegioididong.Service.Common;
 
 namespace Thegioididong.Service
 {
-    public partial interface ISaleInvoiceService
+    public partial interface IOrderService
     {
         // Manage
 
 
         // Public
-        bool CreateSaleOrder(SaleInvoicePublicCreateRequest request);
+        OrderPublicCreateResult Create(OrderPublicCreateRequest request);
 
     }
-    public partial class SaleInvoiceService : ISaleInvoiceService
+    public partial class SaleInvoiceService : IOrderService
     {
-        private ISaleInvoiceRepository _SaleInvoiceRepository;
+        private IOrderRepository _SaleInvoiceRepository;
 
-        public SaleInvoiceService(ISaleInvoiceRepository SaleInvoiceRepository)
+        public SaleInvoiceService(IOrderRepository SaleInvoiceRepository)
         {
             this._SaleInvoiceRepository = SaleInvoiceRepository;
         }
 
-        public bool CreateSaleOrder(SaleInvoicePublicCreateRequest request)
+        public OrderPublicCreateResult Create(OrderPublicCreateRequest request)
         {
-            return _SaleInvoiceRepository.CreateSaleOrder(request);
+            return _SaleInvoiceRepository.Create(request);
         }
 
         #region Manage

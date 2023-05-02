@@ -9,40 +9,42 @@ using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.Sales.SaleInvoices;
 
 namespace Thegioididong.Data.Repositories
 {
-    public partial interface ISaleInvoiceRepository
+    public partial interface IOrderRepository
     {
         // Manage
 
 
         // Public
-        public bool CreateSaleOrder(SaleInvoicePublicCreateRequest request);
+        public OrderPublicCreateResult Create(OrderPublicCreateRequest request);
        
     }
-    public partial class SaleInvoiceRepository : ISaleInvoiceRepository
+    public partial class OrderRepository : IOrderRepository
     {
         private IDatabaseHelper _dbHelper;
-        public SaleInvoiceRepository(IDatabaseHelper dbHelper)
+        public OrderRepository(IDatabaseHelper dbHelper)
         {
             _dbHelper = dbHelper;
         }
 
-        public bool CreateSaleOrder(SaleInvoicePublicCreateRequest request)
+        public OrderPublicCreateResult Create(OrderPublicCreateRequest request)
         {
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
                 string msgError = "";
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_saleinvoice_createsaleorder",
-                "@request", requestJson);
-                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Order_CustomerCreate", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
                 {
-                    throw new Exception(Convert.ToString(result) + msgError);
+                    throw new Exception(msgError);
                 }
-                return true;
+
+                var products = dt.ConvertTo<OrderPublicCreateResult>().FirstOrDefault();
+                return products;
             }
             catch (Exception ex)
             {

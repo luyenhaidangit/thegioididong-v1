@@ -19,13 +19,13 @@ namespace Thegioididong.Data.Repositories
 
         UserClaim Authentication(LoginRequest request);
 
-        UserClaim SubmitOtp(SubmitOTPRequest request);
-
         bool Register(RegisterRequest request);
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
 
         OtpGetResult CreateOtp(string email,string ip);
+
+        UserClaim SubmitOtp(SubmitOTPRequest request);
     }
 
     public class UserRepository : IUserRepository
@@ -168,7 +168,7 @@ namespace Thegioididong.Data.Repositories
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_user_submitotp",
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_User_SubmitOtp",
                 "@request", requestJson
                 );
                 if (!string.IsNullOrEmpty(msgError))

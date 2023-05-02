@@ -54,7 +54,7 @@ namespace Thegioididong.PublicApi.Controllers
             }
         }
 
-        [Route("SubmitOtp")]
+        [Route("submit-otp")]
         [HttpPost]
         public ApiResult<UserClaim> SubmitOtp([FromBody] SubmitOTPRequest request)
         {

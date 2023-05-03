@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.Catalog.Products;
+using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.Sales.SaleInvoices;
@@ -33,19 +36,21 @@ namespace Thegioididong.PublicApi.Controllers
             }
         }
 
-        //[Route("Create")]
-        //[HttpPost]
-        //public ApiResult<string> Create([FromBody] ProductManageCreateRequest request)
-        //{
-        //    try
-        //    {
-        //        bool result = _productService.Create(request);
-        //        return new ApiSuccessResult<string>("Tạo sản phẩm thành công!");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new ApiSuccessResult<string>("Tạo sản phẩm thất bại!");
-        //    }
-        //}
+        [Authorize()]
+        [HttpPost]
+        public PagedResult<OrderCustomerPublicGetResult> Get([FromBody] OrderCustomerPublicGetRequest request)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                // user is not authenticated
+                throw new Exception("Không nhận được username hợp lệ!");
+            }
+
+            var userId = userIdClaim.Value;
+            request.Username = userId;
+
+            return _orderService.GetOrders(request);
+        }
     }
 }

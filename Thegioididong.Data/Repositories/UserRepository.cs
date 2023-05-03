@@ -8,6 +8,7 @@ using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.CMS.Slides;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 
@@ -26,6 +27,8 @@ namespace Thegioididong.Data.Repositories
         OtpGetResult CreateOtp(string email,string ip);
 
         UserClaim SubmitOtp(SubmitOTPRequest request);
+
+        
     }
 
     public class UserRepository : IUserRepository
@@ -182,6 +185,5 @@ namespace Thegioididong.Data.Repositories
                 throw ex;
             }
         }
-
     }
 }

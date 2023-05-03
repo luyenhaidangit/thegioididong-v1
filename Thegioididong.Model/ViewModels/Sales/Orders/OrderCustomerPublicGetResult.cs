@@ -15,7 +15,5 @@ namespace Thegioididong.Model.ViewModels.Sales.Orders
         public string Image { get; set; }
 
         public int Status { get; set; }
-
-
     }
 }

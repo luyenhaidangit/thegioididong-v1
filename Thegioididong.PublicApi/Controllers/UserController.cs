@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
 using System.Net;
 using Thegioididong.Model.ViewModels.Common;
+using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.System.Emails;
 using Thegioididong.Model.ViewModels.System.Users;
 using Thegioididong.Service;
@@ -78,6 +80,23 @@ namespace Thegioididong.PublicApi.Controllers
         public string GetIp()
         {
             return _userService.GetIpAddress();
+        }
+
+        [Authorize]
+        [Route("info")]
+        [HttpGet]
+        public string GetInfo()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            if (userIdClaim == null)
+            {
+                // user is not authenticated
+                throw new Exception("Không nhận được username hợp lệ!");
+            }
+
+            var userId = userIdClaim.Value;
+
+            return userId;
         }
 
     }

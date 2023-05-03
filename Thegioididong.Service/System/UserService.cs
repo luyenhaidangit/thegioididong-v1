@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net;
 using System.Net.Http;
 using static Thegioididong.Common.Constants.SystemConstant;
+using Thegioididong.Model.ViewModels.Sales.Orders;
 
 namespace Thegioididong.Service
 {
@@ -76,6 +77,14 @@ namespace Thegioididong.Service
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
+
+            //var payload = new JwtPayload
+            //{
+            //        {"userId", "luyenhaidangittest@gmail.com"},
+            //        {"email", "luyenhaidangit@gmail.com"},
+            //    // other user information
+            //};
+
             var key = Encoding.ASCII.GetBytes(SecretConfiguration.SecretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -83,6 +92,7 @@ namespace Thegioididong.Service
                 {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role),
+                    new Claim("UserId","luyenhaidangtest"),
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -202,6 +212,7 @@ namespace Thegioididong.Service
                 {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role),
+                    new Claim("userId", "luyenhaidangittest@gmail.com"),
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -213,5 +224,7 @@ namespace Thegioididong.Service
 
             return user;
         }
+
+        
     }
 }

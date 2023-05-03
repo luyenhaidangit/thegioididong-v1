@@ -26,6 +26,8 @@ namespace Thegioididong.Service
         // Public
         OrderPublicCreateResult Create(OrderPublicCreateRequest request);
 
+        PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request);
+
     }
     public partial class SaleInvoiceService : IOrderService
     {
@@ -47,7 +49,10 @@ namespace Thegioididong.Service
         #endregion
 
         #region Public
-
+        public PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request)
+        {
+            return _SaleInvoiceRepository.GetOrders(request);
+        }
 
 
         #endregion

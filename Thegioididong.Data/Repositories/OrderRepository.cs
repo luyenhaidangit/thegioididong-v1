@@ -21,7 +21,9 @@ namespace Thegioididong.Data.Repositories
 
         // Public
         public OrderPublicCreateResult Create(OrderPublicCreateRequest request);
-       
+
+        PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request);
+
     }
     public partial class OrderRepository : IOrderRepository
     {
@@ -45,6 +47,28 @@ namespace Thegioididong.Data.Repositories
 
                 var products = dt.ConvertTo<OrderPublicCreateResult>().FirstOrDefault();
                 return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request)
+        {
+            string[] valueJsonColumns = { "Items" };
+            var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_User_GetPublicOrders", "@request", requestJson);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var users = dt.ConvertTo<PagedResult<OrderCustomerPublicGetResult>>(valueJsonColumns).FirstOrDefault();
+                return users;
             }
             catch (Exception ex)
             {

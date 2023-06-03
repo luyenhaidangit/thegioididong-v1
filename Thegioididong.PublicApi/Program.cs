@@ -96,6 +96,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(config =>
 {
+    config.DocumentFilter<SwaggerModule>();
+
     config.EnableAnnotations();
 
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

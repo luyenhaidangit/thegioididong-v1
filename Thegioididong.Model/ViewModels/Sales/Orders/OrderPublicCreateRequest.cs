@@ -30,6 +30,7 @@ namespace Thegioididong.Model.ViewModels.Sales.Orders
 
         public int DeliveryMethod { get; set; }
 
+
         public int PaymentMethod { get; set; }
 
         public string Andress { get; set; }

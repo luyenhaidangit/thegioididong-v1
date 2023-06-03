@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.ManageApi", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.PublicWeb", "Thegioididong.PublicWeb\Thegioididong.PublicWeb.csproj", "{5D090906-0EAC-4E66-8793-9C624EAFD483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thegioididong.ManageWeb", "Thegioididong.ManageWeb\Thegioididong.ManageWeb.csproj", "{4F1855B6-58CC-4F0D-B178-ADDA88ECF690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegioididong.ManageWeb", "Thegioididong.ManageWeb\Thegioididong.ManageWeb.csproj", "{4F1855B6-58CC-4F0D-B178-ADDA88ECF690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

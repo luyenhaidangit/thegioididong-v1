@@ -46,5 +46,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _slideService.GetSlideShoppingTrends();
         }
+
+        [Route("discount-pay-online")]
+        [HttpGet]
+        public SlidePublicGetResult GetSlideDiscountPayOnline()
+        {
+            return _slideService.GetSlideDiscountPayOnline();
+        }
     }
 }

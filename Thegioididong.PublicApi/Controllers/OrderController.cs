@@ -36,7 +36,8 @@ namespace Thegioididong.PublicApi.Controllers
             }
         }
 
-        [Authorize()]
+        [Route("user")]
+        [Authorize]
         [HttpPost]
         public PagedResult<OrderCustomerPublicGetResult> Get([FromBody] OrderCustomerPublicGetRequest request)
         {

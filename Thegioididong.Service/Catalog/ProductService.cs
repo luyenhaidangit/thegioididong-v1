@@ -36,6 +36,8 @@ namespace Thegioididong.Service
 
         List<ProductItemCardDefault> GetProductsRelate(int id);
 
+        List<Coupon> GetCouponProduct(int id);
+
         PagedResult<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
@@ -232,6 +234,11 @@ namespace Thegioididong.Service
             result1.TotalRecords = result.Count;
 
             return result1;
+        }
+
+        public List<Coupon> GetCouponProduct(int id)
+        {
+            return _productRepository.GetCouponProduct(id);
         }
 
         #endregion

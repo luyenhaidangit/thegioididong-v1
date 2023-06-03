@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Service;
@@ -55,6 +56,13 @@ namespace Thegioididong.PublicApi.Controllers
         public List<ProductItemCardDefault> GetProductsRelate(int id)
         {
             return _productService.GetProductsRelate(id);
+        }
+
+        [Route("coupon")]
+        [HttpGet]
+        public List<Coupon> GetCouponProduct(int id)
+        {
+            return _productService.GetCouponProduct(id);
         }
     }
 }

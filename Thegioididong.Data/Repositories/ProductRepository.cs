@@ -37,6 +37,8 @@ namespace Thegioididong.Data.Repositories
 
         List<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
 
+        List<Coupon> GetCouponProduct(int id);
+
         //List<ProductItemCardProductCategoryPage> GetProductsProductCategoryDetailPage1(ProductPaingPublicGetRequest request);
     }
 
@@ -193,6 +195,26 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var products = dt.ConvertTo<ProductItemCardDefault>(valueJsonColumns).ToList();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Coupon> GetCouponProduct(int id)
+        {
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Product_GetPublicCoupon", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<Coupon>().ToList();
                 return products;
             }
             catch (Exception ex)

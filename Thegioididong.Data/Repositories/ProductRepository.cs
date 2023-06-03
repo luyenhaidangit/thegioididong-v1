@@ -27,6 +27,8 @@ namespace Thegioididong.Data.Repositories
 
         List<ProductItemCardDefault> GetProductsHotDeal();
 
+        List<ProductItemCardDefault> GetProductsRelate(int id);
+
         List<ProductFeatureHome> GetProductFeaturesHome();
 
         ProductDailySuggest GetProductDailySuggest();
@@ -169,6 +171,28 @@ namespace Thegioididong.Data.Repositories
                 }
 
                 var products = dt.ConvertTo<ProductDetailPage>(valueJsonColumns).FirstOrDefault();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<ProductItemCardDefault> GetProductsRelate(int id)
+        {
+            string[] valueJsonColumns = { "BadgeProduct" };
+
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Products_GetPublicRelate", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var products = dt.ConvertTo<ProductItemCardDefault>(valueJsonColumns).ToList();
                 return products;
             }
             catch (Exception ex)

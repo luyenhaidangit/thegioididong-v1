@@ -49,5 +49,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _productService.GetProductsProductCategoryDetailPage(request);
         }
+
+        [Route("relate")]
+        [HttpGet]
+        public List<ProductItemCardDefault> GetProductsRelate(int id)
+        {
+            return _productService.GetProductsRelate(id);
+        }
     }
 }

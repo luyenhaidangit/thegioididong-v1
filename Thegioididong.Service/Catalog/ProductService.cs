@@ -34,6 +34,8 @@ namespace Thegioididong.Service
 
         ProductDetailPage GetProductDetailPage(int id);
 
+        List<ProductItemCardDefault> GetProductsRelate(int id);
+
         PagedResult<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request);
     }
     public partial class ProductService : IProductService
@@ -118,6 +120,25 @@ namespace Thegioididong.Service
         public List<ProductItemCardDefault> GetProductsHotDeal()
         {
             List<ProductItemCardDefault> result = _productRepository.GetProductsHotDeal();
+
+            if (result != null)
+            {
+                foreach (var product in result)
+                {
+                    product.Image = ManageApiHostContant.baseURL + product.Image;
+                    if (product?.BadgeProduct != null)
+                    {
+                        product.BadgeProduct.Image = ManageApiHostContant.baseURL + product?.BadgeProduct?.Image;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public List<ProductItemCardDefault> GetProductsRelate(int id)
+        {
+            List<ProductItemCardDefault> result = _productRepository.GetProductsRelate(id);
 
             if (result != null)
             {

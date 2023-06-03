@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using Thegioididong.Model.Models;
 using Thegioididong.Model.ViewModels.Catalog.ProductCategories;
 using Thegioididong.Model.ViewModels.Catalog.Products;
 using Thegioididong.Model.ViewModels.CMS.Slides;
@@ -39,9 +40,9 @@ namespace Thegioididong.PublicApi.Controllers
         [Route("user")]
         [Authorize]
         [HttpPost]
-        public PagedResult<OrderCustomerPublicGetResult> Get([FromBody] OrderCustomerPublicGetRequest request)
+        public PagedResult<Order> Get([FromBody] OrderCustomerPublicGetRequest request)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "customerId");
             if (userIdClaim == null)
             {
                 // user is not authenticated
@@ -49,9 +50,23 @@ namespace Thegioididong.PublicApi.Controllers
             }
 
             var userId = userIdClaim.Value;
-            request.Username = userId;
+            request.CustomerId = int.Parse(userId);
 
             return _orderService.GetOrders(request);
+        }
+
+        [Authorize]
+        [HttpGet("{id}")]
+        public OrderViewModel GetById(int id)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "customerId");
+            if (userIdClaim == null)
+            {
+                // user is not authenticated
+                throw new Exception("Không nhận được username hợp lệ!");
+            }
+
+            return _orderService.GetById(id);
         }
     }
 }

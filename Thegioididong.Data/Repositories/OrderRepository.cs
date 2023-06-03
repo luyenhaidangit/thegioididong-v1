@@ -22,7 +22,9 @@ namespace Thegioididong.Data.Repositories
         // Public
         public OrderPublicCreateResult Create(OrderPublicCreateRequest request);
 
-        PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request);
+        PagedResult<Order> GetOrders(OrderCustomerPublicGetRequest request);
+
+        OrderViewModel GetById(int id);
 
     }
     public partial class OrderRepository : IOrderRepository
@@ -54,20 +56,41 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public PagedResult<OrderCustomerPublicGetResult> GetOrders(OrderCustomerPublicGetRequest request)
+        public PagedResult<Order> GetOrders(OrderCustomerPublicGetRequest request)
         {
             string[] valueJsonColumns = { "Items" };
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
             {
                 string msgError = "";
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_User_GetPublicOrders", "@request", requestJson);
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Order_GetPublicOrders", "@request", requestJson);
                 if (!string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(msgError);
                 }
 
-                var users = dt.ConvertTo<PagedResult<OrderCustomerPublicGetResult>>(valueJsonColumns).FirstOrDefault();
+                var users = dt.ConvertTo<PagedResult<Order>>(valueJsonColumns).FirstOrDefault();
+                return users;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public OrderViewModel GetById(int id)
+        {
+            string[] valueJsonColumns = { "OrderDetails" };
+            try
+            {
+                string msgError = "";
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_Order_GetPublicDetail", "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+
+                var users = dt.ConvertTo<OrderViewModel> (valueJsonColumns).FirstOrDefault();
                 return users;
             }
             catch (Exception ex)

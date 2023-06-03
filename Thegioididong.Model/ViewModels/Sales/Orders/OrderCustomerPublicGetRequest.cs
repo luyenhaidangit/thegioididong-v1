@@ -12,9 +12,9 @@ namespace Thegioididong.Model.ViewModels.Sales.Orders
     public class OrderCustomerPublicGetRequest : PagingRequestBase
     {
         [JsonIgnore]
-        public string? Username { get; set; }
+        public int? CustomerId { get; set; }
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         //public DateOnly StartDate { get; set; }
 

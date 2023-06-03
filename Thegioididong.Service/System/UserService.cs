@@ -39,7 +39,7 @@ namespace Thegioididong.Service
 
         PagedResult<User> GetUsers(UserPagingManageGetRequest request);
 
-        UserClaim SubmitOtp(SubmitOTPRequest request);
+        CustomerClaim SubmitOtp(SubmitOTPRequest request);
 
         string GetIpAddress();
     }
@@ -194,9 +194,9 @@ namespace Thegioididong.Service
             }
         }
 
-        public UserClaim SubmitOtp(SubmitOTPRequest request)
+        public CustomerClaim SubmitOtp(SubmitOTPRequest request)
         {
-            UserClaim user = _userRepository.SubmitOtp(request);
+            CustomerClaim user = _userRepository.SubmitOtp(request);
 
             if (user == null)
             {
@@ -212,7 +212,7 @@ namespace Thegioididong.Service
                 {
                     new Claim(ClaimTypes.Name, user.Username),
                     new Claim(ClaimTypes.Role, user.Role),
-                    new Claim("userId", "luyenhaidangittest@gmail.com"),
+                    new Claim("customerId", user.CustomerId.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

@@ -14,4 +14,9 @@ namespace Thegioididong.Model.ViewModels.System.Users
 
         public string? Token { get; set; }
     }
+
+    public class CustomerClaim : UserClaim
+    {
+        public int CustomerId { get; set; }
+    }
 }

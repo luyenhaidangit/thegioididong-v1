@@ -26,7 +26,7 @@ namespace Thegioididong.Data.Repositories
 
         OtpGetResult CreateOtp(string email,string ip);
 
-        UserClaim SubmitOtp(SubmitOTPRequest request);
+        CustomerClaim SubmitOtp(SubmitOTPRequest request);
 
         
     }
@@ -165,7 +165,7 @@ namespace Thegioididong.Data.Repositories
             }
         }
 
-        public UserClaim SubmitOtp(SubmitOTPRequest request)
+        public CustomerClaim SubmitOtp(SubmitOTPRequest request)
         {
             var requestJson = request != null ? MessageConvert.SerializeObject(request) : null;
             try
@@ -178,7 +178,7 @@ namespace Thegioididong.Data.Repositories
                 {
                     throw new Exception(msgError);
                 }
-                return dt.ConvertTo<UserClaim>().FirstOrDefault();
+                return dt.ConvertTo<CustomerClaim>().FirstOrDefault();
             }
             catch (Exception ex)
             {

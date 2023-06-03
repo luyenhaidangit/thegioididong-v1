@@ -58,20 +58,20 @@ namespace Thegioididong.PublicApi.Controllers
 
         [Route("submit-otp")]
         [HttpPost]
-        public ApiResult<UserClaim> SubmitOtp([FromBody] SubmitOTPRequest request)
+        public ApiResult<CustomerClaim> SubmitOtp([FromBody] SubmitOTPRequest request)
         {
             try
             {
-                UserClaim result = _userService.SubmitOtp(request);
+                CustomerClaim result = _userService.SubmitOtp(request);
                 if (result == null)
                 {
-                    return new ApiResult<UserClaim>(401, "Mã OTP không chính xác hoặc hết hạn!", result);
+                    return new ApiResult<CustomerClaim>(401, "Mã OTP không chính xác hoặc hết hạn!", result);
                 }
-                return new ApiResult<UserClaim>(200, "Xác nhận thành công!", result);
+                return new ApiResult<CustomerClaim>(200, "Xác nhận thành công!", result);
             }
             catch (Exception ex)
             {
-                return new ApiResult<UserClaim>(400, "Lỗi: " + ex.Message, null);
+                return new ApiResult<CustomerClaim>(400, "Lỗi: " + ex.Message, null);
             }
         }
 
@@ -87,7 +87,7 @@ namespace Thegioididong.PublicApi.Controllers
         [HttpGet]
         public string GetInfo()
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId");
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == "customerId");
             if (userIdClaim == null)
             {
                 // user is not authenticated

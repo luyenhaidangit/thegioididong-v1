@@ -53,5 +53,12 @@ namespace Thegioididong.PublicApi.Controllers
         {
             return _slideService.GetSlideDiscountPayOnline();
         }
+
+        [Route("trade-mark")]
+        [HttpGet]
+        public SlidePublicGetResult GetSlideTradeMark()
+        {
+            return _slideService.GetSlideTradeMark();
+        }
     }
 }

@@ -38,6 +38,8 @@ namespace Thegioididong.Service
         SlidePublicGetResult GetSlideOptionPromo();
 
         SlidePublicGetResult GetSlideDiscountPayOnline();
+
+        SlidePublicGetResult GetSlideTradeMark();
     }
     public partial class SlideService : ISlideService
     {
@@ -163,6 +165,27 @@ namespace Thegioididong.Service
             {
                 Page = "home",
                 Position = "discount-pay-online",
+            };
+
+            SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();
+
+            if (result != null)
+            {
+                foreach (var slideItem in result.SlideItems)
+                {
+                    slideItem.Image = ManageApiHostContant.baseURL + slideItem.Image;
+                }
+            }
+
+            return result;
+        }
+
+        public SlidePublicGetResult GetSlideTradeMark()
+        {
+            SlidePublicGetRequest request = new SlidePublicGetRequest()
+            {
+                Page = "home",
+                Position = "trade-mark",
             };
 
             SlidePublicGetResult result = _slideRepository.GetSlides(request).FirstOrDefault();

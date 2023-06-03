@@ -43,6 +43,7 @@ namespace Thegioididong.PublicApi.Controllers
             return _productService.GetProductDetailPage(id);
         }
 
+        [Route("search")]
         [HttpPost]
         public PagedResult<ProductItemCardDefault> GetProductsProductCategoryDetailPage(ProductPaingPublicGetRequest request)
         {

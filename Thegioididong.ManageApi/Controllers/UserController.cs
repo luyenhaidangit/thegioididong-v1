@@ -48,6 +48,14 @@ namespace Thegioididong.ManageApi.Controllers
             return _userService.GetUsers(request);
         }
 
+        [Route("Verify")]
+        [HttpGet]
+        [Authorize]
+        public bool Verify()
+        {
+            return true;
+        }
+
         //[Route("CreateOtp")]
         //[HttpGet]
         //public OtpGetResult CreateOtp(int id)
@@ -56,7 +64,7 @@ namespace Thegioididong.ManageApi.Controllers
         //    return _userService.CreateOtp(id);
         //}
 
-        
+
 
         //[Route("SubmitOtp")]
         //[HttpPost]
@@ -65,7 +73,7 @@ namespace Thegioididong.ManageApi.Controllers
         //    return _userService.SubmitOtp(request);
         //}
 
-        
+
 
         //[Route("CreateOtp")]
         //[HttpGet]

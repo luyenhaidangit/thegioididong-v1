@@ -9,5 +9,13 @@ namespace Thegioididong.Model.ViewModels.Sales.Orders
     public class OrderPublicCreateResult
     {
         public int OrderId { get; set; }
+
+        public double Amount { get; set; } 
+
+        public string? Note { get; set; }
+
+        public int? PaymentMethod { get; set; }
+
+        public string? DirectUrl { get; set; }
     }
 }

@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
 using System.Net;
+using System.Security.Claims;
 using Thegioididong.Model.ViewModels.Common;
 using Thegioididong.Model.ViewModels.Sales.Orders;
 using Thegioididong.Model.ViewModels.System.Emails;
@@ -11,6 +16,7 @@ using Thegioididong.Service;
 
 namespace Thegioididong.PublicApi.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -98,6 +104,72 @@ namespace Thegioididong.PublicApi.Controllers
 
             return userId;
         }
+
+        //[HttpGet("google")]
+        //public IActionResult GoogleLogin()
+        //{
+        //    var authenticationProperties = new AuthenticationProperties
+        //    {
+        //        RedirectUri = Url.Action("GoogleCallback")
+        //    };
+
+        //    return Challenge(authenticationProperties, "Google");
+        //}
+
+        //[HttpGet("google-callback")]
+        //public async Task<IActionResult> GoogleCallback()
+        //{
+        //    var authenticateResult = await HttpContext.AuthenticateAsync();
+        //    if (!authenticateResult.Succeeded)
+        //    {
+        //        // Xử lý lỗi đăng nhập
+        //        return Unauthorized();
+        //    }
+
+        //    // Lấy thông tin người dùng từ authenticateResult
+        //    var userId = authenticateResult.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var email = authenticateResult.Principal.FindFirstValue(ClaimTypes.Email);
+        //    var displayName = authenticateResult.Principal.FindFirstValue(ClaimTypes.Name);
+
+        //    // Xử lý người dùng đã đăng nhập thành công
+
+        //    return Ok(displayName);
+        //}
+
+        //[HttpGet]
+        //public IActionResult ExternalLoginCallback()
+        //{
+        //    var authProperties = new AuthenticationProperties
+        //    {
+        //        RedirectUri = Url.Action("ExternalLoginCallback")
+        //    };
+
+        //    var authenticateResult = HttpContext.AuthenticateAsync().GetAwaiter().GetResult();
+
+        //    if (authenticateResult?.Succeeded == true)
+        //    {
+        //        // Đăng nhập thành công, thực hiện các hành động tùy ý ở đây
+        //        // Ví dụ: redirect đến trang chủ
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    else
+        //    {
+        //        // Đăng nhập thất bại, thực hiện xử lý thích hợp
+        //        // Ví dụ: redirect đến trang đăng nhập
+        //        return RedirectToAction("Login", "Account");
+        //    }
+        //}
+
+        //[HttpGet]
+        //public IActionResult ExternalLogin()
+        //{
+        //    var authenticationProperties = new AuthenticationProperties
+        //    {
+        //        RedirectUri = Url.Action("ExternalLoginCallback")
+        //    };
+
+        //    return Challenge(authenticationProperties, GoogleDefaults.AuthenticationScheme);
+        //}
 
     }
 }

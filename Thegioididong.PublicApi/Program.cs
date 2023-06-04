@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Demo.Data.Infrastructure;
@@ -154,8 +154,12 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
+        
+
 builder.Services.AddHttpClient();
 
+
+builder.Services.AddHttpContextAccessor();
 
 // Config authenciation
 
